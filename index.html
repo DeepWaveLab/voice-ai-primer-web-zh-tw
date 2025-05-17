@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Voice AI & Voice Agents | An Illustrated Primer</title>
-  <meta name="description" content="A comprehensive guide to voice AI in 2025">
-  <meta property="og:title" content="Voice AI & Voice Agents | An Illustrated Primer">
-  <meta property="og:description" content="A comprehensive guide to voice AI in 2025">
+  <title>語音 AI 與語音助理 | 圖解入門指南</title>
+  <meta name="description" content="2025年語音AI的全面指南">
+  <meta property="og:title" content="語音 AI 與語音助理 | 圖解入門指南">
+  <meta property="og:description" content="2025年語音AI的全面指南">
   <meta property="og:image" content="images/meta.jpg">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Voice AI & Voice Agents | An Illustrated Primer">
-  <meta name="twitter:description" content="A comprehensive guide to voice AI in 2025">
+  <meta name="twitter:title" content="語音 AI 與語音助理 | 圖解入門指南">
+  <meta name="twitter:description" content="2025年語音AI的全面指南">
   <meta name="twitter:image" content="images/meta.jpg">
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="images/favicon.ico">
@@ -36,136 +36,136 @@
 
 
     <header class="header">
-      <h1 class="title">Voice AI & Voice Agents</h1>
-      <h2 class="subtitle">An Illustrated Primer</h2>
+      <h1 class="title">語音 AI 與語音助理</h1>
+      <h2 class="subtitle">圖解入門指南</h2>
     </header>
     
 
     <nav id="table-of-contents">
-      <h2 class="table-of-contents-title">Table of Contents</h2>
+      <h2 class="table-of-contents-title">目錄</h2>
       <ol>
-        <li><a href="#conversational-voice-ai">Conversational Voice AI in 2025</a></li>
-        <li><a href="#about-this-guide">About this guide</a></li>
-        <li><a href="#basic-loop">The basic conversational AI loop</a></li>
+        <li><a href="#conversational-voice-ai">2025年的對話式語音 AI</a></li>
+        <li><a href="#about-this-guide">關於本指南</a></li>
+        <li><a href="#basic-loop">基本對話式 AI 循環</a></li>
         <li>
-          <a href="#core-tech">Core technologies and best practices</a>
+          <a href="#core-tech">核心技術與最佳實踐</a>
           <ul>
-            <li><a href="#latency">4.1. Latency</a></li>
+            <li><a href="#latency">4.1. 延遲</a></li>
             <li>
-              <a href="#llms-for-voice">4.2. LLMs for voice use cases</a>
+              <a href="#llms-for-voice">4.2. 語音用例的 LLMs</a>
               <ul>
-                <li><a href="#latency-llm">4.2.1. Latency</a></li>
-                <li><a href="#cost-comparison">4.2.2. Cost comparison</a></li>
-                <li><a href="#open-source">4.2.3. Open source / open weights</a></li>
-                <li><a href="#speech-to-speech">4.2.4. What about speech-to-speech models?</a></li>
+                <li><a href="#latency-llm">4.2.1. 延遲</a></li>
+                <li><a href="#cost-comparison">4.2.2. 成本比較</a></li>
+                <li><a href="#open-source">4.2.3. 開源/開放權重</a></li>
+                <li><a href="#speech-to-speech">4.2.4. 語音到語音模型呢？</a></li>
               </ul>
             </li>
             <li>
-              <a href="#speech-to-text">4.3. Speech-to-text</a>
+              <a href="#speech-to-text">4.3. 語音轉文字</a>
               <ul>
-                <li><a href="#deepgram-and-gladia">4.3.1. Deepgram and Gladia</a></li>
-                <li><a href="#prompting-help">4.3.2. Prompting can help the LLM</a></li>
-                <li><a href="#other-stt-options">4.3.3. Other speech-to-text options</a></li>
-                <li><a href="#gemini-transcribing">4.3.4. Transcribing with Google Gemini</a></li>
+                <li><a href="#deepgram-and-gladia">4.3.1. Deepgram 和 Gladia</a></li>
+                <li><a href="#prompting-help">4.3.2. 提示可以幫助 LLM</a></li>
+                <li><a href="#other-stt-options">4.3.3. 其他語音轉文字選項</a></li>
+                <li><a href="#gemini-transcribing">4.3.4. 使用 Google Gemini 轉錄</a></li>
               </ul>
             </li>
             <li>
-              <a href="#text-to-speech">4.4. Text-to-speech</a>
+              <a href="#text-to-speech">4.4. 文字轉語音</a>
             </li>
             <li>
-              <a href="#audio-processing">4.5. Audio processing</a>
+              <a href="#audio-processing">4.5. 音訊處理</a>
               <ul>
-                <li><a href="#avoiding-spurious-interruptions">4.5.1. Microphones and automatic gain control</a></li>
-                <li><a href="#echo-cancellation">4.5.2. Echo cancellation</a></li>
-                <li><a href="#noise-suppression">4.5.3. Noise suppression, speech, and music</a></li>
-                <li><a href="#encoding">4.5.4. Encoding</a></li>
-                <li><a href="#server-side-noise">4.5.5. Server-side noise processing and speaker isolation</a></li>
-                <li><a href="#voice-activity-detection">4.5.6. Voice activity detection</a></li>
+                <li><a href="#avoiding-spurious-interruptions">4.5.1. 麥克風和自動增益控制</a></li>
+                <li><a href="#echo-cancellation">4.5.2. 回音消除</a></li>
+                <li><a href="#noise-suppression">4.5.3. 噪音抑制、語音和音樂</a></li>
+                <li><a href="#encoding">4.5.4. 編碼</a></li>
+                <li><a href="#server-side-noise">4.5.5. 伺服器端噪音處理和說話者隔離</a></li>
+                <li><a href="#voice-activity-detection">4.5.6. 語音活動檢測</a></li>
               </ul>
             </li>
             <li>
-              <a href="#network-transport">4.6. Network transport</a>
+              <a href="#network-transport">4.6. 網路傳輸</a>
               <ul>
-                <li><a href="#websockets-webrtc">4.6.1. WebSockets and WebRTC</a></li>
+                <li><a href="#websockets-webrtc">4.6.1. WebSockets 和 WebRTC</a></li>
                 <li><a href="#http">4.6.2. HTTP</a></li>
-                <li><a href="#quic-moq">4.6.3. QUIC and MoQ</a></li>
-                <li><a href="#network-routing">4.6.4. Network routing</a></li>
+                <li><a href="#quic-moq">4.6.3. QUIC 和 MoQ</a></li>
+                <li><a href="#network-routing">4.6.4. 網路路由</a></li>
               </ul>
             </li>
             <li>
-              <a href="#turn-detection">4.7. Turn detection</a>
+              <a href="#turn-detection">4.7. 輪次檢測</a>
               <ul>
-                <li><a href="#voice-activity-detection-4-7">4.7.1 Voice activity detection</a></li>
-                <li><a href="#push-to-talk">4.7.2. Push-to-talk</a></li>
-                <li><a href="#endpoint-markers">4.7.3. Endpoint markers</a></li>
-                <li><a href="#context-aware-turn-detection">4.7.4. Context-aware turn detection</a></li>
+                <li><a href="#voice-activity-detection-4-7">4.7.1 語音活動檢測</a></li>
+                <li><a href="#push-to-talk">4.7.2. 按鍵通話</a></li>
+                <li><a href="#endpoint-markers">4.7.3. 端點標記</a></li>
+                <li><a href="#context-aware-turn-detection">4.7.4. 上下文感知輪次檢測</a></li>
               </ul>
             </li>
             <li>
-              <a href="#interruption-handling">4.8. Interruption handling</a>
+              <a href="#interruption-handling">4.8. 中斷處理</a>
               <ul>
-                <li><a href="#avoiding-spurious-interruptions">4.8.1. Avoiding spurious interruptions</a></li>
-                <li><a href="#maintaining-accurate-context">4.8.2. Maintaining accurate context after an interruption</a></li>
+                <li><a href="#avoiding-spurious-interruptions">4.8.1. 避免虛假中斷</a></li>
+                <li><a href="#maintaining-accurate-context">4.8.2. 中斷後維持準確的上下文</a></li>
               </ul>
             </li>
             <li>
-              <a href="#managing-conversation-context">4.9. Managing conversation context</a>
+              <a href="#managing-conversation-context">4.9. 管理對話上下文</a>
               <ul>
-                <li><a href="#differences-between-llm-apis">4.9.1. Differences between LLM APIs</a></li>
-                <li><a href="#modifying-context-between-turns">4.9.2. Modifying the context between turns</a></li>
+                <li><a href="#differences-between-llm-apis">4.9.1. LLM API 之間的差異</a></li>
+                <li><a href="#modifying-context-between-turns">4.9.2. 輪次之間修改上下文</a></li>
               </ul>
             </li>
             <li>
-              <a href="#function-calling">4.10. Function calling</a>
+              <a href="#function-calling">4.10. 函數呼叫</a>
               <ul>
-                <li><a href="#function-calling-reliability">4.10.1. Function calling reliability in the voice AI context</a></li>
-                <li><a href="#latency-function-calls">4.10.2. Function call latency</a></li>
-                <li><a href="#handling-interruptions">4.10.3. Handling interruptions</a></li>
-                <li><a href="#streaming-mode">4.10.4. Streaming mode and function call chunks</a></li>
-                <li><a href="#execute-function-calls">4.10.5. How and where to execute function calls</a></li>
-                <li><a href="#async-function-calls">4.10.6. Asynchronous function calls</a></li>
-                <li><a href="#parallel-composite-function-calling">4.10.7. Parallel and composite function calling</a></li>
+                <li><a href="#function-calling-reliability">4.10.1. 語音 AI 上下文中的函數呼叫可靠性</a></li>
+                <li><a href="#latency-function-calls">4.10.2. 函數呼叫延遲</a></li>
+                <li><a href="#handling-interruptions">4.10.3. 處理中斷</a></li>
+                <li><a href="#streaming-mode">4.10.4. 串流模式和函數呼叫區塊</a></li>
+                <li><a href="#execute-function-calls">4.10.5. 如何以及在哪裡執行函數呼叫</a></li>
+                <li><a href="#async-function-calls">4.10.6. 非同步函數呼叫</a></li>
+                <li><a href="#parallel-composite-function-calling">4.10.7. 並行和複合函數呼叫</a></li>
               </ul>
             </li>
-            <li><a href="#multimodality">4.11. Multimodality</a></li>
+            <li><a href="#multimodality">4.11. 多模態</a></li>
           </ul>
         </li>
         <li>
-          <a href="#multiple-models">Using multiple AI models</a>
+          <a href="#multiple-models">使用多個 AI 模型</a>
           <ul>
-            <li><a href="#fine-tuned-models">5.1. Using several fine-tuned models</a></li>
-            <li><a href="#async-inference-tasks">5.2. Performing async inference tasks</a></li>
-            <li><a href="#content-guardrails">5.3. Content guardrails</a></li>
-            <li><a href="#single-inference-actions">5.4. Performing single inference actions</a></li>
-            <li><a href="#self-improving-systems">5.5. Towards self-improving systems</a></li>
+            <li><a href="#fine-tuned-models">5.1. 使用多個微調模型</a></li>
+            <li><a href="#async-inference-tasks">5.2. 執行非同步推論任務</a></li>
+            <li><a href="#content-guardrails">5.3. 內容護欄</a></li>
+            <li><a href="#single-inference-actions">5.4. 執行單一推論動作</a></li>
+            <li><a href="#self-improving-systems">5.5. 邁向自我改進系統</a></li>
           </ul>
         </li>
         <li>
-          <a href="#scripting">Scripting and instruction following</a>
+          <a href="#scripting">腳本編寫和指令遵循</a>
         </li>
         <li>
-          <a href="#evals">Voice AI Evals</a>
+          <a href="#evals">語音 AI 評估</a>
           <ul>
-            <li><a href="#evals-different">7.1. Voice AI evals are different from software unit tests</a></li>
-            <li><a href="#failure-modes">7.2. Failure modes</a></li>
-            <li><a href="#eval-strategy">7.3. Crafting an eval strategy</a></li>
+            <li><a href="#evals-different">7.1. 語音 AI 評估與軟體單元測試的不同</a></li>
+            <li><a href="#failure-modes">7.2. 失敗模式</a></li>
+            <li><a href="#eval-strategy">7.3. 制定評估策略</a></li>
           </ul>
         </li>
-        <li><a href="#telephony">Integrating with telephony infrastructure</a></li>
+        <li><a href="#telephony">與電話系統整合</a></li>
         <li>
-          <a href="#rag-memory">RAG and memory</a>
+          <a href="#rag-memory">RAG 和記憶</a>
         </li>
         <li>
-          <a href="#hosting">Hosting and Scaling</a>
+          <a href="#hosting">託管和擴展</a>
           <ul>
-            <li><a href="#hosting-architecture">10.1. Architecture </a></li>
-            <li><a href="#hosting-cost">10.2. Calculating per-minute costs</a></li>
+            <li><a href="#hosting-architecture">10.1. 架構</a></li>
+            <li><a href="#hosting-cost">10.2. 計算每分鐘成本</a></li>
           </ul>
         </li>
         <li>
-          <a href="#future">What's coming in 2025</a>
+          <a href="#future">2025年的展望</a>
         </li> 
-        <li><a href="#contributors">Contributors</a></li>
+        <li><a href="#contributors">貢獻者</a></li>
       </ol>
     </nav>
 
@@ -173,20 +173,20 @@
       <div class="chunk-row">
         <div class="chunk-content">
 
-          <h1 id="conversational-voice-ai">1. Conversational Voice AI in 2025</h1>
+          <h1 id="conversational-voice-ai">1. 2025年的對話式語音 AI</h1>
             
-            <p>LLMs are good conversationalists.</p>
+            <p>大型語言模型（LLMs）是優秀的對話夥伴。</p>
             
-            <p>If you've spent much time in free-form dialog with ChatGPT or Claude, you have an intuitive sense that talking to an LLM feels quite natural and is broadly useful.</p>
+            <p>如果你曾經花時間與 ChatGPT 或 Claude 進行自由形式的對話，你會直覺地感受到與 LLM 交談感覺相當自然且廣泛實用。</p>
             
-            <p>LLMs are also good at turning unstructured information into structured data.<sup>[1]</sup></p>
+            <p>LLMs 也擅長將非結構化資訊轉換為結構化資料。<sup>[1]</sup></p>
             
-            <p>New voice AI agents leverage these two LLM capabilities – conversation, and extracting structure from unstructured data – to create a new kind of user experience.</p>
+            <p>新型語音 AI 代理利用這兩種 LLM 能力 — 對話，以及從非結構化資料中提取結構 — 創造出一種全新的使用者體驗。</p>
           </div>
           <div class="chunk-notes">
             <div class="chunk-footnotes">
               <div class="footnote">
-                <p>[1] Here we mean this broadly, rather than in the narrow sense of the "structured output" feature of some LLMs.</p>
+                <p>[1] 這裡我們是廣義地表達，而非指某些 LLM 的「結構化輸出」功能的狹義含義。</p>
               </div>
             </div>
           </div>
@@ -194,55 +194,55 @@
 
         <div class="chunk-row">
           <div class="chunk-content">
-            <p>Voice AI is being deployed today in a wide range of business contexts. For example:</p>
+            <p>語音 AI 目前已在各種商業環境中被部署。例如：</p>
             
             <ul class="arrow-list">
-              <li>collecting patient data prior to healthcare appointments,</li>
-              <li>following up on inbound sales leads,</li>
-              <li>handling an increasing variety of call center tasks,</li>
-              <li>coordinating scheduling and logistics between companies, and</li>
-              <li>answering the phone for nearly every kind of small business.</li>
+              <li>在醫療預約前收集病患資料，</li>
+              <li>跟進潛在銷售線索，</li>
+              <li>處理越來越多樣化的客服中心任務，</li>
+              <li>協調公司間的排程和物流，以及</li>
+              <li>為幾乎所有類型的小型企業接聽電話。</li>
             </ul>
             
-            <p>On the consumer side, conversational voice (and video) AI is also starting to make its way into social applications and games. And developers are sharing personal voice AI projects and experiments every day on GitHub and social media.</p>
+            <p>在消費者方面，對話式語音（和視訊）AI 也開始進入社交應用和遊戲領域。開發者每天都在 GitHub 和社群媒體上分享個人語音 AI 專案和實驗。</p>
 
         </div>
       </div>
 
       <div class="chunk-row">
         <div class="chunk-content">
-          <h1 id="about-this-guide">2. About this guide</h1>
+          <h1 id="about-this-guide">2. 關於本指南</h1>
 
-          <p>This guide is a snapshot of the voice AI state of the art.<sup>[2]</sup></p>
+          <p>本指南是語音 AI 最新技術的快照。<sup>[2]</sup></p>
                         
-            <p>Building production-ready voice agents is complicated. Many elements are non-trivial to implement from scratch. If you build voice AI apps, you'll likely rely on a framework for many of the things discussed in this document. But we think it's useful to understand how the pieces fit together, whether you are building them all from scratch or not.</p>
+            <p>建立生產級語音代理相當複雜。許多元素從零開始實作並非易事。如果你開發語音 AI 應用，你可能會依賴框架來處理本文件中討論的許多事項。但我們認為了解這些組件如何配合是有用的，無論你是從頭開始建構所有內容，還是不是。</p>
             
-            <p>This guide was directly inspired by Sean DuBois' open-source book <a href="https://webrtcforthecurious.com" target="_blank">WebRTC For the Curious</a>. That book has helped numerous developers get up to speed with WebRTC since it was first released four years ago.<sup>[3]</sup></p>
+            <p>本指南直接受到 Sean DuBois 的開源書籍 <a href="https://webrtcforthecurious.com" target="_blank">WebRTC For the Curious</a> 的啟發。自四年前首次發布以來，該書已幫助無數開發者快速掌握 WebRTC。<sup>[3]</sup></p>
             
-            <p>The voice AI code examples in this document use the <a href="https://pipecat.ai" target="_blank">Pipecat</a> open source framework. Pipecat is a vendor-neutral agent layer for realtime AI.<sup>[4]</sup> We used Pipecat in this document because:</p>
+            <p>本文件中的語音 AI 程式碼範例使用 <a href="https://pipecat.ai" target="_blank">Pipecat</a> 開源框架。Pipecat 是一個供應商中立的即時 AI 代理層。<sup>[4]</sup> 我們在本文件中使用 Pipecat 是因為：</p>
             
             <ol class="list-decimal">
-              <li>We build with it every day and help to maintain it, so we're familiar with it!</li>
-              <li>Pipecat is currently the most widely used voice AI framework, with teams at NVIDIA, Google, AWS, OpenAI, and hundreds of startups leveraging and contributing to the codebase.</li>
+              <li>我們每天都用它來開發並協助維護它，所以我們對它很熟悉！</li>
+              <li>Pipecat 目前是使用最廣泛的語音 AI 框架，NVIDIA、Google、AWS、OpenAI 和數百家新創公司的團隊都在利用並貢獻程式碼。</li>
             </ol>
             
-            <p>We've tried to give general advice in this document, rather than recommend commercial products and services. Where we highlight specific vendors, we do so because they are used by a large percentage of voice AI developers.</p>
+            <p>我們在本文件中嘗試提供一般性建議，而非推薦商業產品和服務。當我們強調特定供應商時，是因為它們被大比例的語音 AI 開發者使用。</p>
 
             
-            <p>Let's get started …</p>
+            <p>讓我們開始吧……</p>
 
         </div>
         
         <div class="chunk-notes">
           <div class="chunk-footnotes">
             <div class="footnote">
-              <p>[2] We originally wrote this guide for the AI Engineering Summit in February 2025. We updated it in mid-May 2025.</p>
+              <p>[2] 我們最初為 2025 年 2 月的 AI 工程峰會撰寫本指南。我們在 2025 年 5 月中旬更新了它。</p>
             </div>
             <div class="footnote">
-              <p>[3] <a href="https://webrtcforthecurious.com" target="_blank">webrtcforthecurious.com</a> — WebRTC is relevant to voice AI, as we'll discuss later in the <a href="#websockets-webrtc">WebSockets and WebRTC</a> section.</p>
+              <p>[3] <a href="https://webrtcforthecurious.com" target="_blank">webrtcforthecurious.com</a> — WebRTC 與語音 AI 相關，我們將在後面的 <a href="#websockets-webrtc">WebSockets 和 WebRTC</a> 部分討論。</p>
             </div>
             <div class="footnote">
-              <p>[4] Pipecat has integrations for more than 60 <a href="https://docs.pipecat.ai/server/services/supported-services" target="_blank">AI models and services</a>, along with state of-the-art implementations of things like turn detection and interruption handling. You can write code with Pipecat that uses WebSockets, WebRTC, HTTP, and telephony to communicate with users. Pipecat includes transport implementations for a variety of infrastructure platforms including Twilio, Telnyx, LiveKit, Daily, and others. There are <a href="https://docs.pipecat.ai/client/introduction" target="_blank">client-side Pipecat SDKs</a> for JavaScript, React, iOS, Android, and C++.</p>
+              <p>[4] Pipecat 整合了超過 60 個 <a href="https://docs.pipecat.ai/server/services/supported-services" target="_blank">AI 模型和服務</a>，並具有最先進的對話輪替偵測和中斷處理實作。你可以使用 Pipecat 編寫使用 WebSockets、WebRTC、HTTP 和電話系統與使用者通訊的程式碼。Pipecat 包含適用於各種基礎設施平台的傳輸實作，包括 Twilio、Telnyx、LiveKit、Daily 等。有適用於 JavaScript、React、iOS、Android 和 C++ 的 <a href="https://docs.pipecat.ai/client/introduction" target="_blank">客戶端 Pipecat SDK</a>。</p>
             </div>
           </div>
         </div>
@@ -251,35 +251,35 @@
       <div class="chunk-row">
         <div class="chunk-content">
 
-          <h1 id="basic-loop">3. The basic conversational AI loop</h1>
+          <h1 id="basic-loop">3. 基本對話式 AI 循環</h1>
 
-            <p>The basic "job to be done" of a voice AI agent is to listen to what a human says, respond in some useful way, then repeat that sequence.</p>
+            <p>語音 AI 代理的基本「工作」是聆聽人類所說的內容，以某種有用的方式回應，然後重複這個序列。</p>
             
-            <p>Production voice agents today almost all have a very similar architecture. A voice agent program runs in the cloud and orchestrates the speech-to-speech loop. The agent program uses multiple AI models, some running locally to the agent, some accessed via APIs. The agent program also uses LLM function calling or structured outputs to integrate with back-end systems.</p>
+            <p>現今生產環境中的語音代理幾乎都有非常相似的架構。語音代理程式在雲端運行並協調語音對語音循環。代理程式使用多個 AI 模型，有些在代理本地運行，有些通過 API 訪問。代理程式還使用 LLM 函數呼叫或結構化輸出與後端系統整合。</p>
 
             
             <ol class="list-decimal">
-              <li>Speech is captured by a microphone on a user's device, encoded, and sent over the network to a voice agent program running in the cloud.</li>
-              <li>Input speech is transcribed, to create text input for the LLM.</li>
-              <li>Text is assembled into a context — a prompt — and inference is performed by an LLM. Inference output will often be filtered or transformed by the agent program logic.<sup>[5]</sup></li>
-              <li>Output text is sent to a text-to-speech model to create audio output.</li>
-              <li>Audio output is sent back to the user.</li>
+              <li>語音由使用者裝置上的麥克風捕獲，編碼後通過網路發送到雲端運行的語音代理程式。</li>
+              <li>輸入語音被轉錄，為 LLM 創建文字輸入。</li>
+              <li>文字被組合成上下文 — 提示 — 並由 LLM 執行推論。推論輸出通常會被代理程式邏輯過濾或轉換。<sup>[5]</sup></li>
+              <li>輸出文字被發送到文字轉語音模型以創建音訊輸出。</li>
+              <li>音訊輸出被發送回使用者。</li>
             </ol>
             
-            <p>You'll notice that the voice agent program is running in the cloud, and the text-to-speech, LLM, and speech-to-text processing are happening in the cloud. Over the long term, we expect to see more AI workloads running on-device. Today, though, <strong>production voice AI is very cloud-centric</strong>, for two reasons:</p>
+            <p>你會注意到語音代理程式在雲端運行，且文字轉語音、LLM 和語音轉文字處理都在雲端進行。長期來看，我們預期會看到更多 AI 工作負載在裝置上運行。然而，目前<strong>生產環境的語音 AI 非常以雲端為中心</strong>，原因有二：</p>
             
             <ol class="list-decimal">
-              <li>Voice AI agents need to use the best available AI models to reliably execute complex workflows at low latency. End-user devices do not yet have enough AI compute horsepower to run the best STT, LLM, and TTS models at acceptable latency.</li>
-              <li>The majority of commercial voice AI agents today are communicating with users via phone calls. For a phone call, there is no end-user device — at least, not one that you can run any code on!</li>
+              <li>語音 AI 代理需要使用最佳的 AI 模型，以可靠地執行複雜工作流程並保持低延遲。終端使用者裝置尚未擁有足夠的 AI 計算能力，無法以可接受的延遲運行最佳的 STT、LLM 和 TTS 模型。</li>
+              <li>目前大多數商業語音 AI 代理是通過電話與使用者通訊。對於電話通話，沒有終端使用者裝置 — 至少，沒有一個你可以在上面運行任何程式碼的裝置！</li>
             </ol>
             
-            <p>Let's dive<sup>[6]</sup> into this agent orchestration world and answer questions like:</p>
+            <p>讓我們深入<sup>[6]</sup>這個代理協調世界，並回答以下問題：</p>
             
             <ol class="list-decimal">
-              <li>What LLMs work best for voice AI agents?</li>
-              <li>How do you manage the conversation context during a long-running session?</li>
-              <li>How do you connect voice agents to existing back-end systems?<sup>[7]</sup></li>
-              <li>How do you know if your voice agents are performing well?</li>
+              <li>哪些 LLM 最適合語音 AI 代理？</li>
+              <li>如何在長時間運行的會話中管理對話上下文？</li>
+              <li>如何將語音代理連接到現有的後端系統？<sup>[7]</sup></li>
+              <li>如何知道你的語音代理表現良好？</li>
             </ol>
 
         </div>
@@ -287,17 +287,17 @@
         <div class="chunk-notes">
           <div class="chapter-image">
             <img src="images/Figure 0200.svg" class="image-hide-narrow" width="100%">
-            <p class="image-caption image-hide-narrow">The architecture of almost all production voice AI agents today</p>
+            <p class="image-caption image-hide-narrow">目前幾乎所有生產環境語音 AI 代理的架構</p>
           </div>
           <div class="chunk-footnotes">
             <div class="footnote">
-              <p>[5] For example, to detect common LLM errors and safety issues.</p>
+              <p>[5] 例如，檢測常見的 LLM 錯誤和安全問題。</p>
             </div>
             <div class="footnote">
-              <p>[6] Let's delve — ed.</p>
+              <p>[6] 讓我們深入探討 — 編輯</p>
             </div>
             <div class="footnote">
-              <p>[7] For example, CRMs, proprietary knowledge bases, and call center systems.</p>
+              <p>[7] 例如，CRM、專有知識庫和客服中心系統。</p>
             </div>
           </div>
         </div>
@@ -305,118 +305,118 @@
 
       <div class="chunk-row">
         <div class="chunk-content">
-           <h1 id="core-tech">4. Core technologies and best practices</h1>
+           <h1 id="core-tech">4. 核心技術與最佳實踐</h1>
         </div>
       </div>
       
       <div class="chunk-row">
         <div class="chunk-content">  
-            <h2 id="latency">4.1. Latency</h2>
+            <h2 id="latency">4.1. 延遲</h2>
             
-            <p>Building voice agents is similar in most ways to other kinds of AI engineering. If you have experience building text-based, multi-turn AI agents, much of your experience from that domain will be useful in voice, as well.</p>
+            <p>建立語音代理在大多數方面與其他類型的 AI 工程相似。如果你有建立基於文字的多輪 AI 代理的經驗，你在該領域的許多經驗也將在語音方面派上用場。</p>
             
-            <p><strong>The big difference is latency.</strong></p>
+            <p><strong>最大的差異在於延遲。</strong></p>
             
-            <p>Humans expect fast responses in normal conversation. A response time of 500ms is typical. Long pauses feel unnatural.</p>
+            <p>人類在正常對話中期望快速回應。500毫秒的回應時間是典型的。長時間的停頓感覺不自然。</p>
             
-            <p>It's worth learning how to accurately measure latency — from the end user's perspective — if you are building voice AI agents.</p>
+            <p>如果你正在建立語音 AI 代理，值得學習如何從終端使用者的角度準確測量延遲。</p>
             
-            <p>You will often see AI platforms quote latencies that are not true "voice-to-voice" measurements. This is generally not malicious. From the provider side of things, the easy way to measure latency is to measure inference time. So that's how providers get used to thinking about latency. However, this server-side view does not account for audio processing, phrase endpointing delay, network transport, and operating system overhead.</p>
+            <p>你經常會看到 AI 平台引用的延遲並非真正的「語音到語音」測量。這通常不是惡意的。從提供者的角度來看，測量延遲的簡單方法是測量推論時間。所以這就是提供者習慣思考延遲的方式。然而，這種伺服器端的視角並未考慮音訊處理、短語結束點延遲、網路傳輸和作業系統開銷。</p>
             
-            <p><strong>Measuring voice-to-voice latency is easy to do manually.</strong></p>
+            <p><strong>手動測量語音到語音延遲很容易。</strong></p>
             
-            <p>Simply record the conversation, load the recording into an audio editor, look at the audio waveform, and measure from the end of the user's speech to the beginning of the LLM's speech.</p>
+            <p>只需錄製對話，將錄音載入音訊編輯器，查看音訊波形，並測量從使用者語音結束到 LLM 語音開始的時間。</p>
             
-            <p>If you build conversational voice applications for production use, it's worthwhile to occasionally sanity check your latency numbers this way. Bonus points for adding simulated network packet loss and jitter when you do these tests!</p>
+            <p>如果你為生產環境建立對話式語音應用程式，偶爾以這種方式檢查你的延遲數據是值得的。如果在進行這些測試時添加模擬網路封包丟失和抖動，那就更好了！</p>
             
-            <p>Measuring true voice-to-voice latency is challenging to do programmatically. Some of the latency happens deep inside the operating system. So most observability tools just measure time-to-first-(audio)-byte. This is a reasonable proxy for total voice-to-voice latency, but again please note that things you don't measure — like phrase endpointing variation and network round-trip time — can become problematic if you have no way to track them.</p>
+            <p>以程式方式測量真正的語音到語音延遲是具有挑戰性的。一些延遲發生在作業系統深處。因此，大多數可觀察性工具只測量到第一個（音訊）位元組的時間。這是總語音到語音延遲的合理代理，但請再次注意，你沒有測量的事項 — 如短語結束點變化和網路往返時間 — 如果你沒有方法追蹤它們，可能會成為問題。</p>
             
-            <p><strong>If you are building conversational AI applications, 800ms voice-to-voice latency is a good target to aim for.</strong> Here's a breakdown of a voice-to-voice round trip from a user's microphone, to the cloud, and back. These numbers are fairly typical, and the total is about 1s. 800ms is challenging, though not impossible, to consistently achieve with today's LLMs! </p>
+            <p><strong>如果你正在建立對話式 AI 應用程式，800毫秒的語音到語音延遲是一個很好的目標。</strong>以下是從使用者麥克風到雲端再返回的語音到語音往返的細分。這些數字相當典型，總計約為1秒。在當今的 LLM 中，持續達到800毫秒是具有挑戰性的，但並非不可能！</p>
 
             <table class="data-table latency-breakdown">
               <thead>
                 <tr>
-                  <th>Stage</th>
-                  <th>Time (ms)</th>
+                  <th>階段</th>
+                  <th>時間 (毫秒)</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>macOS mic input</td>
+                  <td>macOS 麥克風輸入</td>
                   <td>40</td>
                 </tr>
                 <tr>
-                  <td>opus encoding</td>
+                  <td>opus 編碼</td>
                   <td>21</td>
                 </tr>
                 <tr class="network-row">
-                  <td>network stacks and transit</td>
+                  <td>網路堆疊和傳輸</td>
                   <td>10</td>
                 </tr>
                 <tr>
-                  <td>packet handling</td>
+                  <td>封包處理</td>
                   <td>2</td>
                 </tr>
                 <tr>
-                  <td>jitter buffer</td>
+                  <td>抖動緩衝區</td>
                   <td>40</td>
                 </tr>
                 <tr>
-                  <td>opus decoding</td>
+                  <td>opus 解碼</td>
                   <td>1</td>
                 </tr>
                 <tr>
-                  <td>transcription and endpointing</td>
+                  <td>轉錄和結束點檢測</td>
                   <td>300</td>
                 </tr>
                 <tr>
-                  <td>llm ttfb</td>
+                  <td>LLM 首字節時間</td>
                   <td>350</td>
                 </tr>
                 <tr>
-                  <td>sentence aggregation</td>
+                  <td>句子聚合</td>
                   <td>20</td>
                 </tr>
                 <tr>
-                  <td>tts ttfb</td>
+                  <td>TTS 首字節時間</td>
                   <td>120</td>
                 </tr>
                 <tr>
-                  <td>opus encoding</td>
+                  <td>opus 編碼</td>
                   <td>21</td>
                 </tr>
                 <tr>
-                  <td>packet handling</td>
+                  <td>封包處理</td>
                   <td>2</td>
                 </tr>
                 <tr class="network-row">
-                  <td>network stacks and transit</td>
+                  <td>網路堆疊和傳輸</td>
                   <td>10</td>
                 </tr>
                 <tr>
-                  <td>jitter buffer</td>
+                  <td>抖動緩衝區</td>
                   <td>40</td>
                 </tr>
                 <tr>
-                  <td>opus decoding</td>
+                  <td>opus 解碼</td>
                   <td>1</td>
                 </tr>
                 <tr>
-                  <td>macOS speaker output</td>
+                  <td>macOS 喇叭輸出</td>
                   <td>15</td>
                 </tr>
                 <tr>
-                  <td>Total ms</td>
+                  <td>總毫秒數</td>
                   <td>993</td>
                 </tr>
               </tbody>
             </table>
             
-            <p class="table-caption">A voice-to-voice conversation round trip — latency breakdown.</p>
+            <p class="table-caption">語音到語音對話往返 — 延遲細分。</p>
 
-            <p>We have demonstrated Pipecat agents that achieve 500ms voice-to-voice latency by hosting all models within the same GPU-enabled cluster, and optimizing all models for latency instead of throughput. This approach is not widely used today. Hosting models is expensive. And open weights LLMs are used less often for voice AI than the best proprietary models like GPT-4o or Gemini. See the next section for a discussion of LLMs for voice agents.</p>
+            <p>我們已經展示了 Pipecat 代理可以通過在同一個 GPU 啟用的叢集中託管所有模型，並優化所有模型以降低延遲而非提高吞吐量，從而實現 500 毫秒的語音到語音延遲。這種方法目前並不廣泛使用。託管模型成本高昂。而且開放權重 LLM 在語音 AI 中的使用頻率低於最佳專有模型，如 GPT-4o 或 Gemini。有關語音代理 LLM 的討論，請參閱下一節。</p>
 
-            <p>Because latency is so important for voice use cases, latency will come up often throughout this guide.</p>
+            <p>由於延遲對語音用例非常重要，因此在本指南中將經常提到延遲。</p>
         </div>
         <div class="chunk-notes">
           <div class="image-hide-narrow">
@@ -424,31 +424,30 @@
           </div>
         </div>
       </div>
-      
       <div class="chunk-row">
         <div class="chunk-content">
-            <h2 id="llms-for-voice">4.2. LLMs for voice use cases</h2>
+            <h2 id="llms-for-voice">4.2. 語音用例的 LLMs</h2>
             
-            <p>The release of GPT-4 in March 2023 kicked off the current era of voice AI. GPT-4 was the first LLM that could both sustain a flexible, multi-turn conversation and be prompted precisely enough to perform useful work. Today, GPT-4's successor – GPT-4o – is still the dominant model for conversational voice AI.</p>
+            <p>2023年3月GPT-4的發布開啟了當前語音AI的新時代。GPT-4是第一個既能維持靈活的多輪對話，又能被精確提示以執行有用工作的LLM。如今，GPT-4的繼任者 – GPT-4o – 仍然是對話式語音AI的主導模型。</p>
             
-            <p>Several other models are now as good or better than the original GPT-4 at things that are critical for voice AI:</p>
+            <p>現在有幾個模型在語音AI關鍵領域的表現已經與原始GPT-4一樣好或更好：</p>
             
             <ul class="arrow-list">
-              <li>Low enough latency for interactive voice conversation.</li>
-              <li>Good instruction following.<sup>[8]</sup></li>
-              <li>Reliable function calling.<sup>[9]</sup></li>
-              <li>Low rates of hallucination and other kinds of inappropriate responses.</li>
-              <li>Personality and tone.</li>
-              <li>Cost.</li>
+              <li>足夠低的延遲以進行互動式語音對話。</li>
+              <li>良好的指令遵循能力。<sup>[8]</sup></li>
+              <li>可靠的函數呼叫。<sup>[9]</sup></li>
+              <li>較低的幻覺率和其他不適當回應。</li>
+              <li>個性和語調。</li>
+              <li>成本。</li>
             </ul>
         </div>
         <div class="chunk-notes">
           <div class="chunk-footnotes">
             <div class="footnote">
-              <p>[8] How easy is it to prompt the model to do specific things?</p>
+              <p>[8] 提示模型執行特定任務有多容易？</p>
             </div>
             <div class="footnote">
-              <p>[9] Voice AI agents rely heavily on function calling.</p>
+              <p>[9] 語音AI代理heavily依賴函數呼叫。</p>
             </div>
           </div>
         </div>
@@ -457,11 +456,11 @@
       <div class="chunk-row">
         <div class="chunk-content">
             
-            <p>But today's GPT-4o is also better than the original GPT-4! Especially at instruction following, function calling, and reduced rates of hallucination.</p>
+            <p>但今天的GPT-4o也比原始GPT-4更好！特別是在指令遵循、函數呼叫和降低幻覺率方面。</p>
 
-            <p>The major competitor to GPT-4o is Google's Gemini 2.0 Flash. Gemini 2.0 Flash is fast, on par with GPT-4o at instruction following and function calling, and priced aggressively.</p>
+            <p>GPT-4o的主要競爭對手是Google的Gemini 2.0 Flash。Gemini 2.0 Flash速度快，在指令遵循和函數呼叫方面與GPT-4o不相上下，且價格極具競爭力。</p>
 
-            <p><strong>Voice AI use cases are demanding enough that it generally makes sense to use the best available models.</strong> At some point this will change, and models that are not state of the art will be good enough for broad adoption in voice AI use cases. That's not true, yet.</p>
+            <p><strong>語音AI用例的要求相當高，通常使用最佳可用模型是合理的。</strong>在某個時間點，這種情況會改變，非最先進的模型也將足以在語音AI用例中廣泛採用。但目前還不是這樣。</p>
             
 
         </div>
@@ -469,16 +468,16 @@
       
       <div class="chunk-row">
         <div class="chunk-content">
-            <h3 id="latency-llm">4.2.1 LLM Latency</h3>
+            <h3 id="latency-llm">4.2.1 LLM 延遲</h3>
             
-            <p>Claude Sonnet would be an excellent choice for voice AI, except that inference latency (time to first token) has not been an Anthropic priority. Claude Sonnet median latency is typically double the latency of GPT-4o and Gemini Flash, with a much bigger P95 spread as well.</p>
+            <p>Claude Sonnet本應是語音AI的絕佳選擇，但推理延遲（首個token的時間）並非Anthropic的優先事項。Claude Sonnet的中位數延遲通常是GPT-4o和Gemini Flash的兩倍，且P95分布範圍更大。</p>
             
             <table class="data-table model-comparison">
               <thead>
                 <tr>
-                  <th>Model</th>
-                  <th>Median TTFT (ms)</th>
-                  <th>P95 TTFT (ms)</th>
+                  <th>模型</th>
+                  <th>中位數 TTFT (毫秒)</th>
+                  <th>P95 TTFT (毫秒)</th>
                 </tr>
               </thead>
               <tbody>
@@ -514,26 +513,26 @@
                 </tr>
               </tbody>
             </table>
-            <p class="table-caption">Time to first token (TTFT) metrics for OpenAI, Anthropic, and Google APIs - May 2025</p>
+            <p class="table-caption">OpenAI、Anthropic和Google API的首個token時間(TTFT)指標 - 2025年5月</p>
             
-            <p>A rough rule of thumb: LLM time-to-first-token of 500ms or less is good enough for most voice AI use cases. GPT-4o TTFT is typically 400-500ms. Gemini Flash is similar.</p>
+            <p>一個粗略的經驗法則：LLM首個token時間在500毫秒或更低對大多數語音AI用例來說已經足夠好。GPT-4o的TTFT通常在400-500毫秒。Gemini Flash也類似。</p>
             
         </div>
       </div>
       
       <div class="chunk-row">
         <div class="chunk-content">
-            <h3 id="cost-comparison">4.2.2 Cost comparison</h3>
+            <h3 id="cost-comparison">4.2.2 成本比較</h3>
             
-            <p>Inference cost has been dropping regularly and rapidly. So, in general, LLM cost has been the least important factor in choosing which LLM to use. Gemini 2.0 Flash's newly announced pricing offers a 10x cost reduction compared to GPT-4o. We'll see what impact this has on the voice AI landscape.</p>
+            <p>推理成本一直在定期且迅速下降。因此，一般來說，LLM成本在選擇使用哪個LLM時是最不重要的因素。Gemini 2.0 Flash最新公布的定價比GPT-4o便宜10倍。我們將看到這對語音AI領域有何影響。</p>
             
             <table class="data-table model-comparison">
               <thead>
                 <tr>
-                  <th>Model</th>
-                  <th>3-minute conversation</th>
-                  <th>10-minute conversation</th>
-                  <th>30-minute conversation</th>
+                  <th>模型</th>
+                  <th>3分鐘對話</th>
+                  <th>10分鐘對話</th>
+                  <th>30分鐘對話</th>
                 </tr>
               </thead>
               <tbody>
@@ -551,13 +550,13 @@
                 </tr>
               </tbody>
             </table>
-            <p class="table-caption">Session costs for multi-turn conversations grow super-linearly with duration. A 30-minute session is roughly 100x more expensive than a 3-minute session. You can reduce the cost of long sessions with caching, context summarization, and other techniques.</p>
+            <p class="table-caption">多輪對話的會話成本隨著時間增長呈超線性增長。30分鐘的會話成本大約是3分鐘會話的100倍。您可以通過快取、上下文摘要和其他技術來降低長會話的成本。</p>
             
-            <p>Note that cost increases super linearly as a function of session length. Unless you trim or summarize the context during a session, cost becomes an issue for long sessions. This is particularly true for speech-to-speech models (see <a href="#speech-to-speech">below</a>).</p>
+            <p>請注意，成本隨著會話長度的增加呈超線性增長。除非您在會話期間修剪或摘要上下文，否則長會話的成本會成為問題。這對於語音到語音模型尤其如此（見<a href="#speech-to-speech">下文</a>）。</p>
             
-            <p>The math of context growth makes it tricky to pin down a per-minute cost for a voice conversation. In addition, API providers are increasingly offering token caching, which can offset cost (and reduce latency) but adds to the complexity of estimating what costs will be for different use cases.</p>
+            <p>上下文增長的數學特性使得確定語音對話的每分鐘成本變得棘手。此外，API提供商越來越多地提供token快取功能，這可以抵消成本（並減少延遲），但增加了估算不同用例成本的複雜性。</p>
             
-            <p>OpenAI's <a href="https://community.openai.com/t/new-realtime-api-voices-and-cache-pricing/998238" target="_blank">automatic token caching for the OpenAI Realtime API</a> is particularly nice. Google recently launched a similar feature for all of their version 2.5 models, called <a href="https://ai.google.dev/gemini-api/docs/caching?lang=python" target="_blank">implicit caching</a>.</p>
+            <p>OpenAI的<a href="https://community.openai.com/t/new-realtime-api-voices-and-cache-pricing/998238" target="_blank">OpenAI Realtime API自動token快取</a>特別好用。Google最近為所有2.5版本模型推出了類似功能，稱為<a href="https://ai.google.dev/gemini-api/docs/caching?lang=python" target="_blank">隱式快取</a>。</p>
             
 
         </div>
@@ -569,20 +568,20 @@
       
       <div class="chunk-row">
         <div class="chunk-content">
-            <h3 id="open-source">4.2.3 Open source / open weights</h3>
+            <h3 id="open-source">4.2.3 開源 / 開放權重模型</h3>
             
-            <p>The Llama 3.3 and 4.0 open weights models from Meta perform better than the original GPT-4 on benchmarks. They are not generally better than GPT-4o and Gemini for commercial use cases, today. However, the ability to build on them and run them on your own infrastructure is significant.<sup>[11]</sup></p>
+            <p>Meta的Llama 3.3和4.0開放權重模型在基準測試中表現優於原始的GPT-4。目前，它們在商業用例中通常不如GPT-4o和Gemini。然而，能夠基於這些模型進行開發並在自己的基礎設施上運行它們具有重要意義。<sup>[11]</sup></p>
             
-            <p>Many providers offer Llama inference endpoints, and serverless GPU platforms offer a range of options for deploying your own Llama. Meta recently announced new first-party inference APIs and has strongly signaled that the open weights Llama models are a key strategic focus of the company.</p>
+            <p>許多提供商提供Llama推理端點，而無伺服器GPU平台為部署自己的Llama提供了多種選擇。Meta最近宣布了新的第一方推理API，並強烈表示開放權重的Llama模型是公司的關鍵戰略重點。</p>
 
-            <p>One interesting and capable model in the extended Llama family is Ultravox. Ultravox is an <a href="https://github.com/fixie-ai/ultravox" target="_blank">open source, native audio LLM</a>. The <a href="https://ultravox.ai/" target="_blank">company behind Ultravox</a> also offers enterprise-grade, hosted speech-to-speech APIs. Ultravox leverages a number of techniques to extend Llama 3.3 into the audio domain and to improve the base model's instruction following and function calling performance for voice AI use cases. Ultravox is an example of both the benefits of an open source AI ecosystem and the compelling potential of native audio models.</p>
+            <p>Llama家族中一個有趣且功能強大的模型是Ultravox。Ultravox是一個<a href="https://github.com/fixie-ai/ultravox" target="_blank">開源的原生音訊LLM</a>。<a href="https://ultravox.ai/" target="_blank">Ultravox背後的公司</a>還提供企業級的託管語音到語音API。Ultravox利用多種技術將Llama 3.3擴展到音訊領域，並改進基礎模型在語音AI用例中的指令遵循和函數調用性能。Ultravox是開源AI生態系統優勢以及原生音訊模型引人注目潛力的典範。</p>
             
-            <p>We are seeing a lot of progress in open source / open weights models in 2025. Llama 4 is brand new and the community is still evaluating its practical performance in multi-turn, conversational AI use cases. The new Qwen 3 models from Alibaba are excellent mid-sized models, competing on equal footing with Llama 4 in early benchmarks. In addition, it seems likely that future open weights models from DeepSeek, Google (Gemma), and Microsoft (Phi) will be good options for voice AI use cases.</p>
+            <p>我們在2025年看到開源/開放權重模型取得了很大進展。Llama 4剛剛推出，社群仍在評估其在多輪對話AI用例中的實際表現。來自阿里巴巴的新Qwen 3模型是優秀的中型模型，在早期基準測試中與Llama 4平分秋色。此外，DeepSeek、Google (Gemma)和Microsoft (Phi)未來的開放權重模型很可能成為語音AI用例的良好選擇。</p>
         </div>
         <div class="chunk-notes">
           <div class="chunk-footnotes">
             <div class="footnote">
-              <p>[11] If you plan to fine-tune an LLM for your use case, Llama 3.3 70B is a very good starting point. More on fine-tuning below.</p>
+              <p>[11] 如果您計劃為您的用例微調LLM，Llama 3.3 70B是一個很好的起點。下文將詳細介紹微調。</p>
             </div>
           </div>
         </div>
@@ -590,29 +589,29 @@
       
       <div class="chunk-row">
         <div class="chunk-content">
-            <h3 id="speech-to-speech">4.2.4 What about speech-to-speech models?</h3>
+            <h3 id="speech-to-speech">4.2.4 語音到語音模型呢？</h3>
             
-            <p>Speech-to-speech models are an exciting, relatively new, development. A speech-to-speech LLM can be prompted with audio, rather than text, and can produce audio output directly. This eliminates the speech-to-text and text-to-speech parts of the voice agent orchestration loop.</p>
+            <p>語音到語音模型是一個令人興奮的相對較新的發展。語音到語音LLM可以接受音訊而非文字作為輸入，並能直接產生音訊輸出。這消除了語音代理協調循環中的語音轉文字和文字轉語音部分。</p>
             
-            <p>The potential benefits of speech-to-speech models are:</p>
+            <p>語音到語音模型的潛在優勢是：</p>
             
             <ul class="arrow-list">
-              <li>Lower latency.</li>
-              <li>Improved ability to understand the nuances of human conversation.</li>
-              <li>More natural voice output.</li>
+              <li>更低的延遲。</li>
+              <li>更好地理解人類對話的細微差別。</li>
+              <li>更自然的語音輸出。</li>
             </ul>
             
-            <p>OpenAI and Google have both released speech-to-speech APIs. Most people training large models and building voice AI applications believe that speech-to-speech models are the future of voice AI.</p>
+            <p>OpenAI和Google都發布了語音到語音API。大多數訓練大型模型和構建語音AI應用的人都認為語音到語音模型是語音AI的未來。</p>
             
-            <p>However, current speech to speech models and APIs are not yet good enough for most production voice AI use cases.</p>
+            <p>然而，目前的語音到語音模型和API還不足以應對大多數生產環境中的語音AI用例。</p>
             
-            <p>Today's best speech-to-speech models definitely sound more natural than today's best text-to-speech models. OpenAI's <a href="https://platform.openai.com/docs/guides/audio" target="_blank">gpt4o-audio-preview</a> <sup>[12]</sup> model really does sound like a preview of the voice AI future.</p>
+            <p>當今最好的語音到語音模型確實比當今最好的文字到語音模型聽起來更自然。OpenAI的<a href="https://platform.openai.com/docs/guides/audio" target="_blank">gpt4o-audio-preview</a> <sup>[12]</sup>模型確實聽起來像是語音AI未來的預覽。</p>
 
         </div>
         <div class="chunk-notes">
           <div class="chunk-footnotes">
             <div class="footnote">
-              <p>[12] <a href="https://platform.openai.com/docs/guides/audio" target="_blank">OpenAI audio API docs</a></p>
+              <p>[12] <a href="https://platform.openai.com/docs/guides/audio" target="_blank">OpenAI音訊API文檔</a></p>
             </div>
           </div>
         </div>
@@ -620,18 +619,18 @@
 
       <div class="chunk-row">
         <div class="chunk-content">
-          <p>Speech-to-speech models aren't yet as mature and reliable as text-mode LLMs, though.</p>
+          <p>不過，語音到語音模型還沒有文字模式LLM那麼成熟和可靠。</p>
           
           <ul class="arrow-list">
-              <li>Lower latency is possible in theory, but audio uses more tokens than text. Larger token contexts are slower for the LLM to process. In practice, today, audio models are usually slower than text models for long multi-turn conversations.<sup>[13]</sup></li>
-              <li>Better understanding does seem to be a real benefit of these models. This is particularly apparent for Gemini 2.0 Flash audio input. The story is a bit less clear today for gpt-4o-audio-preview, which is a smaller and somewhat less capable model than the text-mode GPT-4o.</li>
-              <li>Better natural voice output is clearly perceptible, today. But the audio LLMs do have some odd output patterns in audio mode that don't happen in text mode as often: word repetition, discourse markers that sometimes fall into the uncanny valley, and occasional failure to complete sentences.</li>
+              <li>理論上可以實現更低的延遲，但音訊使用的token比文字多。較大的token上下文處理起來對LLM來說更慢。在實際應用中，目前音訊模型在長時間多輪對話中通常比文字模型慢。<sup>[13]</sup></li>
+              <li>更好的理解似乎確實是這些模型的真正優勢。這在Gemini 2.0 Flash音訊輸入中特別明顯。對於gpt-4o-audio-preview，情況目前不太明確，它是一個比文字模式GPT-4o更小且功能稍弱的模型。</li>
+              <li>更自然的語音輸出目前確實可以明顯感知到。但音訊LLM在音訊模式下確實有一些奇怪的輸出模式，這些在文字模式下不太常見：詞語重複、有時落入恐怖谷的話語標記，以及偶爾無法完成句子。</li>
           </ul>
         </div>
         <div class="chunk-notes">
           <div class="chunk-footnotes">
             <div class="footnote">
-              <p>[13] This latency issue for audio models is clearly fixable through a combination of caching, clever API design, and architectural evolution of the models themselves.</p>
+              <p>[13] 音訊模型的這種延遲問題顯然可以通過快取、巧妙的API設計以及模型本身的架構演進來解決。</p>
             </div>
           </div>
         </div>
@@ -639,26 +638,26 @@
       
       <div class="chunk-row">
         <div class="chunk-content">
-          <p>The biggest of these issues is the larger context size required for multi-turn audio. One approach to squaring the circle and getting the benefits of native audio without the context-size drawbacks is to process each conversation turn as a mixture of text and audio. Use audio for the most recent user message; use text for the rest of the conversation history.</p>
+          <p>這些問題中最大的是多輪音訊所需的更大上下文大小。解決這個問題並獲得原生音訊優勢而不受上下文大小缺點影響的一種方法是將每個對話輪次處理為文字和音訊的混合。使用音訊處理最近的用戶訊息；使用文字處理其餘的對話歷史。</p>
 
-          <p>The beta speech-to-speech offering from OpenAI — the OpenAI Realtime API — is fast and the voice quality is amazing. But the model behind that API is the smaller gpt-4o-audio-preview rather than the full GPT-4o. So instruction following and function calling are not as good. It's also tricky to manage the conversation context using the Realtime API, and the API has a few new-product rough edges.<sup>[14]</sup></p>
+          <p>OpenAI的測試版語音到語音產品 — OpenAI Realtime API — 速度快且語音質量驚人。但該API背後的模型是較小的gpt-4o-audio-preview，而非完整的GPT-4o。因此，指令遵循和函數調用不如完整版好。使用Realtime API管理對話上下文也很棘手，且API有一些新產品的粗糙邊緣。<sup>[14]</sup></p>
             
-          <p>The Google Multimodal Live API is another promising — and early in its evolution — speech-to-speech service. This API offers a view into the near-future of the Gemini models: long context windows, excellent vision capabilities, fast inference, strong audio understanding, code execution, and search grounding. Like the OpenAI Realtime API, the Multimodal Live API is not yet the right choice for most production voice AI applications.</p>
+          <p>Google Multimodal Live API是另一個有前途的 — 且處於演進早期的 — 語音到語音服務。這個API提供了Gemini模型近期未來的展望：長上下文窗口、出色的視覺能力、快速推理、強大的音訊理解、代碼執行和搜索基礎。與OpenAI Realtime API一樣，Multimodal Live API尚未成為大多數生產語音AI應用的正確選擇。</p>
 
-          <p>Note that speech-to-speech APIs are relatively expensive. We built <a href="https://dub.sh/voice-agents-010" target="_blank">a calculator for the OpenAI Realtime API</a> that shows how cost scales with session length, factoring in OpenAI's very nice automatic token caching feature.</p>
+          <p>請注意，語音到語音API相對昂貴。我們為<a href="https://dub.sh/voice-agents-010" target="_blank">OpenAI Realtime API構建了一個計算器</a>，顯示成本如何隨會話長度擴展，同時考慮了OpenAI非常好的自動token快取功能。</p>
             
-          <p>We expect to see lots of progress on the speech-to-speech front in 2025. But how quickly production voice AI applications will move from the multi-model approach to using speech-to-speech APIs is still an open question.</p>
+          <p>我們預計2025年語音到語音領域將取得大量進展。但生產環境中的語音AI應用從多模型方法轉向使用語音到語音API的速度仍是一個開放性問題。</p>
 
         </div>
         <div class="chunk-notes">
           <div class="chunk-footnotes">
             <div class="footnote">
-              <p>[14] See <a href="https://latent.space/p/realtime-api" target="_blank">detailed notes about the Realtime API</a></p>
+              <p>[14] 參見<a href="https://latent.space/p/realtime-api" target="_blank">關於Realtime API的詳細說明</a></p>
             </div>
           </div>
           <div class="footnote">
             <a href="https://dub.sh/voice-agents-010" target="_blank"><img src="images/Figure 0700 Spreadsheet.png" width="90%"></a>
-            <p class="image-caption">OpenAI Realtime API cost calculator</p>
+            <p class="image-caption">OpenAI Realtime API成本計算器</p>
           </div>
 
         </div>
@@ -666,13 +665,13 @@
 
       <div class="chunk-row">
         <div class="chunk-content">
-          <h2 id="speech-to-text">4.3. Speech-to-text</h2>
+          <h2 id="speech-to-text">4.3. 語音轉文字</h2>
             
-          <p>Speech-to-text is the "input" stage for voice AI. Speech-to-text is also commonly referred to as <i>transcription</i> or <i>ASR</i> (automatic speech recognition).</p>
+          <p>語音轉文字是語音AI的「輸入」階段。語音轉文字也常被稱為<i>轉錄</i>或<i>ASR</i>（自動語音識別）。</p>
             
-          <p>For voice AI use cases, we need very low transcription latency and very low word error rate. Sadly, optimizing a speech model for low latency has a negative impact on accuracy.</p>
+          <p>對於語音AI用例，我們需要非常低的轉錄延遲和非常低的詞錯誤率。可惜的是，優化語音模型以降低延遲會對準確性產生負面影響。</p>
             
-          <p>Today there are several very good transcription models that are <em>not</em> architected for low latency. Whisper is an open source model that is used in many products and services. It's very good, but usually has a time-to-first-token of 500ms or more, so is rarely used for conversational voice AI use cases.</p>         
+          <p>目前有幾個非常好的轉錄模型，但它們<em>不是</em>為低延遲而設計的。Whisper是一個在許多產品和服務中使用的開源模型。它非常好，但通常首個token的生成時間在500毫秒或更長，因此很少用於對話式語音AI用例。</p>         
         </div>
         <div class="chunk-notes">
         </div>
@@ -680,35 +679,35 @@
       
       <div class="chunk-row">
         <div class="chunk-content">
-            <h3 id="deepgram-and-gladia">4.3.1 Deepgram and Gladia</h3>
+            <h3 id="deepgram-and-gladia">4.3.1 Deepgram和Gladia</h3>
             
-            <p>Most production voice AI agents today use <a href="https://deepgram.com" target="_blank">Deepgram</a> or <a href="https://gladia.io" target="_blank">Gladia</a> for speech-to-text. Deepgram is a commercial speech-to-text AI lab and API platform with a long track record of delivering a very good combination of low latency, low word error rate, and low cost. Gladia is a newer entrant in the space (founded in 2022), with a particular strength in multilingual support.</p>
+            <p>目前大多數生產環境中的語音AI代理使用<a href="https://deepgram.com" target="_blank">Deepgram</a>或<a href="https://gladia.io" target="_blank">Gladia</a>進行語音轉文字。Deepgram是一家商業語音轉文字AI實驗室和API平台，長期以來一直提供低延遲、低詞錯誤率和低成本的絕佳組合。Gladia是該領域的較新參與者（成立於2022年），在多語言支持方面具有特殊優勢。</p>
             
-            <p>Deepgram's models are available as self-serve APIs or as Docker containers that customers can run on their own systems. Most people start out using Deepgram speech-to-text via the API. Time-to-first token is typically 150ms, for users in the US.</p>
+            <p>Deepgram的模型可作為自助服務API使用，也可作為Docker容器供客戶在自己的系統上運行。大多數人開始時通過API使用Deepgram語音轉文字。對於美國用戶，首個token的生成時間通常為150毫秒。</p>
             
-            <p>Managing a scalable GPU cluster is a significant ongoing devops job to take on, so moving from an API to hosting models on your own infrastructure is not something you should do without a good reason. Good reasons include:</p>
+            <p>管理可擴展的GPU集群是一項重要的持續性運維工作，因此從API轉向在自己的基礎設施上託管模型不應該沒有充分理由就進行。充分的理由包括：</p>
             
             <ul class="arrow-list">
-              <li>Keeping audio/transcription data private. Deepgram offers BAAs and data processing agreements, but some customers will want complete control of audio and transcription data. Customers outside the US may have a legal obligation to keep data inside their own countries or regions. (Note that by default Deepgram's terms of service allow them to train on all data you send to them via their APIs. You can opt out of this on enterprise plans.)</li>
-              <li>Reducing latency. Deepgram does not have inference servers outside the US. From Europe, Deepgram's TTFT is ~250ms; from India, ~350ms.</li>
+              <li>保持音訊/轉錄數據的私密性。Deepgram提供BAA和數據處理協議，但一些客戶可能希望完全控制音訊和轉錄數據。美國以外的客戶可能有法律義務將數據保留在自己的國家或地區內。（請注意，根據默認的Deepgram服務條款，他們可以使用您通過API發送給他們的所有數據進行訓練。企業計劃可以選擇退出此項。）</li>
+              <li>減少延遲。Deepgram在美國以外沒有推理服務器。從歐洲使用Deepgram，首個token生成時間約為250毫秒；從印度使用則約為350毫秒。</li>
             </ul>
             
-            <p>Deepgram offers fine-tuning services, which can help lower word error rates if your use case includes relatively unusual vocabularies, speech styles, or accents.</p>
+            <p>Deepgram提供微調服務，如果您的用例包含相對不常見的詞彙、語音風格或口音，這可以幫助降低詞錯誤率。</p>
 
-            <p>Gladia is the speech-to-text provider we see most often for new voice AI projects outside the English-speaking world. Gladia is headquartered in France, has inference servers in both the US and Europe, and supports more than 100 languages.</p>
+            <p>Gladia是我們在英語世界以外的新語音AI項目中最常見的語音轉文字提供商。Gladia總部位於法國，在美國和歐洲都有推理服務器，並支持100多種語言。</p>
 
-            <p>Gladia offers hosted APIs and options to run their models on your own infrastructure. Gladia's APIs can be used in applications for which European data residency is required.</p>
+            <p>Gladia提供託管API和在自己的基礎設施上運行其模型的選項。Gladia的API可用於需要歐洲數據駐留的應用程序。</p>
 
         </div>
       </div>
       
       <div class="chunk-row">
         <div class="chunk-content">
-            <h3 id="prompting-help">4.3.2 Prompting can help the LLM.</h3>
+            <h3 id="prompting-help">4.3.2 提示可以幫助LLM</h3>
             
-            <p>A large percentage of transcription errors result from the very small amount of context that the transcription model has available in a realtime stream.</p>
+            <p>很大比例的轉錄錯誤源於實時流中轉錄模型可用的上下文非常有限。</p>
             
-            <p>Today's LLMs are smart enough to work around transcription errors. When the LLM is performing inference it has access to the full conversation context. So you can tell the LLM that the input is a transcription of user speech, and that it should reason accordingly.</p>
+            <p>當今的LLM足夠聰明，可以解決轉錄錯誤。當LLM執行推理時，它可以訪問完整的對話上下文。因此，您可以告訴LLM輸入是用戶語音的轉錄，它應該相應地進行推理。</p>
 
             <pre><code>You are a helpful, concise, and reliable voice assistant. Your primary goal is to understand the user's spoken requests, even if the speech-to-text transcription contains errors. Your responses will be converted to speech using a text-to-speech system. Therefore, your output must be plain, unformatted text.
 
@@ -721,30 +720,30 @@ When you receive a transcribed user request:
 
 Your output will be directly converted to speech, so your response should be natural-sounding and appropriate for a spoken conversation.
 </code></pre>
-            <p class="image-caption">Example prompt language for a voice AI agent.</p>
+            <p class="image-caption">語音AI代理的示例提示語言。</p>
         </div>
       </div>
       
       <div class="chunk-row">
         <div class="chunk-content">
-            <h3 id="other-stt-options">4.3.3 Other speech-to-text options</h3>
+            <h3 id="other-stt-options">4.3.3 其他語音轉文字選項</h3>
 
-            <p>We expect to see lots of new developments in the speech-to-text space in 2025. Some new developments we are tracking, as of early April 2025:</p>
+            <p>我們預計2025年語音轉文字領域將出現許多新發展。截至2025年4月初，我們正在追蹤的一些新發展：</p>
 
             <ul class="arrow-list">
-              <li>OpenAI <a href="https://openai.com/index/introducing-our-next-generation-audio-models/">just released</a> two new speech-to-text models, gpt-4o-transcribe and gpt-4o-mini-transcribe.</li>
-              <li>Two other well-regarded speech technology companies, <a href="https://speechmatics.com/">Speechmatics</a> and <a href="https://assembly.ai/">AssemblyAI</a>, have begun to focus more on conversational voice use cases, shipping streaming APIs and models with faster TTFTs.</li>
-              <li>NVIDIA is shipping <a href="https://developer.nvidia.com/blog/new-standard-for-speech-recognition-and-translation-from-the-nvidia-nemo-canary-model/">open source speech models</a> that perform extremely well on benchmarks.</li>
-              <li>Inference company <a href="https://groq.com/">Groq</a>'s hosted version of Whisper Large v3 Turbo now has a median TTFT under 300ms, which puts it into the range of being an option for conversational voice applications. This is the first Whisper API service that we have seen achieve this latency.</li>
+              <li>OpenAI <a href="https://openai.com/index/introducing-our-next-generation-audio-models/">剛剛發布</a>了兩個新的語音轉文字模型，gpt-4o-transcribe和gpt-4o-mini-transcribe。</li>
+              <li>另外兩家備受推崇的語音技術公司，<a href="https://speechmatics.com/">Speechmatics</a>和<a href="https://assembly.ai/">AssemblyAI</a>，已開始更多關注對話式語音用例，推出流式API和具有更快首個token生成時間的模型。</li>
+              <li>NVIDIA正在發布<a href="https://developer.nvidia.com/blog/new-standard-for-speech-recognition-and-translation-from-the-nvidia-nemo-canary-model/">開源語音模型</a>，在基準測試中表現極為出色。</li>
+              <li>推理公司<a href="https://groq.com/">Groq</a>託管的Whisper Large v3 Turbo版本現在的中位數首個token生成時間低於300毫秒，使其成為對話式語音應用的可選項。這是我們看到的第一個達到這種延遲的Whisper API服務。</li>
             </ul>
             
-            <p>All of the big cloud services have speech-to-text APIs. None of them are as good as Deepgram or Gladia, today, for low-latency voice AI use cases.</p>
+            <p>所有大型雲服務都有語音轉文字API。目前，對於低延遲語音AI用例，它們都不如Deepgram或Gladia好。</p>
             
-            <p>But you may want to use Azure AI Speech, Amazon Transcribe, or Google Speech-to-Text if:</p>
+            <p>但在以下情況下，您可能想使用Azure AI Speech、Amazon Transcribe或Google Speech-to-Text：</p>
             
             <ul class="arrow-list">
-              <li>You already have a large committed spend or data processing arrangements with one of these cloud providers.</li>
-              <li>You have a lot of startup credits with one of these cloud providers to spend!</li>
+              <li>您已經與這些雲提供商之一有大量承諾支出或數據處理安排。</li>
+              <li>您有很多這些雲提供商的創業積分可以使用！</li>
             </ul>
             
         </div>
@@ -752,23 +751,23 @@ Your output will be directly converted to speech, so your response should be nat
       
       <div class="chunk-row">
         <div class="chunk-content">
-            <h3 id="gemini-transcribing">4.3.4 Transcribing with Google Gemini</h3>
+            <h3 id="gemini-transcribing">4.3.4 使用Google Gemini進行轉錄</h3>
             
-            <p>One way to leverage Gemini 2.0 Flash's strengths as a low-cost, native audio model is to use Gemini 2.0 for both conversation generation and transcription.</p>
+            <p>利用Gemini 2.0 Flash作為低成本、原生音訊模型優勢的一種方法是同時使用Gemini 2.0進行對話生成和轉錄。</p>
             
-            <p>To do this we need to run two parallel inference processes.</p>
+            <p>為此，我們需要運行兩個並行的推理過程。</p>
 
             <ul class="arrow-list">
-              <li>One inference process generates the conversation response.</li>
-              <li>The other inference process transcribes the user's speech.</li>
-              <li>Each audio input is used for just one turn. The full conversation context is always the audio of the most recent user speech, plus the text transcription of all previous inputs and outputs.</li>
-              <li>This gives you the best of both worlds: native audio understanding for the current user utterance; reduced token count for the whole context.<sup>[15]</sup></li>
+              <li>一個推理過程生成對話回應。</li>
+              <li>另一個推理過程轉錄用戶的語音。</li>
+              <li>每個音訊輸入僅用於一個輪次。完整的對話上下文始終是最近用戶語音的音訊，加上所有先前輸入和輸出的文字轉錄。</li>
+              <li>這給您提供了兩全其美的優勢：對當前用戶話語的原生音訊理解；整個上下文的token數量減少。<sup>[15]</sup></li>
             </ul>
           </div>
           <div class="chunk-notes">
             <div class="chunk-footnotes">
               <div class="footnote">
-                <p>[15] Replacing audio with text reduces token count by ~10x. For a ten-minute conversation, this reduces the total tokens processed – and therefore the cost of input tokens – by ~100x. (Because the conversation history compounds every turn.)</p>
+                <p>[15] 用文字替換音訊可將token數量減少約10倍。對於十分鐘的對話，這將處理的總token數量 - 因此輸入token的成本 - 減少約100倍。（因為對話歷史在每個輪次都會累積。）</p>
               </div>
             </div>
           </div>
@@ -777,7 +776,7 @@ Your output will be directly converted to speech, so your response should be nat
         <div class="chunk-row">
           <div class="chunk-content">
 
-            <p>Here is code to implement these parallel inference processes as a Pipecat pipeline.</p>
+            <p>以下是將這些並行推理過程實現為Pipecat管道的代碼。</p>
 
             <pre class="language-python"><code>
   pipeline = Pipeline( 
@@ -803,21 +802,21 @@ Your output will be directly converted to speech, so your response should be nat
   )            
             </code></pre>
 
-            <p>The logic is as follows.</p>
+            <p>邏輯如下。</p>
             
             <ol class="list-decimal">
-              <li>The conversation LLM receives the conversation history as text, plus each new turn of user speech as native audio, and outputs a conversation response.</li>
-              <li>The input transcription LLM receives the same input, but outputs a literal transcription of the most recent user speech.</li>
-              <li>At the end of each conversation turn, the user audio context entry is replaced with the transcription of that audio.</li>
+              <li>對話LLM接收文字形式的對話歷史，加上每個新輪次的用戶語音作為原生音訊，並輸出對話回應。</li>
+              <li>輸入轉錄LLM接收相同的輸入，但輸出最近用戶語音的字面轉錄。</li>
+              <li>在每個對話輪次結束時，用戶音訊上下文條目被替換為該音訊的轉錄。</li>
             </ol>
 
-            <p>Gemini's per-token costs are so low that this approach is actually cheaper than using Deepgram for transcription.</p>
+            <p>Gemini的每token成本如此之低，以至於這種方法實際上比使用Deepgram進行轉錄更便宜。</p>
 
-            <p>It's important to understand that we are not using Gemini 2.0 Flash here as a full speech-to-speech model, but we <em>are</em> using its native audio understanding capabilities. We are prompting the model so that it runs in two different "modes", conversation and transcription. </p>
+            <p>重要的是要理解，我們在這裡不是將Gemini 2.0 Flash用作完整的語音到語音模型，但我們<em>確實</em>在使用其原生音訊理解能力。我們提示模型使其以兩種不同的「模式」運行，對話和轉錄。</p>
 
-            <p>Using an LLM in this way shows the power of SOTA LLM architectures and capabilities. This approach is new enough that it is still experimental, but early testing suggests that it can yield both better conversation understanding and more accurate transcription than any other current technique. There are drawbacks, however. Transcription latency is not as good as using a specialized speech-to-text model. The complexity of running two inference processes and swapping context elements is substantial. A general-purpose LLM will be vulnerable to prompt injection and context following errors that a specialized transcription model isn't vulnerable to.</p>
+            <p>以這種方式使用LLM展示了SOTA LLM架構和功能的強大。這種方法新到仍處於實驗階段，但早期測試表明，它可以產生比任何其他當前技術更好的對話理解和更準確的轉錄。然而，也有缺點。轉錄延遲不如使用專門的語音轉文字模型好。運行兩個推理過程和交換上下文元素的複雜性很大。通用LLM容易受到提示注入和上下文遵循錯誤的影響，而專門的轉錄模型不會受到這些影響。</p>
 
-            <p>Here is a system instruction (a prompt) for transcription.</p>
+            <p>以下是轉錄的系統指令（提示）。</p>
 
             <pre><code>
 You are an audio transcriber. You are receiving audio from a user. Your job is to transcribe the input audio to text exactly as it was said by the user.
@@ -837,28 +836,28 @@ Rules:
 
       <div class="chunk-row">
         <div class="chunk-content">
-          <h2 id="text-to-speech">4.4. Text-to-speech</h2>
+          <h2 id="text-to-speech">4.4. 文字轉語音</h2>
             
-            <p>Text-to-speech is the output stage of the voice-to-voice processing loop.</p>
+            <p>文字轉語音是語音到語音處理循環的輸出階段。</p>
             
-            <p>Voice AI developers choose a voice model/service based on:</p>
+            <p>語音AI開發者根據以下因素選擇語音模型/服務：</p>
             
             <ul class="arrow-list">
-              <li>How natural the voices sound (overall quality)<sup>[16]</sup></li>
-              <li>Latency<sup>[17]</sup></li>
-              <li>Cost</li>
-              <li>Language support</li>
-              <li>Word-level timestamp support</li>
-              <li>Ability to customize voices, accents, and pronunciations</li>
+              <li>語音聽起來有多自然（整體質量）<sup>[16]</sup></li>
+              <li>延遲<sup>[17]</sup></li>
+              <li>成本</li>
+              <li>語言支持</li>
+              <li>詞級時間戳支持</li>
+              <li>自定義語音、口音和發音的能力</li>
             </ul>
         </div>
         <div class="chunk-notes">
           <div class="chunk-footnotes">
             <div class="footnote">
-              <p>[16] Pronunciation, intonation, pacing, stress, rhythm, emotional valence.</p>
+              <p>[16] 發音、語調、節奏、重音、韻律、情感表達。</p>
             </div>
             <div class="footnote">
-              <p>[17] Time to first audio byte.</p>
+              <p>[17] 首個音訊位元組的輸出時間。</p>
             </div>
           </div>
         </div>
@@ -867,14 +866,14 @@ Rules:
       <div class="chunk-row">
         <div class="chunk-content">
             
-            <p>Voice options expanded markedly in 2024. New startups appeared on the scene. Best-in-class voice quality went way up. And every provider improved latency.</p>
+            <p>2024年語音選項顯著擴展。新創公司紛紛出現。最佳語音品質大幅提升。且每個供應商都改善了延遲問題。</p>
             
-            <p>As is the case for speech-to-text, all of the big cloud providers have text-to-speech products.<sup>[18]</sup> But most voice AI developers are not using them, because models from startups are currently better.</p>
+            <p>與語音轉文字一樣，所有大型雲端供應商都有文字轉語音產品。<sup>[18]</sup> 但大多數語音AI開發者並不使用它們，因為目前新創公司的模型表現更好。</p>
         </div>
         <div class="chunk-notes">
           <div class="chunk-footnotes">
             <div class="footnote">
-              <p>[18] Azure AI Speech, Amazon Polly, and Google Cloud Text-to-Speech.</p>
+              <p>[18] Azure AI Speech、Amazon Polly和Google Cloud Text-to-Speech。</p>
             </div>
           </div>
         </div>
@@ -883,25 +882,25 @@ Rules:
       <div class="chunk-row">
         <div class="chunk-content"> 
             
-            <p>The labs that have the most traction for realtime conversational voice models are (in alphabetical order):</p>
+            <p>在即時對話語音模型領域中最具影響力的實驗室有（按字母順序）：</p>
             
             <ul class="arrow-list">
-              <li>Cartesia – Uses an innovative state-space model architecture to achieve both high quality and low latency.</li>
-              <li>Deepgram – Prioritizes latency and low cost.</li>
-              <li>ElevenLabs – Emphasizes emotional and contextual realism.</li>
-              <li>Rime – Offers customizable TTS models trained exclusively on conversational speech.</li>
+              <li>Cartesia – 使用創新的狀態空間模型架構，同時實現高品質和低延遲。</li>
+              <li>Deepgram – 優先考慮延遲和低成本。</li>
+              <li>ElevenLabs – 強調情感和上下文真實感。</li>
+              <li>Rime – 提供可自定義的TTS模型，專門針對對話語音訓練。</li>
             </ul>
             
-            <p>All four companies have strong models, engineering teams, and stable and performant APIs. Cartesia, Deepgram, and Rime models can be deployed on your own infrastructure.</p>
+            <p>這四家公司都擁有強大的模型、工程團隊以及穩定高效的API。Cartesia、Deepgram和Rime的模型可以部署在您自己的基礎設施上。</p>
 
             <table class="data-table voice-model-breakdown">
               <thead>
                 <tr>
                   <th> </th>
-                  <th>Cost per minute (approx)</th>
-                  <th>Median TTFB (ms)</th>
-                  <th>P95 TTFB (ms)</th>
-                  <th>avg pre-speech ms</th>
+                  <th>每分鐘成本（約）</th>
+                  <th>中位數TTFB (毫秒)</th>
+                  <th>P95 TTFB (毫秒)</th>
+                  <th>平均前置靜音時間 (毫秒)</th>
                 </tr>
               </thead>
               <tbody>
@@ -942,24 +941,24 @@ Rules:
                 </tr>
               </tbody>
             </table>
-            <p class="table-caption">Approximate cost per minute (at scale) and time to first byte metrics – February 2025. Note that cost depends on committed volume and features used. Average pre-speech milliseconds is the average initial silence interval in the audio stream before the first speech frame.</p>
+            <p class="table-caption">大規模使用時的每分鐘約略成本及首位元組時間指標 – 2025年2月。請注意，成本取決於承諾使用量和所用功能。平均前置靜音毫秒是指在第一個語音幀之前，音訊流中的平均初始靜音間隔。</p>
 
-            <p>As with speech-to-text, there is wide variance in quality and support for non-English voice models. If you are building voice AI for non-English use cases, you will likely need to do more extensive testing — test more services and more voices to find a solution that you are happy with.</p>
+            <p>與語音轉文字一樣，非英語語音模型的品質和支援差異很大。如果您正在為非英語使用場景構建語音AI，您可能需要進行更廣泛的測試 — 測試更多服務和更多語音，以找到令您滿意的解決方案。</p>
             
-            <p>All voice models will mispronounce words some of the time, and will not necessarily know how to pronounce proper nouns or unusual words.</p>
+            <p>所有語音模型有時會發音錯誤，且不一定知道如何發音專有名詞或不常見的詞彙。</p>
             
-            <p>Some services offer the ability to steer pronunciation. This is helpful if you know in advance that your text output will include specific proper nouns. If your voice service does not support phonetic steering, you can prompt your LLM to output "sounds-like" spellings of specific words. For example, in-vidia instead of NVIDIA.</p>
+            <p>某些服務提供調整發音的功能。如果您預先知道文字輸出將包含特定專有名詞，這會很有幫助。如果您的語音服務不支援語音調整，您可以提示LLM輸出特定單詞的「聽起來像」的拼寫。例如，用in-vidia代替NVIDIA。</p>
 
             <pre ><code class="nobreak">
               Replace "NVIDIA" with "in vidia" and replace <br/>
               "GPU" with "gee pee you" in your responses.
             </code></pre>
-            <p class="image-caption">Example prompt language to steer pronunciation via LLM text output</p>
+            <p class="image-caption">通過LLM文字輸出調整發音的提示語言示例</p>
             
 
 
 
-            <p>For conversational voice use cases, being able to track what text the user heard is important for maintaining accurate conversation context. This requires that a model generate word-level timestamp metadata in addition to the audio, and that the timestamp data be reconstructible backwards to the original input text. This is a relatively new capability for voice models. All of the models in the table above except ElevenLabs Flash support word-level timestamps.</p>
+            <p>對於對話語音使用場景，能夠追蹤用戶聽到的文字對於維持準確的對話上下文很重要。這要求模型除了音訊外還能生成詞級時間戳元數據，並且時間戳數據可以重建回原始輸入文字。這是語音模型的相對較新功能。上表中除了ElevenLabs Flash外的所有模型都支援詞級時間戳。</p>
 
             <pre><code>
 {
@@ -975,16 +974,16 @@ Rules:
 }
                     </code></pre>
 
-                    <p class="image-caption">Word-level timestamps from the Cartesia API.</p>
+                    <p class="image-caption">來自Cartesia API的詞級時間戳。</p>
 
-            <p>In addition, a really solid realtime streaming API is helpful. Conversational voice applications often trigger multiple audio inferences in parallel. Voice agent code needs to be able to interrupt in-progress inference and to correlate each inference request to an output stream. Streaming APIs from voice model providers are all relatively new and still evolving. Currently, Cartesia and Rime have the most mature streaming support in Pipecat.</p>
+            <p>此外，一個真正穩固的即時串流API非常有幫助。對話語音應用程式經常並行觸發多個音訊推理。語音代理程式碼需要能夠中斷進行中的推理，並將每個推理請求與輸出流關聯起來。來自語音模型提供商的串流API都相對較新且仍在發展中。目前，Cartesia和Rime在Pipecat中擁有最成熟的串流支援。</p>
 
-            <p>We expect voice model progress to continue in 2025.</p>
+            <p>我們預計語音模型在2025年將繼續進步。</p>
             
             <ul class="arrow-list">
-              <li>Several of the companies listed above have hinted at new models coming in the first half of the year.</li>
-              <li>OpenAI <a href="https://openai.com/index/introducing-our-next-generation-audio-models/" target="_blank">recently shipped</a> a new text-to-speech model, gpt-4o-mini-tts. This model is fully steerable, which opens up new possibilities for telling a voice model not just <em>what</em> to say but <em>how</em> to speak. You can experiment with steering gpt-4o-mini-tts at <a href="https://openai.fm" target="_blank">openai.fm</a>. </li>
-              <li><a href="https://groq.com/" target="_blank">Groq  </a> and <a href="https://play.ai/" target="_blank">PlayAI</a> recently <a href="https://groq.com/build-fast-with-text-to-speech/" target="_blank">announced a partnership</a>. Groq is known for fast inference, and PlayAI offers a low-latency voice model that supports more than 30 languages.</li>
+              <li>上述幾家公司中的幾家已暗示將在上半年推出新模型。</li>
+              <li>OpenAI <a href="https://openai.com/index/introducing-our-next-generation-audio-models/" target="_blank">最近發布了</a>一個新的文字轉語音模型，gpt-4o-mini-tts。這個模型完全可調整，為告訴語音模型不僅是<em>說什麼</em>，還有<em>如何說</em>開啟了新的可能性。您可以在<a href="https://openai.fm" target="_blank">openai.fm</a>上嘗試調整gpt-4o-mini-tts。</li>
+              <li><a href="https://groq.com/" target="_blank">Groq</a>和<a href="https://play.ai/" target="_blank">PlayAI</a>最近<a href="https://groq.com/build-fast-with-text-to-speech/" target="_blank">宣布合作</a>。Groq以快速推理聞名，而PlayAI提供支援30多種語言的低延遲語音模型。</li>
             </ul>
         </div>
         
@@ -999,15 +998,15 @@ Rules:
 
       <div class="chunk-row">
         <div class="chunk-content">
-          <h2 id="audio-processing">4.5. Audio processing</h2>
+          <h2 id="audio-processing">4.5. 音訊處理</h2>
             
-            <p>A good voice AI platform or library will mostly hide the complexities of audio capture and processing. But if you build complex voice agents, at some point you'll bump up against bugs and corner cases in audio handling.<sup>[19]</sup> So it's worth taking a quick tour of the audio input pipeline.</p>
+            <p>一個好的語音AI平台或函式庫大多會隱藏音訊捕獲和處理的複雜性。但如果您構建複雜的語音代理，在某些時候您會遇到音訊處理中的錯誤和邊緣情況。<sup>[19]</sup> 因此，值得快速瀏覽一下音訊輸入管道。</p>
         </div>
         
         <div class="chunk-notes">
           <div class="chunk-footnotes">
             <div class="footnote">
-              <p>[19] … this generalizes to all things in software, and perhaps most things in life.</p>
+              <p>[19] …這適用於軟體中的所有事物，也許也適用於生活中的大多數事物。</p>
             </div>
           </div>
         </div>
@@ -1015,37 +1014,37 @@ Rules:
 
       <div class="chunk-row">
         <div class="chunk-content">
-            <h3 id="avoiding-spurious-interruptions">4.5.1 Microphones and automatic gain control</h3>
+            <h3 id="avoiding-spurious-interruptions">4.5.1 麥克風和自動增益控制</h3>
             
-            <p>Microphones today are extremely sophisticated hardware devices coupled to large amounts of low-level software. This is usually great — we get terrific audio from tiny microphones built into mobile devices, laptops, and bluetooth earpieces.</p>
+            <p>現今的麥克風是極其複雜的硬體設備，與大量低階軟體相結合。這通常很好 — 我們可以從內置於移動設備、筆記型電腦和藍牙耳機中的微型麥克風獲得出色的音訊。</p>
             
-            <p>But sometimes this low-level software doesn't do what we want. In particular, bluetooth devices can add several hundred milliseconds of latency to voice input. This is largely outside of your control as a voice AI developer. But it's worth being aware that latency can vary widely depending on what operating system and input device a particular user has.</p>
+            <p>但有時這些低階軟體不會按我們的期望運作。特別是藍牙設備可能會為語音輸入增加數百毫秒的延遲。作為語音AI開發者，這在很大程度上超出了您的控制範圍。但值得注意的是，延遲可能會因特定用戶使用的操作系統和輸入設備而有很大差異。</p>
 
             <div class="chunk-image-inline">
-              <img src="images/Figure 1600.jpg" alt="Bluetooth is problematic? Always has been." class="microphone-image" width="98%">
+              <img src="images/Figure 1600.jpg" alt="藍牙有問題？一直都有。" class="microphone-image" width="98%">
             </div>
-            <p>Most audio capture pipelines will apply some amount of automatic gain control to the input signal. Again, this is usually what you want, because this compensates for things like the user's distance from the microphone. You can often disable some automatic gain control, but on consumer-class devices you usually can't disable it completely.</p>
+            <p>大多數音訊捕獲管道會對輸入信號應用一定程度的自動增益控制。這通常是您想要的，因為它可以補償諸如用戶與麥克風的距離等因素。您通常可以禁用部分自動增益控制，但在消費級設備上，您通常無法完全禁用它。</p>
         </div>
       </div>
 
       <div class="chunk-row">
         <div class="chunk-content">
-            <h3 id="echo-cancellation">4.5.2 Echo cancellation</h3>
+            <h3 id="echo-cancellation">4.5.2 回音消除</h3>
             
-            <p>If a user is holding a phone up to their ear, or wearing headphones, you don't need to worry about feedback between the local microphone and speaker. But if a user is talking on a speakerphone, or using a laptop without headphones, then good echo cancellation is extremely important.</p>
+            <p>如果用戶將手機貼在耳邊，或戴著耳機，您不需要擔心本地麥克風和揚聲器之間的反饋。但如果用戶使用免提電話，或使用沒有耳機的筆記型電腦，那麼良好的回音消除就極為重要。</p>
             
-            <p>Echo cancellation is very sensitive to latency, so echo cancellation has to run on the device (not in the cloud). Today, excellent echo cancellation is built into telephony stacks, web browsers, and WebRTC native mobile SDKs.<sup>[20]</sup></p>
+            <p>回音消除對延遲非常敏感，因此回音消除必須在設備上運行（而不是在雲端）。如今，出色的回音消除功能已內置於電話系統、網頁瀏覽器和WebRTC原生移動SDK中。<sup>[20]</sup></p>
             
-            <p>So if you're using a voice AI, WebRTC, or telephony SDK, you should have echo cancellation that you can count on "just working" in almost all real-world scenarios. If you are rolling your own voice AI capture pipeline, you will need to figure out how to integrate echo cancellation logic. For example, if you are building a WebSocket-based React Native application, you won't have any echo cancellation by default.<sup>[21]</sup></p>
+            <p>因此，如果您使用語音AI、WebRTC或電話SDK，您應該有可以在幾乎所有實際場景中「正常運作」的回音消除功能。如果您自行開發語音AI捕獲管道，您將需要弄清楚如何整合回音消除邏輯。例如，如果您正在構建基於WebSocket的React Native應用程式，默認情況下您將沒有任何回音消除功能。<sup>[21]</sup></p>
         </div>
         
         <div class="chunk-notes">
           <div class="chunk-footnotes">
             <div class="footnote">
-              <p>[20] Note that Firefox echo cancellation is not very good. We recommend that voice AI developers build with Chrome and Safari as primary platforms, and only test on Firefox as a secondary platform, time permitting.</p>
+              <p>[20] 請注意，Firefox的回音消除效果不是很好。我們建議語音AI開發者以Chrome和Safari作為主要平台進行構建，並且只在時間允許的情況下將Firefox作為次要平台進行測試。</p>
             </div>
             <div class="footnote">
-              <p>[21] We recently helped someone debug their React Native app's audio issues. The root cause was that they didn't realize they needed to implement echo cancellation, since they were not using a voice AI or WebRTC SDK.</p>
+              <p>[21] 我們最近幫助某人調試他們的React Native應用程式的音訊問題。根本原因是他們沒有意識到需要實現回音消除，因為他們沒有使用語音AI或WebRTC SDK。</p>
             </div>
           </div>
         </div>
@@ -1053,34 +1052,34 @@ Rules:
 
       <div class="chunk-row">
         <div class="chunk-content">
-            <h3 id="noise-suppression">4.5.3 Noise suppression, speech, and music</h3>
+            <h3 id="noise-suppression">4.5.3 噪音抑制、語音和音樂</h3>
             
-            <p>Audio capture pipelines for telephony and WebRTC almost always default to "speech mode." Speech can be compressed much more than music, and noise reduction and echo cancellation algorithms are easier to implement for narrower band signals.</p>
+            <p>用於電話和WebRTC的音訊捕獲管道幾乎總是默認為「語音模式」。語音可以比音樂壓縮得多，而且噪音減少和回音消除算法對於較窄頻帶信號更容易實現。</p>
             
-            <p>Many telephony platforms only support 8khz audio. This is noticeably low-quality by modern standards. If you are routing through a system with this limitation, there's nothing you can do about it. Your users may or may not notice the quality — most people have low expectations for phone call audio.</p>
+            <p>許多電話平台僅支援8khz音訊。按現代標準來看，這種品質明顯較低。如果您通過具有此限制的系統路由，您對此無能為力。您的用戶可能會也可能不會注意到品質差異 — 大多數人對電話通話音訊的期望較低。</p>
             
-            <p>WebRTC supports very high-quality audio.<sup>[22]</sup> Default WebRTC settings are usually 48khz sample rate, single channel, 32 kbs Opus encoding, and a moderate noise suppression algorithm. These settings are optimized for speech. They work across a wide range of devices and environments and are generally the right choice for voice AI.</p>
+            <p>WebRTC支援非常高品質的音訊。<sup>[22]</sup> WebRTC的默認設置通常是48khz採樣率、單聲道、32 kbs Opus編碼，以及中等噪音抑制算法。這些設置針對語音進行了優化。它們適用於各種設備和環境，通常是語音AI的正確選擇。</p>
             
-            <p>Music will not sound good with these settings!</p>
+            <p>音樂在這些設置下聽起來不會好！</p>
             
-            <p>If you need to send music over a WebRTC connection, you'll want to:</p>
+            <p>如果您需要通過WebRTC連接傳送音樂，您需要：</p>
             
             <ul class="arrow-list">
-              <li>Turn off echo cancellation (the user will need to wear headphones).</li>
-              <li>Turn off noise suppression.</li>
-              <li>Optionally, enable stereo.</li>
-              <li>Increase the Opus encoding bitrate (64 kbs is a good target for mono, 96 kbs or 128 kbs for stereo).</li>
+              <li>關閉回音消除（用戶需要戴耳機）。</li>
+              <li>關閉噪音抑制。</li>
+              <li>可選擇啟用立體聲。</li>
+              <li>增加Opus編碼比特率（單聲道64 kbs是個不錯的目標，立體聲則為96 kbs或128 kbs）。</li>
             </ul>
         </div>
         
         <div class="chunk-notes">
           <div class="chunk-footnotes">
             <div class="footnote">
-              <p>[22] Some use cases for high-quality audio:</p>
+              <p>[22] 高品質音訊的一些使用場景：</p>
               <ul class="arrow-list">
-                <li>A music lesson with an LLM teacher.</li>
-                <li>Recording a podcast that includes background sound or music.</li>
-                <li>Generating AI music interactively.</li>
+                <li>與LLM教師的音樂課。</li>
+                <li>錄製包含背景聲音或音樂的播客。</li>
+                <li>互動式生成AI音樂。</li>
               </ul>
             </div>
           </div>
@@ -1089,14 +1088,14 @@ Rules:
 
       <div class="chunk-row">
         <div class="chunk-content">
-            <h3 id="encoding">4.5.4 Encoding</h3>
+            <h3 id="encoding">4.5.4 編碼</h3>
             
-            <p>Encoding is the general term for how audio data is formatted for sending over a network connection.<sup>[23]</sup></p>
+            <p>編碼是指音訊數據如何格式化以通過網絡連接傳送的通用術語。<sup>[23]</sup></p>
         </div>
         <div class="chunk-notes">
           <div class="chunk-footnotes">
             <div class="footnote">
-              <p>[23] (Or for saving in a file.)</p>
+              <p>[23] （或用於保存在文件中。）</p>
             </div>
           </div>
         </div>
@@ -1105,51 +1104,51 @@ Rules:
       <div class="chunk-row">
         <div class=""chunk-content">
             
-            <p>Common encodings for real-time communication include:</p>
+            <p>實時通信常用的編碼包括：</p>
             
             <ul class="arrow-list">
-              <li>Uncompressed audio in 16-bit PCM format.</li>
-              <li>Opus — WebRTC and some telephony systems.</li>
-              <li>G.711 — a standard telephony codec with wide support.</li>
+              <li>16位PCM格式的未壓縮音訊。</li>
+              <li>Opus — WebRTC和某些電話系統。</li>
+              <li>G.711 — 一種廣泛支援的標準電話編解碼器。</li>
             </ul>
 
             <table class="data-table">
               <tr>
-                <th>Codec</th>
-                <th>Bitrate</th>
-                <th>Quality</th>
-                <th>Use Cases</th>
+                <th>編解碼器</th>
+                <th>比特率</th>
+                <th>品質</th>
+                <th>使用場景</th>
               </tr>
               <tr>
                 <td>16-bit PCM</td>
-                <td>384 kbps (Mono 24 kHz)</td>
-                <td>Very High (Near lossless)</td>
-                <td>Voice recording, embedded systems, environments where simple decoding is vital</td>
+                <td>384 kbps (單聲道 24 kHz)</td>
+                <td>非常高（接近無損）</td>
+                <td>語音錄製、嵌入式系統、簡單解碼至關重要的環境</td>
               </tr>
               <tr>
                 <td>Opus 32 kbps</td>
                 <td>32 kbps</td>
-                <td>Good (Psychoacoustic compression optimized for speech)</td>
-                <td>Video calls, low-bandwidth streaming, podcasting</td>
+                <td>良好（針對語音優化的心理聲學壓縮）</td>
+                <td>視訊通話、低頻寬串流、播客</td>
               </tr>
               <tr>
                 <td>Opus 96 kbps</td>
                 <td>96 kbps</td>
-                <td>Very Good to Excellent (Psychoacoustic compression)</td>
-                <td>Streaming, music, audio archiving</td>
+                <td>非常好到優秀（心理聲學壓縮）</td>
+                <td>串流、音樂、音訊存檔</td>
               </tr>
               <tr>
                 <td>G.711 (8 kHz)</td>
                 <td>64 kbps</td>
-                <td>Poor (Limited bandwidth, voice-centric)</td>
-                <td>Legacy VoIP systems, telephony, fax transmission, voice messaging</td>
+                <td>差（有限頻寬，以語音為中心）</td>
+                <td>傳統VoIP系統、電話、傳真傳輸、語音訊息</td>
               </tr>
             </table>
-            <p class="image-caption">Audio codecs used most often for voice AI</p>
+            <p class="image-caption">語音AI最常用的音訊編解碼器</p>
             
-            <p>Opus is by far the best of these three options. Opus is built into web browsers, designed from the ground up to be a low-latency codec, and very efficient. It also performs well across a wide range of bitrates, and supports both speech and high-fidelity use cases.</p>
+            <p>Opus是這三個選項中最好的。Opus內置於網頁瀏覽器中，從頭開始設計為低延遲編解碼器，且非常高效。它在各種比特率下表現良好，並支援語音和高保真使用場景。</p>
             
-            <p>16-bit PCM is "raw audio." You can send PCM audio frames directly to a software sound channel (assuming that the sample rate and data type are correctly specified). Note, however, that this uncompressed audio is not something you generally want to send over an Internet connection. 24khz PCM has a bitrate of 384 kbs. That's a large enough bitrate that many real-world connections from end-user devices will struggle to deliver the bytes in real time.</p>
+            <p>16位PCM是「原始音訊」。您可以直接將PCM音訊幀發送到軟體聲道（假設正確指定了採樣率和數據類型）。但請注意，這種未壓縮的音訊通常不是您想通過互聯網連接發送的內容。24khz PCM的比特率為384 kbs。這是一個足夠大的比特率，以至於許多來自終端用戶設備的實際連接將難以實時傳送這些位元組。</p>
         </div>
         
         <div class="chunk-notes">
@@ -1158,19 +1157,19 @@ Rules:
 
       <div class="chunk-row">
         <div class="chunk-content">
-            <h3 id="server-side-noise">4.5.5 Server-side noise processing and speaker isolation</h3>
+            <h3 id="server-side-noise">4.5.5 伺服器端噪音處理和說話者隔離</h3>
             
-            <p>Speech-to-text and voice activity detection models can usually ignore general ambient noise – street sounds, dogs barking, loud fans close to a mic, keyboard clicks. So the traditional "noise suppression" algorithms that are critical for many human-to-human use cases are not as critical for voice AI.</p>
+            <p>語音轉文字和語音活動檢測模型通常可以忽略一般環境噪音 – 街道聲音、狗吠聲、靠近麥克風的嘈雜風扇、鍵盤點擊聲。因此，對於許多人與人之間的使用場景至關重要的傳統「噪音抑制」算法對於語音AI並不那麼重要。</p>
             
-            <p>But one kind of audio processing is particularly valuable for voice AI: primary speaker isolation. Primary speaker isolation suppresses background speech. This can significantly improve transcription accuracy.</p>
+            <p>但有一種音訊處理對語音AI特別有價值：主要說話者隔離。主要說話者隔離可抑制背景語音。這可以顯著提高轉錄準確性。</p>
             
-            <p>Think of trying to talk to a voice agent from an environment like an airport. Your phone mic is likely to pick up a lot of background speech from gate announcements and people walking by. You don't want that background speech in the text transcript the LLM sees!</p>
+            <p>想像一下嘗試在機場等環境中與語音代理交談。您的手機麥克風可能會捕捉到大量來自登機口廣播和路過人群的背景語音。您不希望LLM看到的文字轉錄中包含那些背景語音！</p>
             
-            <p>Or imagine the user who is in their living room with the TV or radio on in the background. Because humans are generally pretty good at filtering out low-volume background speech, people won't necessarily think to turn off their TV or radio before they call into a customer support line.</p>
+            <p>或者想像一下在客廳中有電視或收音機在背景中播放的用戶。由於人類通常相當擅長過濾低音量的背景語音，人們不一定會想到在撥打客戶支援電話前關閉電視或收音機。</p>
             
-            <p>The best available speaker isolation model that you can use in your own voice AI pipeline is sold by <a href="https://krisp.ai" target="_blank">Krisp</a>. Licenses are targeted at enterprise users and are not inexpensive. But for commercial use cases at scale, the improvement in voice agent performance justifies the cost.</p>
+            <p>您可以在自己的語音AI管道中使用的最佳可用說話者隔離模型由<a href="https://krisp.ai" target="_blank">Krisp</a>提供。許可證針對企業用戶，價格不便宜。但對於大規模商業用途，語音代理性能的提升足以證明成本的合理性。</p>
 
-            <p>OpenAI recently shipped a new noise reduction feature as part of their Realtime API. Reference docs are <a href="https://platform.openai.com/docs/guides/realtime-transcription#realtime-transcription-sessions" target="_blank">here</a>. </p>
+            <p>OpenAI最近在其Realtime API中推出了新的噪音減少功能。參考文檔在<a href="https://platform.openai.com/docs/guides/realtime-transcription#realtime-transcription-sessions" target="_blank">這裡</a>。</p>
 
             <pre class="language-python"><code>
   pipeline = Pipeline(
@@ -1187,58 +1186,58 @@ Rules:
     ]
   )
             </code></pre>
-            <p class="image-caption">Pipecat pipeline with a Krisp processing element</p>
+            <p class="image-caption">包含Krisp處理元素的Pipecat管道</p>
         </div>
       </div>
 
       <div class="chunk-row">
         <div class="chunk-content">
-            <h3 id="voice-activity-detection">4.5.6 Voice activity detection</h3>
+            <h3 id="voice-activity-detection">4.5.6 語音活動檢測</h3>
             
-            <p>A voice activity detection stage is part of almost every voice AI pipeline. VAD classifies audio segments as "speech" and "not speech." We will talk in detail about VAD in the <a href="#turn-detection">Turn detection</a> section, below.</p>
+            <p>語音活動檢測階段是幾乎每個語音AI管道的一部分。VAD將音訊片段分類為「語音」和「非語音」。我們將在下方的<a href="#turn-detection">輪次檢測</a>部分詳細討論VAD。</p>
         </div>
       </div>
 
       <div class="chunk-row">
         <div class="chunk-content">
-          <h2 id="network-transport">4.6. Network transport</h2>
+          <h2 id="network-transport">4.6. 網路傳輸</h2>
             
         </div>
       </div>
       
       <div class="chunk-row">
         <div class="chunk-content">
-            <h3 id="websockets-webrtc">4.6.1 WebSockets and WebRTC</h3>
+            <h3 id="websockets-webrtc">4.6.1 WebSockets和WebRTC</h3>
             
-            <p>Both WebSockets and WebRTC are used by AI services for audio streaming.</p>
+            <p>WebSockets和WebRTC都被AI服務用於音訊串流。</p>
             
-            <p>WebSockets are great for server-to-server use cases. They are also fine for use cases where latency is not a primary concern, and are a good fit for prototyping and general hacking.</p>
+            <p>WebSockets非常適合伺服器對伺服器的使用場景。對於延遲不是主要考慮因素的場景，它們也很好用，並且非常適合原型設計和一般開發。</p>
             
-            <p>WebSockets shouldn't be used in production for client-server, realtime media connections.</p>
+            <p>WebSockets不應該在生產環境中用於客戶端-伺服器的即時媒體連接。</p>
             
-            <p>If you are building a browser or native mobile app, and achieving conversational latency matters to your application, you should use a WebRTC connection to send and receive audio from your app.</p>
+            <p>如果您正在開發瀏覽器或原生行動應用程式，且對話延遲對您的應用程式很重要，您應該使用WebRTC連接來從您的應用程式發送和接收音訊。</p>
             
-            <p>The major problems with WebSockets for real-time media delivery to and from end-user devices are:</p>
+            <p>WebSockets用於終端用戶設備的即時媒體傳輸的主要問題是：</p>
             
             <ul class="arrow-list">
-              <li>WebSockets are built on TCP, so audio streams will be subject to head-of-line blocking.</li>
-              <li>The Opus audio codec used for WebRTC is tightly coupled to WebRTC's bandwidth estimation and packet pacing (congestion control) logic, making a WebRTC audio stream resilient to a wide range of real-world network behaviors that would cause a WebSocket connection to accumulate latency.</li>
-              <li>The Opus audio codec has very good forward error correction, making the audio stream resilient to relatively high amounts of packet loss. (This only helps you if your network transport can drop late-arriving packets and doesn't do head of line blocking, though.)</li>
-              <li>WebRTC audio is automatically timestamped, so both playout and interruption logic are trivial.</li>
-              <li>WebRTC includes hooks for detailed performance and media quality statistics. A good WebRTC platform will give you detailed dashboards and analytics. This level of observability is somewhere between very hard and impossible to build for WebSockets.</li>
-              <li>WebSocket reconnection logic is quite hard to implement robustly. You will have to build a ping/ack framework (or fully test and understand the framework that your WebSocket library provides). TCP timeouts and connection events behave differently on different platforms.</li>
-              <li>Finally, good WebRTC implementations today come with very good echo cancellation, noise reduction, and automatic gain control.</li>
+              <li>WebSockets建立在TCP上，因此音訊串流會受到隊頭阻塞的影響。</li>
+              <li>WebRTC使用的Opus音訊編解碼器與WebRTC的頻寬估計和封包節奏（擁塞控制）邏輯緊密耦合，使WebRTC音訊串流能夠應對各種現實世界的網路行為，這些行為可能會導致WebSocket連接累積延遲。</li>
+              <li>Opus音訊編解碼器具有非常好的前向錯誤修正功能，使音訊串流能夠應對相對較高的封包丟失。（但這只有在您的網路傳輸能夠丟棄延遲到達的封包且不進行隊頭阻塞時才有幫助。）</li>
+              <li>WebRTC音訊會自動加上時間戳，因此播放和中斷邏輯變得非常簡單。</li>
+              <li>WebRTC包含詳細的性能和媒體質量統計的鉤子。一個好的WebRTC平台將為您提供詳細的儀表板和分析。這種級別的可觀察性對於WebSockets來說介於非常困難和不可能之間。</li>
+              <li>WebSocket重新連接邏輯很難穩健地實現。您將不得不建立一個ping/ack框架（或完全測試並理解您的WebSocket庫提供的框架）。TCP超時和連接事件在不同平台上的行為不同。</li>
+              <li>最後，現今好的WebRTC實現都配備了非常好的回音消除、噪音減少和自動增益控制。</li>
             </ul>
 
-            <p>You can use WebRTC in two ways.</p>
+            <p>您可以通過兩種方式使用WebRTC。</p>
             <ol>
-              <li>Routing through WebRTC servers in the cloud.</li>
-              <li>Establishing a direct connection between a client device and a voice AI process.</li>
+              <li>通過雲端中的WebRTC伺服器路由。</li>
+              <li>在客戶端設備和語音AI處理程序之間建立直接連接。</li>
             </ol>
 
-            <p>Routing through cloud servers will perform better for many real-world use cases (see <a href="#network-routing">network routing</a>, below). Cloud infrastructure also makes possible a number of features that direct connections can't support as easily or as scalably (multi-participant sessions, integration with telephony systems, recording).</p>
+            <p>對於許多現實世界的使用場景，通過雲端伺服器路由將表現得更好（參見下方的<a href="#network-routing">網路路由</a>）。雲端基礎設施還使得直接連接不能輕易或可擴展地支援的許多功能成為可能（多參與者會話、與電話系統集成、錄音）。</p>
 
-            <p>But "serverless" WebRTC is a good fit for many voice AI use cases. Pipecat supports serverless WebRTC via the <a href="https://docs.pipecat.ai/server/services/transport/small-webrtc" target="_blank">SmallWebRTCTransport</a> class. And frameworks like Hugging Face's <a href="https://fastrtc.org/" target="_blank">FastRTC</a> are built entirely around this networking pattern.</p>
+            <p>但「無伺服器」WebRTC適合許多語音AI使用場景。Pipecat通過<a href="https://docs.pipecat.ai/server/services/transport/small-webrtc" target="_blank">SmallWebRTCTransport</a>類支援無伺服器WebRTC。而像Hugging Face的<a href="https://fastrtc.org/" target="_blank">FastRTC</a>這樣的框架完全圍繞這種網路模式構建。</p>
 
         </div>
         <div class="chunk-notes">
@@ -1252,46 +1251,46 @@ Rules:
         <div class="chunk-content">
             <h3 id="http">4.6.2 HTTP</h3>
             
-            <p>HTTP is still useful and important for voice AI, too! HTTP is the lingua franca for service interconnection on the Internet. REST APIs are HTTP. Webhooks are HTTP.</p>
+            <p>HTTP對於語音AI仍然有用且重要！HTTP是互聯網上服務互連的通用語言。REST API是HTTP。Webhooks是HTTP。</p>
             
-            <p>Text-oriented inference happens via HTTP, so voice AI pipelines usually call out to HTTP APIs for the LLM parts of the conversational loop.</p>
+            <p>文字導向的推理通過HTTP進行，因此語音AI管道通常會調用HTTP API來處理對話循環的LLM部分。</p>
             
-            <p>Voice agents also use HTTP when integrating with external services and internal APIs. One useful technique is proxying LLM function calls to HTTP endpoints. This decouples voice AI agent code and devops from function implementations.</p>
+            <p>語音代理在與外部服務和內部API集成時也使用HTTP。一個有用的技術是將LLM函數調用代理到HTTP端點。這將語音AI代理程式碼和開發運維與函數實現解耦。</p>
             
-            <p>Multimodal AI applications will often want to implement both HTTP and WebRTC code paths. Imagine a chat app that supports both a text mode and a voice mode. Conversation state needs to be accessible via either connection path, which has ramifications for both client and server-side code (for example, how things like Kubernetes pods and Docker containers are architected.)</p>
+            <p>多模態AI應用程式通常會想要實現HTTP和WebRTC代碼路徑。想像一個支援文字模式和語音模式的聊天應用程式。對話狀態需要通過任一連接路徑訪問，這對客戶端和伺服器端代碼都有影響（例如，Kubernetes pods和Docker容器的架構方式）。</p>
             
-            <p>The two drawbacks to HTTP are latency and the difficulty of implementing long-lived, bidirectional connections.</p>
+            <p>HTTP的兩個缺點是延遲和實現長期雙向連接的困難。</p>
             
             <ul class="arrow-list">
-              <li>Setting up an encrypted HTTP connection requires multiple network round trips. It's reasonably hard to achieve media connection setup times much lower than 30ms, and realistic time-to-send-first-byte is closer to 100ms even for heavily optimized servers.</li>
-              <li>Long-lived, bidirectional HTTP connections are difficult enough to manage that you're usually better off just using WebSockets.</li>
-              <li>HTTP is a TCP-based protocol, so the same head-of-line blocking issues that impact WebSockets are an issue for HTTP.</li>
-              <li>Sending raw binary data over HTTP is uncommon enough that most APIs opt to base64 encode binary data, which increases the bitrate of media streams.</li>
+              <li>建立加密的HTTP連接需要多次網路往返。即使對於高度優化的伺服器，實現低於30ms的媒體連接設置時間也相當困難，而現實中的首位元組發送時間即使對於高度優化的伺服器也接近100ms。</li>
+              <li>長期雙向HTTP連接的管理難度足夠大，以至於您通常最好直接使用WebSockets。</li>
+              <li>HTTP是基於TCP的協議，因此影響WebSockets的相同隊頭阻塞問題也是HTTP的問題。</li>
+              <li>通過HTTP發送原始二進制數據不夠常見，以至於大多數API選擇對二進制數據進行base64編碼，這增加了媒體串流的比特率。</li>
             </ul>
             
-            <p>Which brings us to QUIC …</p>
+            <p>這就引出了QUIC…</p>
 
         </div>
         <div class="chunk-notes">
           <div class="chapter-image-positioned image-position-adjust" style="--position-offset: 100px;">
             <img src="images/Figure 2200.svg" alt="HTTP API diagram" class="network-image" width="250">
-            <p class="image-caption">A voice AI agent using both HTTP and WebRTC for network communication.</p>
+            <p class="image-caption">一個同時使用HTTP和WebRTC進行網路通信的語音AI代理。</p>
           </div>
         </div>
       </div>
       
       <div class="chunk-row">
         <div class="chunk-content">
-            <h3 id="quic-moq">4.6.3 QUIC and MoQ</h3>
+            <h3 id="quic-moq">4.6.3 QUIC和MoQ</h3>
             
-            <p>QUIC is a new network protocol designed to be the transport layer for the latest version of HTTP (HTTP/3) — and to flexibly support other Internet-scale use cases, too.</p>
+            <p>QUIC是一種新的網路協議，設計用作最新版HTTP（HTTP/3）的傳輸層 — 並且靈活地支援其他互聯網規模的使用場景。</p>
             
-            <p>QUIC is a UDP-based protocol, and addresses all of the above issues with HTTP. With QUIC you get faster connection times, bidirectional streams, and no head-of-line blocking. Google and Facebook have been steadily rolling out QUIC, so these days, some of your HTTP requests traverse the Internet as UDP, rather than TCP, packets. <sup>[24]</sup></p> 
+            <p>QUIC是一種基於UDP的協議，解決了上述所有HTTP問題。使用QUIC，您可以獲得更快的連接時間、雙向串流，以及沒有隊頭阻塞。Google和Facebook一直在穩步推出QUIC，因此現在，您的一些HTTP請求是以UDP而非TCP封包穿越互聯網的。<sup>[24]</sup></p> 
         </div>
         <div class="chunk-notes">
           <div class="chunk-footnotes">
             <div class="footnote">
-              <p>[24] This is a little bit 🤯 if you have been building stuff on the Internet for a long time. HTTP has always been a TCP-based protocol!</p>
+              <p>[24] 如果您已經在互聯網上構建東西很長時間了，這有點令人震驚。HTTP一直是基於TCP的協議！</p>
             </div>
           </div>  
         </div>
@@ -1300,14 +1299,14 @@ Rules:
       <div class="chunk-row">
         <div class="chunk-content">
              
-            <p>QUIC will be a big part of the future of media streaming on the Internet. Migration to QUIC-based protocols for realtime media streaming will take time, though. One blocker to building QUIC-based voice agents is that Safari does not yet support the QUIC-based evolution of WebSockets, <a href="https://w3c.github.io/webtransport/" target="_blank">WebTransport</a>.</p>
+            <p>QUIC將成為互聯網媒體串流未來的重要部分。但遷移到基於QUIC的即時媒體串流協議需要時間。構建基於QUIC的語音代理的一個障礙是Safari尚未支援基於QUIC的WebSockets演進版本<a href="https://w3c.github.io/webtransport/" target="_blank">WebTransport</a>。</p>
             
-            <p>The Media over QUIC IETF working group<sup>[25]</sup> aims to develop a "simple low-latency media delivery solution for ingest and distribution of media." As with all standards, hashing out how to support the widest possible array of important use cases with the simplest possible building blocks is not easy. People are excited about using QUIC for on-demand video streaming, large-scale video broadcast, live video streaming, low-latency sessions with large numbers of participants, and low-latency 1:1 sessions.</p>
+            <p>媒體超過QUIC IETF工作組<sup>[25]</sup>旨在開發一個「簡單的低延遲媒體傳輸解決方案，用於媒體的攝取和分發」。與所有標準一樣，用最簡單的構建塊支援最廣泛的重要使用場景並不容易。人們對使用QUIC進行點播視頻串流、大規模視頻廣播、實時視頻串流、具有大量參與者的低延遲會話以及低延遲1:1會話感到興奮。</p>
         </div>
         <div class="chunk-notes">
           <div class="chunk-footnotes">
             <div class="footnote">
-              <p>[25] <a href="https://datatracker.ietf.org/group/moq/about/" target="_blank">IETF Media Over QUIC working group</a></p>
+              <p>[25] <a href="https://datatracker.ietf.org/group/moq/about/" target="_blank">IETF媒體超過QUIC工作組</a></p>
             </div>
           </div>
         </div>
@@ -1315,38 +1314,38 @@ Rules:
       <div class="chunk-row">
         <div class="chunk-content">
             
-            <p>Realtime voice AI use cases are growing at just the right time to influence the development of the MoQ standard.</p>
+            <p>即時語音AI使用場景正在以恰到好處的時機增長，可以影響MoQ標準的發展。</p>
 
         </div>
       </div>
       
       <div class="chunk-row">
         <div class="chunk-content">
-            <h3 id="network-routing">4.6.4 Network routing</h3>
+            <h3 id="network-routing">4.6.4 網路路由</h3>
             
-            <p>Long-haul network connections are problematic for latency and real-time media reliability, no matter what the underlying network protocol is.</p>
+            <p>長距離網路連接對延遲和即時媒體可靠性都是有問題的，無論底層網路協議是什麼。</p>
             
-            <p><strong>For real time media delivery, you want your servers to be as close to your users as possible.</strong></p>
+            <p><strong>對於即時媒體傳輸，您希望您的伺服器盡可能靠近您的用戶。</strong></p>
             
-            <p>For example, round trip packet time from a user in the UK to a server hosted by AWS us-west-1 in Northern California will typically be about 140 milliseconds. In comparison, RTT from that same user to AWS eu-west-2 would generally be 15 milliseconds or less.</p>
+            <p>例如，從英國的用戶到AWS us-west-1（北加州）託管的伺服器的封包往返時間通常約為140毫秒。相比之下，同一用戶到AWS eu-west-2的RTT通常為15毫秒或更少。</p>
             <div class="chapter-image">
               <img src="images/Figure 2300.svg" alt="Edge routing diagram" class="network-image" width="700">
-              <p class="image-caption">RTT from a user in the UK to AWS us-west-1 is ~100ms more than to AWS eu-west-2</p>
+              <p class="image-caption">從英國的用戶到AWS us-west-1的RTT比到AWS eu-west-2多約100ms</p>
             </div>
-            <p>That's a difference of more than 100 milliseconds — ten percent of your latency "budget" if your voice-to-voice latency target is 1,000 milliseconds.</p>
+            <p>這是超過100毫秒的差異 — 如果您的語音到語音延遲目標是1,000毫秒，這是您延遲「預算」的百分之十。</p>
             
-            <p><strong>Edge routing</strong></p>
+            <p><strong>邊緣路由</strong></p>
             
-            <p>You may not be able to deploy servers close to all of your users.</p>
+            <p>您可能無法在靠近所有用戶的地方部署伺服器。</p>
             
-            <p>Achieving a 15ms RTT to users everywhere in the world requires deploying to at least 40 global data centers. That's a big devops job. And if you're running workloads that require GPUs, or relying on services that aren't globally deployed themselves, it might be impossible.</p>
+            <p>要在世界各地的用戶實現15ms的RTT，需要部署至少40個全球數據中心。這是一個大型的開發運維工作。而且如果您運行需要GPU的工作負載，或依賴於自身沒有全球部署的服務，這可能是不可能的。</p>
             
-            <p>You can't cheat the speed of light.<sup>[26]</sup> But you can try to avoid route variability and congestion.</p>
+            <p>您無法欺騙光速。<sup>[26]</sup> 但您可以嘗試避免路由變化和擁塞。</p>
           </div>
           <div class="chunk-notes">
             <div class="chunk-footnotes">
               <div class="footnote">
-                <p>[26] Ancient network engineer wisdom – ed.</p>
+                <p>[26] 古老的網路工程師智慧 – 編者註</p>
               </div> 
             </div>
           </div>
@@ -1354,25 +1353,25 @@ Rules:
 
         <div class="chunk-row">
           <div class="chunk-content">
-            <p>The key is to keep your public Internet routes as short as possible. Connect your users to an edge server close to them. From there, use private routes.</p>
+            <p>關鍵是保持您的公共互聯網路由盡可能短。將您的用戶連接到靠近他們的邊緣伺服器。從那裡，使用私有路由。</p>
             
-            <p>This edge routing reduces median packet RTT. The UK → Northern California route over a private backbone is likely to be about 100 milliseconds. 100 ms (the long-haul private route) + 15 ms (the first hop over the public Internet) = 115 ms. This private route median RTT is 25ms better than the public route median RTT.</p>
+            <p>這種邊緣路由減少了中位數封包RTT。通過私有骨幹網的英國→北加州路由可能約為100毫秒。100毫秒（長距離私有路由）+ 15毫秒（通過公共互聯網的第一跳）= 115毫秒。這個私有路由中位數RTT比公共路由中位數RTT快25毫秒。</p>
             <div class="chapter-image">
               <img src="images/Figure 2400.svg" alt="Edge routing diagram" class="network-image" width="700">
-              <p class="image-caption">Edge route from the UK to AWS us-west-1. The first hop over the public network still has an RTT of 15ms. But the long route to Northern California over the private network has an RTT of 100ms. The total RTT of 115ms is 25ms faster than the public route from the UK to us-west-1. It's also significantly less variable (less packet loss and lower jitter).</p>
+              <p class="image-caption">從英國到AWS us-west-1的邊緣路由。通過公共網路的第一跳仍有15ms的RTT。但通過私有網路到北加州的長路由有100ms的RTT。總RTT為115ms，比從英國到us-west-1的公共路由快25ms。它也顯著更穩定（更少的封包丟失和更低的抖動）。</p>
             </div>
-            <p>Even more critical than median RTT improvement, though, is improved delivery reliability and lower jitter.<sup>[27]</sup> The P95 RTT of a private route will be significantly lower than the P95 of a public route.<sup>[28]</sup></p>
+            <p>比中位數RTT改善更關鍵的是改善的傳輸可靠性和更低的抖動。<sup>[27]</sup> 私有路由的P95 RTT將顯著低於公共路由的P95。<sup>[28]</sup></p>
             
-            <p>This means that realtime media connections over long-haul public routes will be measurably more laggy than connections that use private routes. Recall that we're trying to deliver each audio packet as quickly as possible, but that we have to play the audio packets in order. A single delayed packet forces us to expand our jitter buffer, holding onto other received packets until the delayed packet arrives. (Or, until we decide it's taken too long and we fill the gap with either fancy math or glitchy audio samples.)</p>
+            <p>這意味著通過長距離公共路由的即時媒體連接將明顯比使用私有路由的連接更有延遲。回想一下，我們試圖盡可能快地傳輸每個音訊封包，但我們必須按順序播放音訊封包。單個延遲的封包迫使我們擴大抖動緩衝區，保留其他已接收的封包直到延遲的封包到達。（或者，直到我們決定它花費了太長時間，我們用花哨的數學或有故障的音訊樣本填補空白。）</p>
 
           </div>
           <div class="chunk-notes">
             <div class="chunk-footnotes">
               <div class="footnote">
-                <p>[27] Jitter is the variability in how long it takes a packet to traverse the route.</p>
+                <p>[27] 抖動是封包穿越路由所需時間的變化性。</p>
               </div>
               <div class="footnote">
-                <p>[28] P95 is the 95th percentile measurement of a metric. P50 is the median measurement (the 50th percentile). Loosely speaking, we think of the P50 as the average case, and P95 as capturing a rough sense of "typical worst-case" connections.</p>
+                <p>[28] P95是指標的第95百分位測量值。P50是中位數測量值（第50百分位）。粗略地說，我們將P50視為平均情況，P95則捕捉「典型最壞情況」連接的大致感覺。</p>
               </div>
             </div>
           </div>
@@ -1382,9 +1381,9 @@ Rules:
 
             <div class="chapter-image">
               <img src="images/Figure 2500 Figure 4.w.svg" alt="Jitter buffer diagram" class="network-image" width="80%">
-              <p class="image-caption">The jitter buffer — a larger jitter buffer translates directly to a larger perceived delay in audio and video. Keeping jitter buffers as small as possible contributes significantly to a good user experience.</p>
+              <p class="image-caption">抖動緩衝區 — 較大的抖動緩衝區直接轉化為音訊和視頻中較大的感知延遲。保持抖動緩衝區盡可能小對良好的用戶體驗有顯著貢獻。</p>
             </div>
-            <p>A good WebRTC infrastructure provider will offer edge routing. They will be able to show you where they have server clusters and provide metrics that show their private route performance.</p>
+            <p>一個好的WebRTC基礎設施提供商將提供邊緣路由。他們將能夠向您展示他們的伺服器集群位置，並提供顯示其私有路由性能的指標。</p>
 
         </div>
         
@@ -1394,21 +1393,21 @@ Rules:
 
       <div class="chunk-row">
         <div class="chunk-content">
-          <h2 id="turn-detection">4.7. Turn detection</h2>
+          <h2 id="turn-detection">4.7. 輪次檢測</h2>
             
-            <p><em>Turn detection </em> means determining when the user is finished talking and expects the LLM to respond.</p>
+            <p><em>輪次檢測</em>意味著確定用戶何時完成說話並期望LLM回應。</p>
             
-            <p>In the academic literature, various aspects of this problem are referred to as <em>phrase detection, speech segmentation, and endpointing</em>. (The fact that there is academic literature about this is a clue that it's a non-trivial problem.)</p>
+            <p>在學術文獻中，這個問題的各個方面被稱為<em>短語檢測、語音分段和終點檢測</em>。（有學術文獻關於這一點是一個線索，表明這不是一個簡單的問題。）</p>
             
-            <p>We (humans) do turn detection every time we talk to anyone else. And we don't always get it right!<sup>[29]</sup></p>
+            <p>我們（人類）每次與他人交談時都會進行輪次檢測。而我們並不總是做對！<sup>[29]</sup></p>
             
-            <p>So turn detection is a hard problem, and there aren't any perfect solutions. But let's talk about the various approaches that are in common use.</p>
+            <p>因此輪次檢測是一個困難的問題，沒有完美的解決方案。但讓我們談談常用的各種方法。</p>
         </div>
 
         <div class="chunk-notes">
           <div class="chunk-footnotes">
             <div class="footnote">
-              <p>[29] Especially on audio calls, when we don't have visual cues to help us.</p>
+              <p>[29] 特別是在音訊通話中，當我們沒有視覺提示幫助我們時。</p>
             </div>
           </div>
         </div>
@@ -1416,32 +1415,32 @@ Rules:
       
       <div class="chunk-row">
         <div class="chunk-content">
-            <h3 id="voice-activity-detection-4-7">4.7.1 Voice activity detection</h3>
+            <h3 id="voice-activity-detection-4-7">4.7.1 語音活動檢測</h3>
             
-            <p>Currently, the most common way to do turn detection for voice AI agents is to assume that a long pause means the user has finished speaking.</p>
+            <p>目前，語音AI代理進行輪次檢測最常見的方式是假設長時間的停頓意味著用戶已經完成說話。</p>
             
-            <p>Voice AI agent pipelines identify pauses using a small, specialized voice activity detection model. A VAD model has been trained to classify audio segments as speech or non-speech. (This is much more robust than trying to identify pauses based only on volume level.)</p>
+            <p>語音AI代理管道使用一個小型專門的語音活動檢測模型來識別停頓。VAD模型已經被訓練來將音訊片段分類為語音或非語音。（這比僅基於音量水平來識別停頓要穩健得多。）</p>
             
-            <p>You can run VAD on either the client-side of a voice AI connection, or on the server. If you need to do significant audio processing on the client anyway, you'll probably need to run VAD on the client to facilitate that. For example, maybe you are identifying wake words on an embedded device, and only sending audio over the network if you detect a wake word at the beginning of a phrase. <em>Hey, Siri …</em></p>
+            <p>您可以在語音AI連接的客戶端或伺服器端運行VAD。如果您需要在客戶端進行大量音訊處理，您可能需要在客戶端運行VAD來促進這一點。例如，也許您正在嵌入式設備上識別喚醒詞，只有在短語開頭檢測到喚醒詞時才通過網路發送音訊。<em>嘿，Siri…</em></p>
             
-            <p>Generally, though, it's a bit simpler to just run VAD as part of the voice AI agent processing loop. And if your users are connecting via telephone, you don't have a client where you can run VAD, so you have to do it on the server.</p>
+            <p>不過，通常在語音AI代理處理循環中運行VAD會更簡單一些。而且如果您的用戶是通過電話連接的，您沒有可以運行VAD的客戶端，所以您必須在伺服器上進行。</p>
             
-            <p>The VAD model used most often for voice AI is <a href="https://github.com/snakers4/silero-vad" target="_blank">Silero VAD</a>. This open source model runs efficiently on CPU, supports multiple languages, works well for both 8khz and 16khz audio, and is available as wasm packages for use in web browsers. Running Silero on a realtime, mono audio stream normally takes less than 1/8th of a typical virtual machine CPU core.</p>
+            <p>語音AI最常用的VAD模型是<a href="https://github.com/snakers4/silero-vad" target="_blank">Silero VAD</a>。這個開源模型在CPU上高效運行，支援多種語言，適用於8khz和16khz音訊，並且作為wasm包可用於網頁瀏覽器。在即時單聲道音訊串流上運行Silero通常只需要典型虛擬機CPU核心的1/8。</p>
             
-            <p>A turn detection algorithm will have a few configuration parameters:</p>
+            <p>輪次檢測算法將有幾個配置參數：</p>
             
             <ul class="arrow-list">
-              <li>Length of pause required for end of turn.</li>
-              <li>Length of speech segment required to trigger a start speaking event.</li>
-              <li>The confidence level for classifying each audio segment as speech.</li>
-              <li>Minimum volume for speech segments.</li>
+              <li>輪次結束所需的停頓長度。</li>
+              <li>觸發開始說話事件所需的語音片段長度。</li>
+              <li>將每個音訊片段分類為語音的置信度水平。</li>
+              <li>語音片段的最小音量。</li>
             </ul>
         </div>
 
         <div class="chunk-notes">
           <div class="chapter-image">
             <img src="images/4x.svg" alt="VAD processing step" class="vad-image" width="100%">
-            <p class="image-caption">A voice activity detection processing step, here configured to run just prior to speech-to-text</p>
+            <p class="image-caption">語音活動檢測處理步驟，此處配置為在語音轉文字之前運行</p>
           </div>
         </div>
       </div>
@@ -1459,156 +1458,101 @@ Rules:
   
 </code></pre>
             
-            <p>Tuning these parameters can improve turn detection behavior a lot for specific use cases.</p>
+            <p>調整這些參數可以大大改善特定使用場景的輪次檢測行為。</p>
         </div>
       </div>
       
       <div class="chunk-row">
         <div class="chunk-content">
-            <h3 id="push-to-talk">4.7.2 Push-to-talk</h3>
+            <h3 id="push-to-talk">4.7.2 按鍵通話</h3>
             
-            <p>The obvious problem with basing turn detection on pauses in speech is that sometimes people pause but aren't finished talking.</p>
+            <p>基於語音停頓進行輪次檢測的明顯問題是，有時人們停頓但並未完成說話。</p>
             
-            <p>Individual speaking styles vary. People pause more in some kinds of conversations than in others.</p>
+            <p>個人說話風格各不相同。人們在某些類型的對話中比其他類型的對話中停頓更多。</p>
             
-            <p>Setting a long pause interval creates stilted conversations — a very bad user experience. But with a short pause interval, the voice agent will frequently interrupt the user — also a bad user experience.</p>
+            <p>設置較長的停頓間隔會創造生硬的對話 — 非常糟糕的用戶體驗。但使用較短的停頓間隔，語音代理會頻繁地打斷用戶 — 同樣是糟糕的用戶體驗。</p>
             
-            <p>The most common alternative to pause-based turn detection is push-to-talk. Push-to-talk means requiring that the user push or hold a button when they start speaking, and push the button again or release it when they are finished speaking. (Think about how old-school walkie-talkies work.)</p>
+            <p>最常見的替代停頓基礎輪次檢測的方法是按鍵通話。按鍵通話意味著要求用戶在開始說話時按下或按住按鈕，並在完成說話時再次按下按鈕或釋放它。（想想老式對講機的工作方式。）</p>
             
-            <p>Turn detection is unambiguous with push-to-talk. But the user experience is not the same as just talking.</p>
+            <p>使用按鍵通話，輪次檢測是明確的。但用戶體驗與純粹交談不同。</p>
             
-            <p>Push-to-talk isn't possible for telephone voice AI agents.</p>
-            
-        </div>
-      </div>
-      
-      <div class="chunk-row">
-        <div class="chunk-content">
-            <h3 id="endpoint-markers">4.7.3 Endpoint markers</h3>
-            
-            <p>You can also use specific words as end-of-turn markers. (Think of truckers talking on CB radios saying "over.")</p>
-            
-            <p>The easiest way to identify specific endpoint markers is to run a regular expression match against each transcription fragment. But you can also use a small language model to detect endpoint words or phrases.</p>
-            
-            <p>Voice AI apps that use explicit endpoint markers are fairly uncommon. Users have to learn to talk to these apps. But this approach can work very well for specialized use cases.</p>
-            
-            <p>For example, we saw a nice demo last year of a writing assistant that someone had built for themselves as a side project. They used a variety of command phrases to indicate turn endpoints and to switch between modes.</p>
+            <p>電話語音AI代理無法使用按鍵通話。</p>
             
         </div>
       </div>
       
       <div class="chunk-row">
         <div class="chunk-content">
-            <h3 id="context-aware-turn-detection">4.7.4 Context-aware turn detection (semantic VAD and smart turn)</h3>
+            <h3 id="endpoint-markers">4.7.3 終點標記</h3>
             
-            <p>When humans do turn detection, they use a variety of cues:</p>
+            <p>您也可以使用特定詞語作為輪次結束標記。（想想卡車司機在CB無線電上說「完畢」。）</p>
+            
+            <p>識別特定終點標記的最簡單方法是對每個轉錄片段運行正則表達式匹配。但您也可以使用小型語言模型來檢測終點詞或短語。</p>
+            
+            <p>使用明確終點標記的語音AI應用相當罕見。用戶必須學習如何與這些應用交談。但這種方法對於專門的使用場景可以非常有效。</p>
+            
+            <p>例如，去年我們看到了一個不錯的演示，是某人作為副項目為自己建立的寫作助手。他們使用各種命令短語來指示輪次終點和切換模式。</p>
+            
+        </div>
+      </div>
+      
+      <div class="chunk-row">
+        <div class="chunk-content">
+            <h3 id="context-aware-turn-detection">4.7.4 上下文感知輪次檢測（語義VAD和智能輪次）</h3>
+            
+            <p>當人類進行輪次檢測時，他們使用各種提示：</p>
             
             <ul class="arrow-list">
-              <li>Identification of filler words like "um" as being likely to indicate continued speech.</li>
-              <li>Grammatical structure.</li>
-              <li>Knowledge of patterns, such as telephone numbers having a specific number of letters.</li>
-              <li>Intonation and pronunciation patterns like drawing out the final word before a pause.</li>
+              <li>識別像「嗯」這樣的填充詞，這些詞可能表示繼續說話。</li>
+              <li>語法結構。</li>
+              <li>對模式的了解，例如電話號碼有特定數量的字母。</li>
+              <li>語調和發音模式，如在停頓前拉長最後一個詞。</li>
             </ul>
             
-            <p>Deep learning models are very good at identifying patterns. LLMs have a lot of latent grammatical knowledge and can be prompted to do phrase endpointing. Smaller, specialized classification models can be trained on language, intonation, and pronunciation patterns.</p>
+            <p>深度學習模型非常擅長識別模式。LLM具有大量潛在的語法知識，可以被提示進行短語終點檢測。較小的專門分類模型可以在語言、語調和發音模式上進行訓練。</p>
             
-            <p>As voice agents become more and more commercially important, we expect to see new models for context-aware voice AI turn detection.</p>
+            <p>隨著語音代理在商業上變得越來越重要，我們預計會看到用於上下文感知語音AI輪次檢測的新模型。</p>
             
-            <p>There are two main approaches:</p>
+            <p>有兩種主要方法：</p>
             
             <ol class="list-decimal">
-              <li>Train a small turn detection model that can run in real time. Use this model in conjunction with or instead of a VAD model. A turn detection model can be trained to pattern match on text. A text-mode turn detection model runs inline in the processing pipeline after transcription and generally needs to be trained on the output of a specific transcription model to be effective. Or, a turn detection model can be trained to operate natively on audio, which allows the turn detection classification to take into account both language-level patterns and intonation, speech pacing, and pronunciation patterns. A native audio turn detection model doesn't require any transcription information, so it can run in parallel with transcription, which can improve performance. </li>
-              <li>Use a large LLM and a few-shot prompt to perform turn detection. Large LLMs are usually too slow to use in-line, blocking the pipeline. To work around this, you can split the pipeline and do turn detection and "greedy" conversation inference in parallel.</li>
+              <li>訓練一個可以實時運行的小型輪次檢測模型。將此模型與VAD模型結合使用或替代VAD模型。輪次檢測模型可以被訓練來對文字進行模式匹配。文字模式輪次檢測模型在轉錄後的處理管道中內聯運行，通常需要在特定轉錄模型的輸出上進行訓練才能有效。或者，輪次檢測模型可以被訓練為直接在音訊上操作，這允許輪次檢測分類同時考慮語言級別模式和語調、語速和發音模式。原生音訊輪次檢測模型不需要任何轉錄信息，因此可以與轉錄並行運行，這可以提高性能。</li>
+              <li>使用大型LLM和少量示例提示來執行輪次檢測。大型LLM通常太慢，無法內聯使用，阻塞管道。為了解決這個問題，您可以分割管道，並行進行輪次檢測和「貪婪」對話推理。</li>
             </ol>
         </div>
         <div class="chunk-notes">
-          
-        </div>
-      </div>
-      <div class="chunk-row">
-        <div class="chunk-content">
-            
-            <pre class="language-python"><code> 
-    [
-      transport.input(),
-      vad,
-      audio_accumulater,
-      ParallelPipeline(
-      [
-        FunctionFilter(filter=block_user_stopped_speaking),
-      ],
-      [
-        ParallelPipeline(
-        [
-          classifier_llm,
-          completeness_check,
-        ],
-        [
-          tx_llm,
-          user_aggregator_buffer,
-        ],
-        )
-      ],
-      [
-        conversation_audio_context_assembler,
-        conversation_llm,
-        bot_output_gate,
-      ],
-      ),
-      tts,
-      transport.output(),
-      context_aggregator.assistant(),
-    ],
-
-</code></pre>
-            <p class="image-caption">Pipecat pipeline <a href="https://github.com/pipecat-ai/pipecat/blob/main/examples/foundational/22d-natural-conversation-gemini-audio.py" target="_blank">code for context-aware turn detection</a> using Gemini 2.0 Flash native audio input. Turn detection and greedy conversation inference run in parallel. Output is gated until the turn detection inference detects a phrase endpoint.</p>
-
-            <p> Some recent developments in turn detection:</p>
-            <ul class="arrow-list">
-              <li>In March, OpenAI shipped a new context-aware turn detection capability for their Realtime API. They call this feature <em>semantic VAD</em>, in contrast to the simpler <em>server VAD</em> (pause-based turn detection). Docs are <a href="https://platform.openai.com/docs/guides/realtime-vad#semantic-vad" target="_blank">here</a>.</li>
-              <li><a href="https://www.tavus.io" target="_blank">Tavus</a> developed a transformer-based native audio turn detection model that is now part of their realtime conversational video API. The Tavus team published a very nice <a href="https://www.tavus.io/post/sparrow-0-advancing-conversational-responsiveness-in-video-agents-with-transformer-based-turn-taking" target="_blank">technical overview</a> of the problem space and how the model works.</li>
-              <li>The <a href="https://github.com/pipecat-ai/smart-turn" target="_blank">Smart Turn</a> open source model is a state of the art native audio turn detection model built and maintained by the Pipecat community. All training data, training code, inference code, and model weights are open source. <sup>[30]</sup></li>
-            </ul>
-            
-
-
-        </div>
-        
-
-        <div class="chunk-notes">
           <div class="chunk-footnotes">
             <div class="footnote">
-              <p>[30] <a href="https://github.com/pipecat-ai/smart-turn" target="_blank">Pipecat open source smart turn detection model</a></p>
+              <p>[30] <a href="https://github.com/pipecat-ai/smart-turn" target="_blank">Pipecat開源智能輪次檢測模型</a></p>
             </div>
           </div>
         </div>
       </div>
-
       <div class="chunk-row">
         <div class="chunk-content">
-          <h2 id="interruption-handling">4.8. Interruption handling</h2>
+          <h2 id="interruption-handling">4.8. 中斷處理</h2>
             
-            <p><em>Interruption handling</em> means allowing the user to interrupt the voice AI agent. Interruptions are a normal part of conversation, so handling interruptions gracefully is important.</p>
+            <p><em>中斷處理</em>意味著允許用戶打斷語音AI代理。中斷是對話的正常部分，因此優雅地處理中斷很重要。</p>
             
-            <p>To implement interruption handling, you need every part of your pipeline to be cancellable. You also need to be able to stop audio playout on the client very quickly.</p>
+            <p>要實現中斷處理，您需要讓管道中的每個部分都可以被取消。您還需要能夠在客戶端上非常快速地停止音訊播放。</p>
             
-            <p>Generally, the framework you're building with will take care of stopping all processing when an interruption is triggered. <strong>But if you're directly using an API that sends you raw audio frames faster than realtime, you'll have to manually stop playout and flush audio buffers.</strong></p>
+            <p>通常，您正在使用的框架會在觸發中斷時負責停止所有處理。<strong>但如果您直接使用的API以快於實時的速度向您發送原始音訊幀，您將不得不手動停止播放並清空音訊緩衝區。</strong></p>
 
         </div>
       </div>
       
       <div class="chunk-row">
         <div class="chunk-content">
-            <h3 id="avoiding-spurious-interruptions">4.8.1 Avoiding spurious interruptions</h3>
+            <h3 id="avoiding-spurious-interruptions">4.8.1 避免虛假中斷</h3>
             
-            <p>Several sources of unintended interruptions are worth noting.</p>
+            <p>有幾個值得注意的非預期中斷來源。</p>
             
             <ol class="list-decimal">
-              <li>Transient noises classified as speech. Good VAD models do an excellent job separating speech from "noise." But certain kinds of short, sharp, initial audio will have moderate speech confidence attached to them when they appear at the beginning of an utterance. Coughing and keyboard clicks both fall into this category. You can adjust the VAD start segment length and confidence level to try to minimize this source of interruptions. The trade-off is that lengthening the start segment length and raising the confidence threshold will create problems for very short phrases that you do want to detect as complete utterances.<sup>[31]</sup></li>
+              <li>被歸類為語音的瞬態噪音。好的VAD模型在將語音與「噪音」分離方面做得非常出色。但某些類型的短促、尖銳的初始音訊在出現在話語開頭時會附帶中等程度的語音置信度。咳嗽和鍵盤點擊都屬於這一類。您可以調整VAD起始段長度和置信度水平，以嘗試最小化這種中斷來源。權衡是延長起始段長度和提高置信度閾值會為您確實想要檢測為完整話語的非常短的短語創造問題。<sup>[31]</sup></li>
               
-              <li>Echo cancellation failures. Echo cancellation algorithms aren't perfect. A transition from silence to speech playout is particularly challenging. If you've done a lot of voice agent testing, you've probably heard your bot interrupt itself right when it starts talking. The culprit is echo cancellation allowing a little bit of the initial speech audio to feed back into your microphone. The minimum VAD start segment length helps to avoid this problem. So does applying exponential smoothing<sup>[32]</sup> to the audio volume level to avoid sharp volume transitions.</li>
+              <li>回聲消除失敗。回聲消除算法並不完美。從靜音到語音播放的轉換特別具有挑戰性。如果您做了大量的語音代理測試，您可能聽到過您的機器人在開始說話時打斷了自己。罪魁禍首是回聲消除允許少量初始語音音訊反饋到您的麥克風。最小VAD起始段長度有助於避免這個問題。應用指數平滑<sup>[32]</sup>到音訊音量水平以避免急劇的音量轉換也有幫助。</li>
               
-              <li>Background speech. The VAD model will not distinguish between user speech and background speech. If the background speech is louder than your volume threshold, background speech will trigger an interruption. A speaker isolation audio processing step can reduce spurious interruptions caused by background speech. See the discussion in the <a href="#server-side-noise">Server-side noise processing and speaker isolation</a> section, above.</li>
+              <li>背景語音。VAD模型不會區分用戶語音和背景語音。如果背景語音比您的音量閾值更大，背景語音將觸發中斷。說話者隔離音訊處理步驟可以減少由背景語音引起的虛假中斷。請參閱上面<a href="#server-side-noise">伺服器端噪音處理和說話者隔離</a>部分的討論。</li>
             </ol>
 
         </div>
@@ -1616,30 +1560,30 @@ Rules:
       
       <div class="chunk-row">
         <div class="chunk-content">
-            <h3 id="maintaining-accurate-context">4.8.2 Maintaining accurate context after an interruption</h3>
+            <h3 id="maintaining-accurate-context">4.8.2 在中斷後維持準確的上下文</h3>
             
-            <p>Because LLMs generate output faster than realtime, when an interruption occurs you will often have LLM output queued up to send to the user.</p>
+            <p>因為LLM生成輸出的速度比實時快，當發生中斷時，您通常會有排隊等待發送給用戶的LLM輸出。</p>
             
-            <p>Usually, you want the conversation context to match what the user actually heard (rather than what your pipeline generated faster than realtime).</p>
+            <p>通常，您希望對話上下文與用戶實際聽到的內容匹配（而不是您的管道以快於實時的速度生成的內容）。</p>
             
-            <p>You are probably also saving the conversation context as text.<sup>[33]</sup></p>
+            <p>您可能也在以文本形式保存對話上下文。<sup>[33]</sup></p>
             
-            <p>So you need a way to figure out what text the user actually <em>heard!</em></p>
+            <p>所以您需要一種方法來確定用戶實際<em>聽到了什麼！</em></p>
             
-            <p>The best speech-to-text services can report word-level timestamp data. Use these word-level timestamps to buffer and assemble assistant message text that matches the audio heard by the user. See the discussion of word-level timestamps in the <a href="#text-to-speech">Text-to-speech</a> section, above. Pipecat handles this automatically.</p>
+            <p>最好的語音轉文本服務可以報告詞級時間戳數據。使用這些詞級時間戳來緩衝和組裝與用戶聽到的音訊匹配的助手消息文本。請參閱上面<a href="#text-to-speech">文本轉語音</a>部分關於詞級時間戳的討論。Pipecat會自動處理這個問題。</p>
 
         </div>
         
         <div class="chunk-notes">
           <div class="chunk-footnotes">
             <div class="footnote">
-              <p>[31] Pipecat's standard pipeline configuration combines VAD and transcription events to try to avoid both spurious interruptions and missed utterances.</p>
+              <p>[31] Pipecat的標準管道配置結合了VAD和轉錄事件，以嘗試避免虛假中斷和錯過的話語。</p>
             </div>
             <div class="footnote">
-              <p>[32] <a href="https://dub.sh/voice-agents-030" target="_blank">Pipecat VAD input audio exponential smoothing code</a></p>
+              <p>[32] <a href="https://dub.sh/voice-agents-030" target="_blank">Pipecat VAD輸入音訊指數平滑代碼</a></p>
             </div>
             <div class="footnote">
-              <p>[33] The standard context structure is the user / assistant message list format developed by OpenAI.</p>
+              <p>[33] 標準上下文結構是由OpenAI開發的用戶/助手消息列表格式。</p>
             </div>
           </div>
         </div>
@@ -1647,9 +1591,9 @@ Rules:
 
       <div class="chunk-row">
         <div class="chunk-content">
-          <h2 id="managing-conversation-context">4.9. Managing conversation context</h2>
+          <h2 id="managing-conversation-context">4.9. 管理對話上下文</h2>
             
-            <p>LLMs are stateless. This means that for a multi-turn conversation, you need to feed all of the previous user and agent messages — and other configuration elements — back into the LLM each time you generate a new response.</p>
+            <p>LLM是無狀態的。這意味著對於多輪對話，您需要在每次生成新回應時將所有先前的用戶和代理消息——以及其他配置元素——重新輸入到LLM中。</p>
 
             <pre><code>Turn 1:
   <strong>User:</strong> What's the capital of France?
@@ -1669,16 +1613,16 @@ Turn 3:
   <strong>User:</strong> How tall is it?
   <strong>LLM:</strong> The Eiffel Tower is about 330 meters tall.
 </code></pre>
-<p class="image-caption">Sending the entire conversation history to an LLM every turn.</p>
+<p class="image-caption">每輪向LLM發送整個對話歷史。</p>
               
             
-            <p>For each inference operation — each conversation turn — you can send the LLM:</p>
+            <p>對於每個推理操作——每個對話輪次——您可以向LLM發送：</p>
             
             <ul class="arrow-list">
-              <li>System instructions</li>
-              <li>Conversation messages</li>
-              <li>Tools (functions) for the LLM to use</li>
-              <li>Configuration parameters (for example, temperature)</li>
+              <li>系統指令</li>
+              <li>對話消息</li>
+              <li>LLM可以使用的工具（函數）</li>
+              <li>配置參數（例如，溫度）</li>
             </ul>
 
 
@@ -1689,25 +1633,25 @@ Turn 3:
       
       <div class="chunk-row">
         <div class="chunk-content">
-            <h3 id="differences-between-llm-apis">4.9.1 Differences between LLM APIs</h3>
+            <h3 id="differences-between-llm-apis">4.9.1 LLM API之間的差異</h3>
             
-            <p>This general design is the same for all the major LLMs today.</p>
+            <p>這種一般設計對於今天所有主要的LLM都是相同的。</p>
             
-            <p>But there are differences between the various providers' APIs. OpenAI, Google, and Anthropic all have different message formats, differences in the structure of tools/functions definitions, and differences in how system instructions are specified.</p>
+            <p>但各種提供商的API之間存在差異。OpenAI、Google和Anthropic都有不同的消息格式，工具/函數定義結構的差異，以及系統指令指定方式的差異。</p>
             
-            <p>There are third-party API gateways and software libraries that translate API calls into OpenAI's format. This is valuable, because being able to switch between different LLMs is useful. But these services can't always abstract the differences away properly. New features, and features unique to each API, aren't always supported. (And sometimes there are bugs in the translation layer.)</p>
+            <p>有第三方API網關和軟件庫可以將API調用轉換為OpenAI的格式。這很有價值，因為能夠在不同的LLM之間切換很有用。但這些服務並不總是能夠正確地抽象差異。新功能和每個API獨有的功能並不總是受支持。（有時在轉換層中也有錯誤。）</p>
             
-            <p>To abstract or not to abstract remains a question, in these relatively early days of AI engineering.<sup>[34]</sup></p>
+            <p>在AI工程的這些相對早期階段，是否抽象仍然是一個問題。<sup>[34]</sup></p>
 
-            <p>Pipecat, for example, translates messages to and from OpenAI format for both context messages and tool definitions. But whether and how to do this was a subject of considerable community debate!<sup>[35]</sup></p>
+            <p>例如，Pipecat將上下文消息和工具定義轉換為OpenAI格式並從中轉換。但是否以及如何做到這一點是社區相當大的辯論主題！<sup>[35]</sup></p>
         </div>
         <div class="chunk-notes">
           <div class="chunk-footnotes">
             <div class="footnote">
-              <p>[34] Note to self: ask Claude to come up with a good Hamlet joke – ed.</p>
+              <p>[34] 備註：請Claude想出一個好的哈姆雷特笑話 – 編輯</p>
             </div>
             <div class="footnote">
-              <p>[35] If you're interested in topics like this, please consider joining the <a href="https://discord.gg/pipecat" target="_blank">Pipecat Discord</a> and participating in the conversation there.</p>
+              <p>[35] 如果您對這類話題感興趣，請考慮加入<a href="https://discord.gg/pipecat" target="_blank">Pipecat Discord</a>並參與那裡的對話。</p>
             </div>
           </div>
         </div>
@@ -1715,11 +1659,11 @@ Turn 3:
       
       <div class="chunk-row">
         <div class="chunk-content">
-            <h3 id="modifying-context-between-turns">4.9.2 Modifying the context between turns</h3>
+            <h3 id="modifying-context-between-turns">4.9.2 在輪次之間修改上下文</h3>
             
-            <p>Having to manage multi-turn context adds to the complexity of developing a voice AI agent. On the other hand, it can be useful to retroactively modify the context. For each conversation turn, you can decide exactly what to send the LLM.</p>
+            <p>必須管理多輪上下文增加了開發語音AI代理的複雜性。另一方面，可以追溯性地修改上下文可能很有用。對於每個對話輪次，您可以決定確切要發送給LLM的內容。</p>
             
-            <p>LLMs don't always need the full conversation context. Shortening or summarizing the context can reduce latency, reduce cost, and increase the reliability of a voice AI agent. More on this topic in the <a href="#scripting">Scripting and instruction following</a> section, below.</p>
+            <p>LLM並不總是需要完整的對話上下文。縮短或總結上下文可以減少延遲，降低成本，並提高語音AI代理的可靠性。關於這個主題的更多內容在下面的<a href="#scripting">腳本和指令遵循</a>部分。</p>
 
 
 
@@ -1728,17 +1672,17 @@ Turn 3:
 
       <div class="chunk-row">
         <div class="chunk-content">
-          <h2 id="function-calling">4.10. Function calling</h2>
+          <h2 id="function-calling">4.10. 函數調用</h2>
             
-            <p>Production voice AI agents rely heavily on LLM function calling.</p>
+            <p>生產級語音AI代理嚴重依賴LLM函數調用。</p>
             
-            <p>Function calling is used for:</p>
+            <p>函數調用用於：</p>
             
             <ul class="arrow-list">
-              <li>Fetching information for retrieval augmented generation.</li>
-              <li>Interacting with existing back-end systems and APIs.</li>
-              <li>Integration with telephony tech stacks — call transfers, queuing, sending DTMF tones.</li>
-              <li>Script following – function calls that implement workflow state transitions.</li>
+              <li>獲取信息用於檢索增強生成(RAG)。</li>
+              <li>與現有後端系統和API交互。</li>
+              <li>與電話技術堆棧集成——呼叫轉移、排隊、發送DTMF音調。</li>
+              <li>腳本遵循——實現工作流狀態轉換的函數調用。</li>
             </ul>
             
         </div>
@@ -1746,68 +1690,68 @@ Turn 3:
       
       <div class="chunk-row">
         <div class="chunk-content">
-            <h3 id="function-calling-reliability">4.10.1 Function calling reliability in the voice AI context</h3>
+            <h3 id="function-calling-reliability">4.10.1 語音AI上下文中的函數調用可靠性</h3>
             
-            <p>As voice AI agents are deployed for increasingly complex use cases, reliable function calling has become more and more important.</p>
+            <p>隨著語音AI代理被部署於越來越複雜的用例，可靠的函數調用變得越來越重要。</p>
             
-            <p>SOTA LLMs are getting steadily better at function calling, but voice AI use cases tend to stretch LLM function calling capabilities to their limits.</p>
+            <p>最先進的LLM在函數調用方面正在穩步改進，但語音AI用例往往將LLM函數調用能力推向極限。</p>
             
-            <p>Voice AI agents tend to:</p>
+            <p>語音AI代理傾向於：</p>
             
             <ul class="arrow-list">
-              <li>Use functions in multi-turn conversations. In multi-turn conversations, the prompts develop more and more complexity as user and assistant messages are added every turn. This prompt complexity degrades LLM function calling capabilities.</li>
-              <li>Define multiple functions. It's common to need five or more functions for a voice AI workflow.</li>
-              <li>Call functions several times during a session.</li>
+              <li>在多輪對話中使用函數。在多輪對話中，隨著每輪添加用戶和助手消息，提示會變得越來越複雜。這種提示複雜性降低了LLM函數調用能力。</li>
+              <li>定義多個函數。通常需要五個或更多函數用於語音AI工作流。</li>
+              <li>在一個會話中多次調用函數。</li>
             </ul>
             
-            <p>We heavily test all of the major AI model releases and talk frequently to people who are training these models. It's clear that all of the above attributes are somewhat out of distribution relative to the data used to train current-generation LLMs.</p>
+            <p>我們對所有主要AI模型發布進行了大量測試，並經常與訓練這些模型的人交談。很明顯，上述所有屬性相對於用於訓練當前一代LLM的數據來說都有些偏離分佈。</p>
 
-            <p>This means that current-generation LLMs struggle with voice AI use cases even when they do well on general function calling benchmarks. Different LLMs and different updates of the same model are differentially good at function calling, and differently good at different kinds of function calling in different circumstances.</p>
+            <p>這意味著即使當前一代LLM在一般函數調用基準上表現良好，它們也會在語音AI用例中遇到困難。不同的LLM和同一模型的不同更新在函數調用方面的表現各不相同，在不同情況下對不同類型的函數調用的表現也各不相同。</p>
             
-            <p id="function-calling-eval"><strong>If you are building voice AI agents, it's important to develop your own evals to test the function calling performance of your app. See the <a href="#evals">Voice AI Evals</a> section, below.</strong></p>
+            <p id="function-calling-eval"><strong>如果您正在構建語音AI代理，開發自己的評估來測試應用程序的函數調用性能很重要。請參閱下面的<a href="#evals">語音AI評估</a>部分。</strong></p>
             
         </div>
       </div>
       
       <div class="chunk-row">
         <div class="chunk-content">
-            <h3 id="latency-function-calls">4.10.2 Function call latency</h3>
+            <h3 id="latency-function-calls">4.10.2 函數調用延遲</h3>
             
-            <p>Function calls add latency — potentially a lot of latency — for four reasons:</p>
+            <p>函數調用會增加延遲——可能是很大的延遲——有四個原因：</p>
             
             <ol class="list-decimal">
-              <li>When the LLM decides a function call is necessary, it outputs a function call request message. Your code then does whatever it does for the particular function requested, then calls inference again with the same context plus a function call result message. So any time a function is called, you have to do two inference calls instead of one.</li>
-              <li>The function call request can't be streamed. We need the entire function call request message before we can execute the function call.</li>
-              <li>Adding function definitions to a prompt can increase latency. This is a bit nebulous; it would be good to develop latency-oriented evals specifically to measure additional latency from adding function definitions to a prompt. But it's clear that some APIs, at least some of the time, have higher median TTFTs when tool use is enabled, whether functions are actually called or not.</li>
-              <li>Your functions may be slow! If you are interfacing with a legacy back-end system, your function may take a long time to return.</li>
+              <li>當LLM決定需要函數調用時，它會輸出函數調用請求消息。然後您的代碼為特定請求的函數執行操作，然後再次使用相同的上下文加上函數調用結果消息進行推理。所以每次調用函數時，您必須進行兩次推理調用而不是一次。</li>
+              <li>函數調用請求不能被流式傳輸。我們需要整個函數調用請求消息才能執行函數調用。</li>
+              <li>向提示添加函數定義可能會增加延遲。這有點模糊；開發專門針對延遲的評估來測量向提示添加函數定義的額外延遲會很好。但很明顯，至少有些API在某些時候，無論是否實際調用函數，在啟用工具使用時都有更高的中位數TTFT。</li>
+              <li>您的函數可能很慢！如果您正在與遺留後端系統交互，您的函數可能需要很長時間才能返回。</li>
             </ol>
             
-            <p>You need to provide fairly quick audio feedback each time a user finishes speaking. If you know that your function calls might take a long time to return, you probably want to output speech telling the user what's happening and asking them to wait.</p>
+            <p>每次用戶說完話，您都需要提供相當快的音訊反饋。如果您知道您的函數調用可能需要很長時間才能返回，您可能想要輸出語音告訴用戶發生了什麼並請他們等待。</p>
 
           </div>
           <div class="chunk-notes">
             <div class="chapter-image-positioned" data-align-with="function-calling-eval">
-              <img src="images/4ad.svg" alt="TTFT for inference that includes a function call" class="latency-image" width="100%">
-              <p class="image-caption">TTFT for inference that includes a function call. LLM TTFT is 450ms and throughput is 100 tokens per second. If the function call request chunk is 100 tokens, it takes 1s to output the function call request. Then we execute the function and run inference again. This time, we can stream the output, so after 450ms we have the first tokens we can use. TTFT for the full inference is 1,450ms (not including the time it takes to execute the function itself ).</p>
+              <img src="images/4ad.svg" alt="包含函數調用的推理的TTFT" class="latency-image" width="100%">
+              <p class="image-caption">包含函數調用的推理的TTFT。LLM TTFT為450毫秒，吞吐量為每秒100個標記。如果函數調用請求塊為100個標記，則輸出函數調用請求需要1秒。然後我們執行函數並再次運行推理。這次，我們可以流式傳輸輸出，所以450毫秒後我們有了可以使用的第一個標記。完整推理的TTFT為1,450毫秒（不包括執行函數本身所需的時間）。</p>
             </div>
           </div>
         </div>
       <div class="chunk-row">
         <div class="chunk-content">
             
-            <p>You can either:</p>
+            <p>您可以：</p>
             
             <ul class="arrow-list">
-              <li>Always output a message before executing the function call. "Please wait while I do X for you …"</li>
-              <li>Set a watchdog timer, and output a message only if the function call loop hasn't completed before the timer fires. "Still working on this, please wait just another moment …"</li>
+              <li>在執行函數調用之前始終輸出消息。「請稍等，我正在為您執行X...」</li>
+              <li>設置看門狗計時器，只有在函數調用循環在計時器觸發前未完成時才輸出消息。「仍在處理中，請再等一會兒...」</li>
             </ul>
             
-            <p>Or both, of course. And you can play background music while executing long-running function calls.<sup>[36]</sup></p>
+            <p>當然，也可以兩者都用。而且您可以在執行長時間運行的函數調用時播放背景音樂。<sup>[36]</sup></p>
         </div>
         <div class="chunk-notes">
           <div class="chunk-footnotes">
             <div class="footnote">
-              <p>[36] Not the Jeopardy theme song though, please.</p>
+              <p>[36] 不過請不要用Jeopardy主題曲。</p>
             </div>
           </div>
         </div>
@@ -1815,50 +1759,50 @@ Turn 3:
       
       <div class="chunk-row">
         <div class="chunk-content">
-            <h3 id="handling-interruptions">4.10.3 Handling interruptions</h3>
+            <h3 id="handling-interruptions">4.10.3 處理中斷</h3>
             
-            <p>LLMs are trained to expect function call request messages and function call response messages as matched pairs.</p>
+            <p>LLM被訓練為期望函數調用請求消息和函數調用響應消息作為匹配的對。</p>
             
-            <p>This means that:</p>
+            <p>這意味著：</p>
             
             <ol class="list-decimal">
-              <li>You need to stop your voice-to-voice inference loop until all function calls complete. See below for notes on <a href="#async-function-calls">Asynchronous function calls</a>.</li>
-              <li>If a function call is interrupted and will never complete, you need to put a function call response message into the context that indicates … something.</li>
+              <li>您需要停止您的語音到語音推理循環，直到所有函數調用完成。請參閱下面關於<a href="#async-function-calls">異步函數調用</a>的說明。</li>
+              <li>如果函數調用被中斷且永遠不會完成，您需要在上下文中放入一個函數調用響應消息，表明...某些內容。</li>
             </ol>
             
-            <p><strong>The rule here is that if the LLM calls a function, you need to put a request/response pair of messages into the context.</strong></p>
+            <p><strong>這裡的規則是，如果LLM調用函數，您需要在上下文中放入一對請求/響應消息。</strong></p>
             
             <ul class="arrow-list">
-              <li>If you put a dangling function call request message into the context and then continue the multi-turn conversation, you are creating a context that diverges from how the LLM was trained. (Some APIs will not allow this.)</li>
-              <li>If you don't put a request/response pair into the context at all, you are teaching the LLM (via in-context learning) not to call the function.<sup>[37]</sup> Again, the results are unpredictable and probably not what you want.</li>
+              <li>如果您在上下文中放入一個懸而未決的函數調用請求消息，然後繼續多輪對話，您正在創建一個與LLM訓練方式不同的上下文。（有些API不允許這樣做。）</li>
+              <li>如果您根本不在上下文中放入請求/響應對，您就是在教LLM（通過上下文學習）不要調用該函數。<sup>[37]</sup>同樣，結果是不可預測的，可能不是您想要的。</li>
             </ul>
         </div>
         <div class="chunk-notes">
           <div class="chunk-footnotes">
             <div class="footnote">
-              <p>[37] See the paper, <a href="https://arxiv.org/abs/2005.14165" target="_blank">Language Models are Few-Shot Learners</a>.</p>
+              <p>[37] 參見論文，<a href="https://arxiv.org/abs/2005.14165" target="_blank">語言模型是少樣本學習者</a>。</p>
             </div>
           </div>
         </div>
       </div>
       <div class="chunk-row">
         <div class="chunk-content">
-            <p>Pipecat helps you follow these context management rules by inserting a request/response message pair into the context whenever a function call is initiated. (Of course, you can override this behavior and manage function call context messages directly.)</p>
+            <p>Pipecat通過在每次啟動函數調用時將請求/響應消息對插入上下文來幫助您遵循這些上下文管理規則。（當然，您可以覆蓋此行為並直接管理函數調用上下文消息。）</p>
             
-            <p>Here's what the pattern looks like, for function calls that are configured in two different ways: run-to-completion and interruptible.</p>
+            <p>以下是這種模式的樣子，用於以兩種不同方式配置的函數調用：運行至完成和可中斷。</p>
             
             <pre><code><strong>User:</strong>  Please look up the price of 1000 widgets.
 <strong>LLM:</strong> Please wait while I look up the price for 1000 widgets. 
 <strong>function call request:</strong> { name: "price_lookup", args: { item: "widget", quantity: 1000 } }
 <strong>function call response:</strong> { status: IN_PROGRESS }
 </code></pre>
-<p class="image-caption">Initial context messages. A function call request message and a function call response placeholder.</p>
+<p class="image-caption">初始上下文消息。函數調用請求消息和函數調用響應佔位符。</p>
 
             <pre><code><strong>User:</strong>  Please look up the price of 1000 widgets.
 <strong>function call request:</strong> { name: "price_lookup", args: { item: "widget", quantity: 1000 } }
 <strong>function call response:</strong> { result: { price: 12.35 } }
 </code></pre>
-<p class="image-caption">Context when the function call completes.</p>
+<p class="image-caption">函數調用完成時的上下文。</p>
 
             <pre><code><strong>User:</strong>  Please look up the price of 1000 widgets.
 <strong>LLM:</strong> Please wait while I look up the price for 1000 widgets. 
@@ -1870,7 +1814,7 @@ Turn 3:
 <strong>function call request:</strong> { name: "price_lookup", args: { item: "pre_assembled_module", quantity: 1000 } }
 <strong>function call response:</strong> { status: IN_PROGRESS }
 </code></pre>
-<p class="image-caption">Placeholders allow the conversation to continue while function calls run, without "confusing" the LLM.
+<p class="image-caption">佔位符允許對話在函數調用運行時繼續進行，而不會「混淆」LLM。
 </p>
 
             <pre><code><strong>User:</strong>  "Please look up the price of 1000 widgets."
@@ -1883,7 +1827,7 @@ Turn 3:
 <strong>function call request:</strong> { name: "price_lookup", args: { item: "pre_assembled_module", quantity: 1000 } }
 <strong>function call response:</strong> { status: IN_PROGRESS }
 </code></pre>
-<p class="image-caption">If the function call is configured as <strong>interruptible</strong>, it will be canceled if the User speaks while the function call is in progress.</p>
+<p class="image-caption">如果函數調用配置為<strong>可中斷</strong>，則如果用戶在函數調用進行中說話，它將被取消。</p>
             
 
 
@@ -1892,17 +1836,16 @@ Turn 3:
       
       <div class="chunk-row">
         <div class="chunk-content">
-            <h3 id="streaming-mode">4.10.4 Streaming mode and function call chunks</h3>
+            <h3 id="streaming-mode">4.10.4 流式模式和函數調用塊</h3>
             
-            <p>In voice AI agent code, you almost always execute conversation inference calls in streaming mode. This gives you the first few content chunks as quickly as possible, which is important for voice-to-voice response latency.</p>
+            <p>在語音AI代理代碼中，您幾乎總是在流式模式下執行對話推理調用。這使您能夠盡快獲得前幾個內容塊，這對於語音到語音響應延遲很重要。</p>
             
-            <p>Streaming mode and function calling make for an awkward pairing, though. Streaming isn't helpful for function call chunks. You can't call a function until you've assembled the LLM's complete function call request message.<sup>[38]</sup></p>
+            <p>然而，流式模式和函數調用是一個尷尬的組合。流式傳輸對函數調用塊沒有幫助。在組裝完LLM的完整函數調用請求消息之前，您無法調用函數。<sup>[38]</sup></p>
         </div>
         <div class="chunk-notes">
           <div class="chunk-footnotes">
             <div class="footnote">
-              <p>[38] If you’re using an AI framework, the framework probably hides this complexity
-                from you.</p>
+              <p>[38] 如果您使用的是AI框架，該框架可能會對您隱藏這種複雜性。</p>
             </div>
           </div>
         </div>
@@ -1911,33 +1854,33 @@ Turn 3:
       <div class="chunk-row">
         <div class="chunk-content">
             
-            <p>Here's some feedback for inference providers as they continue to evolve their APIs: please offer a mode that delivers function call chunks atomically, and isolated from any streamed content chunks. This would significantly reduce the complexity of code that uses LLM provider APIs.</p>
+            <p>以下是對推理提供商在繼續發展其API時的一些反饋：請提供一種模式，可以原子地傳遞函數調用塊，並與任何流式內容塊隔離。這將顯著降低使用LLM提供商API的代碼的複雜性。</p>
             
           </div>
         </div>
 
       <div class="chunk-row">
         <div class="chunk-content">
-            <h3 id="execute-function-calls">4.10.5 How and where to execute function calls</h3>
+            <h3 id="execute-function-calls">4.10.5 如何以及在哪裡執行函數調用</h3>
             
-            <p>When the LLM emits a function call request, what do you do? Here are some commonly used patterns:</p>
+            <p>當LLM發出函數調用請求時，您該怎麼做？以下是一些常用的模式：</p>
             
             <ul class="arrow-list">
-              <li>Execute a function call with the same name as the requested function, directly in your code. This is what you see in almost every LLM function calling docs example.</li>
-              <li>Map the request to an operation, based on arguments and context. Think of this as asking the LLM to do a generic function call, which you disambiguate in your code. The advantage of this pattern is that LLMs are usually better at function calling if you give them a small number of functions to choose between.<sup>[39]</sup></li>
-              <li>Proxy the function call to the client. This pattern is available to you in an application (not telephony) context. For example, imagine a get_location() function. You want the current location of the user's device, so you need to hook into the geo lookup API on that device.</li>
-              <li>Proxy the function call to a network endpoint. This is often a particularly useful pattern in enterprise contexts. Define a set of functions that interact with internal APIs. Then create an abstraction in your code that executes these function calls as HTTP requests.</li>
+              <li>直接在您的代碼中執行與請求函數同名的函數調用。這是您在幾乎所有LLM函數調用文檔示例中看到的內容。</li>
+              <li>根據參數和上下文將請求映射到操作。將此視為要求LLM進行通用函數調用，您在代碼中進行消歧。這種模式的優點是，如果您給LLM提供少量函數選擇，LLM通常在函數調用方面表現更好。<sup>[39]</sup></li>
+              <li>將函數調用代理到客戶端。這種模式在應用程序（非電話）上下文中可用。例如，想像一個get_location()函數。您想要用戶設備的當前位置，因此您需要連接到該設備上的地理查詢API。</li>
+              <li>將函數調用代理到網絡端點。這在企業環境中通常是一種特別有用的模式。定義一組與內部API交互的函數。然後在您的代碼中創建一個抽象，將這些函數調用作為HTTP請求執行。</li>
             </ul>
           </div>
           <div class="chunk-notes">
             <div class="chunk-footnotes">
               <div class="footnote">
-                <p>[39] Think of function call as a capacious category, here — function in the formal rather than colloquial sense. You can return a value from a lookup table. You can run a SQL query.</p>
+                <p>[39] 在這裡將函數調用視為一個寬泛的類別——形式上而非口語上的函數。您可以從查找表返回值。您可以運行SQL查詢。</p>
               </div>
             </div>
             <div class="chapter-image">
               <img src="images/4ae.svg" width="100%">
-              <p class="image-caption">Function calling patterns</p>
+              <p class="image-caption">函數調用模式</p>
             </div>
           </div>
 
@@ -1946,21 +1889,21 @@ Turn 3:
       
       <div class="chunk-row">
         <div class="chunk-content">
-            <h3 id="async-function-calls">4.10.6 Asynchronous function calls</h3>
+            <h3 id="async-function-calls">4.10.6 異步函數調用</h3>
             
-            <p>Sometimes you don't want to return from a function call right away. You know your function will take an unpredictably long time to complete. Maybe it won't complete at all. Maybe you even want to kick off a long-running process that can add to the context in an open-ended way over time.</p>
+            <p>有時您不想立即從函數調用返回。您知道您的函數將需要不可預測的長時間才能完成。也許它根本不會完成。也許您甚至想啟動一個長時間運行的進程，可以隨時間在上下文中添加內容。</p>
             
-            <p>Imagine a walking tour app that lets the user express interest in things they might see during the tour. "If we pass by any places where famous writers have lived, I'd particularly like to hear about those." One nice architecture for this would be for the LLM to call a function whenever a user expresses a specific interest. That function would start a background process, injecting information into the context when anything relevant to the interest is found.</p>
+            <p>想像一個步行旅遊應用程序，讓用戶表達對他們在旅途中可能看到的事物的興趣。「如果我們經過任何著名作家居住過的地方，我特別想聽聽這些。」這種架構的一個很好的方式是讓LLM在用戶表達特定興趣時調用函數。該函數將啟動一個後台進程，在找到與興趣相關的任何內容時將信息注入上下文。</p>
             
-            <p><strong>You can't do this directly, today, using LLM function calling. Function call request/response messages have to appear together in the context.</strong></p>
+            <p><strong>目前使用LLM函數調用無法直接實現這點。函數調用的請求/回應訊息必須一起出現在上下文中。</strong></p>
             
-            <p>So instead of defining a function with this shape:</p>
+            <p>所以與其定義一個這樣形狀的函數：</p>
             
             <ul class="arrow-list">
               <li><pre><code>register_interest_generator(interest: string) -> Iterator[Message]</code></pre></li>
             </ul>
             
-            <p>You need to do something like this:</p>
+            <p>你需要做類似這樣的事情：</p>
             
             <ul class="arrow-list">
               <li><pre><code>create_interest_task_and_return_success_immediately
@@ -1968,9 +1911,9 @@ Turn 3:
     Literal["in_progress", "canceled", "success", "failure"]</code></pre></li>
             </ul>
             
-            <p>For more discussion of this topic, see the <a href="#async-inference-tasks">Performing async inference tasks</a> section, below.</p>
+            <p>關於這個主題的更多討論，請參閱下方的<a href="#async-inference-tasks">執行非同步推理任務</a>部分。</p>
             
-            <p>As LLMs and APIs evolve to better support multimodal conversational use cases, we'd love to see LLM researchers explore ideas around asynchronous functions and long-running functions that act as generators.</p>
+            <p>隨著LLM和API不斷發展以更好地支援多模態對話使用場景，我們希望看到LLM研究人員探索圍繞非同步函數和作為生成器的長時間運行函數的想法。</p>
             
         </div>
       </div>
