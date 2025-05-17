@@ -1796,13 +1796,13 @@ Turn 3:
 <strong>function call request:</strong> { name: "price_lookup", args: { item: "widget", quantity: 1000 } }
 <strong>function call response:</strong> { status: IN_PROGRESS }
 </code></pre>
-<p class="image-caption">初始上下文消息。函數調用請求消息和函數調用響應佔位符。</p>
+<p class="image-caption">初始上下文訊息。函數呼叫請求訊息和函數呼叫回應佔位符。</p>
 
             <pre><code><strong>User:</strong>  Please look up the price of 1000 widgets.
 <strong>function call request:</strong> { name: "price_lookup", args: { item: "widget", quantity: 1000 } }
 <strong>function call response:</strong> { result: { price: 12.35 } }
 </code></pre>
-<p class="image-caption">函數調用完成時的上下文。</p>
+<p class="image-caption">函數呼叫完成時的上下文。</p>
 
             <pre><code><strong>User:</strong>  Please look up the price of 1000 widgets.
 <strong>LLM:</strong> Please wait while I look up the price for 1000 widgets. 
@@ -1814,7 +1814,7 @@ Turn 3:
 <strong>function call request:</strong> { name: "price_lookup", args: { item: "pre_assembled_module", quantity: 1000 } }
 <strong>function call response:</strong> { status: IN_PROGRESS }
 </code></pre>
-<p class="image-caption">佔位符允許對話在函數調用運行時繼續進行，而不會「混淆」LLM。
+<p class="image-caption">佔位符允許對話在函數呼叫運行時繼續進行，而不會「混淆」LLM。
 </p>
 
             <pre><code><strong>User:</strong>  "Please look up the price of 1000 widgets."
@@ -1827,7 +1827,7 @@ Turn 3:
 <strong>function call request:</strong> { name: "price_lookup", args: { item: "pre_assembled_module", quantity: 1000 } }
 <strong>function call response:</strong> { status: IN_PROGRESS }
 </code></pre>
-<p class="image-caption">如果函數調用配置為<strong>可中斷</strong>，則如果用戶在函數調用進行中說話，它將被取消。</p>
+<p class="image-caption">如果函數呼叫配置為<strong>可中斷</strong>，則如果使用者在函數呼叫進行中說話，它將被取消。</p>
             
 
 
@@ -1836,11 +1836,11 @@ Turn 3:
       
       <div class="chunk-row">
         <div class="chunk-content">
-            <h3 id="streaming-mode">4.10.4 流式模式和函數調用塊</h3>
+            <h3 id="streaming-mode">4.10.4 流式模式和函數呼叫區塊</h3>
             
-            <p>在語音AI代理代碼中，您幾乎總是在流式模式下執行對話推理調用。這使您能夠盡快獲得前幾個內容塊，這對於語音到語音響應延遲很重要。</p>
+            <p>在語音AI代理程式碼中，您幾乎總是在流式模式下執行對話推理呼叫。這使您能夠盡快獲得前幾個內容區塊，這對於語音到語音回應延遲很重要。</p>
             
-            <p>然而，流式模式和函數調用是一個尷尬的組合。流式傳輸對函數調用塊沒有幫助。在組裝完LLM的完整函數調用請求消息之前，您無法調用函數。<sup>[38]</sup></p>
+            <p>然而，流式模式和函數呼叫是一個尷尬的組合。流式傳輸對函數呼叫區塊沒有幫助。在組裝完LLM的完整函數呼叫請求訊息之前，您無法呼叫函數。<sup>[38]</sup></p>
         </div>
         <div class="chunk-notes">
           <div class="chunk-footnotes">
@@ -1854,33 +1854,33 @@ Turn 3:
       <div class="chunk-row">
         <div class="chunk-content">
             
-            <p>以下是對推理提供商在繼續發展其API時的一些反饋：請提供一種模式，可以原子地傳遞函數調用塊，並與任何流式內容塊隔離。這將顯著降低使用LLM提供商API的代碼的複雜性。</p>
+            <p>以下是對推理提供商在繼續發展其API時的一些反饋：請提供一種模式，可以原子地傳遞函數呼叫區塊，並與任何流式內容區塊隔離。這將顯著降低使用LLM提供商API的程式碼的複雜性。</p>
             
           </div>
         </div>
 
       <div class="chunk-row">
         <div class="chunk-content">
-            <h3 id="execute-function-calls">4.10.5 如何以及在哪裡執行函數調用</h3>
+            <h3 id="execute-function-calls">4.10.5 如何以及在哪裡執行函數呼叫</h3>
             
-            <p>當LLM發出函數調用請求時，您該怎麼做？以下是一些常用的模式：</p>
+            <p>當LLM發出函數呼叫請求時，您該怎麼做？以下是一些常用的模式：</p>
             
             <ul class="arrow-list">
-              <li>直接在您的代碼中執行與請求函數同名的函數調用。這是您在幾乎所有LLM函數調用文檔示例中看到的內容。</li>
-              <li>根據參數和上下文將請求映射到操作。將此視為要求LLM進行通用函數調用，您在代碼中進行消歧。這種模式的優點是，如果您給LLM提供少量函數選擇，LLM通常在函數調用方面表現更好。<sup>[39]</sup></li>
-              <li>將函數調用代理到客戶端。這種模式在應用程序（非電話）上下文中可用。例如，想像一個get_location()函數。您想要用戶設備的當前位置，因此您需要連接到該設備上的地理查詢API。</li>
-              <li>將函數調用代理到網絡端點。這在企業環境中通常是一種特別有用的模式。定義一組與內部API交互的函數。然後在您的代碼中創建一個抽象，將這些函數調用作為HTTP請求執行。</li>
+              <li>直接在您的程式碼中執行與請求函數同名的函數呼叫。這是您在幾乎所有LLM函數呼叫文件示例中看到的內容。</li>
+              <li>根據參數和上下文將請求映射到操作。將此視為要求LLM進行通用函數呼叫，您在程式碼中進行消歧。這種模式的優點是，如果您給LLM提供少量函數選擇，LLM通常在函數呼叫方面表現更好。<sup>[39]</sup></li>
+              <li>將函數呼叫代理到客戶端。這種模式在應用程式（非電話）上下文中可用。例如，想像一個get_location()函數。您想要使用者設備的當前位置，因此您需要連接到該設備上的地理查詢API。</li>
+              <li>將函數呼叫代理到網路端點。這在企業環境中通常是一種特別有用的模式。定義一組與內部API互動的函數。然後在您的程式碼中創建一個抽象，將這些函數呼叫作為HTTP請求執行。</li>
             </ul>
           </div>
           <div class="chunk-notes">
             <div class="chunk-footnotes">
               <div class="footnote">
-                <p>[39] 在這裡將函數調用視為一個寬泛的類別——形式上而非口語上的函數。您可以從查找表返回值。您可以運行SQL查詢。</p>
+                <p>[39] 在這裡將函數呼叫視為一個寬泛的類別——形式上而非口語上的函數。您可以從查找表返回值。您可以運行SQL查詢。</p>
               </div>
             </div>
             <div class="chapter-image">
               <img src="images/4ae.svg" width="100%">
-              <p class="image-caption">函數調用模式</p>
+              <p class="image-caption">函數呼叫模式</p>
             </div>
           </div>
 
@@ -1889,13 +1889,13 @@ Turn 3:
       
       <div class="chunk-row">
         <div class="chunk-content">
-            <h3 id="async-function-calls">4.10.6 異步函數調用</h3>
+            <h3 id="async-function-calls">4.10.6 非同步函數呼叫</h3>
             
-            <p>有時您不想立即從函數調用返回。您知道您的函數將需要不可預測的長時間才能完成。也許它根本不會完成。也許您甚至想啟動一個長時間運行的進程，可以隨時間在上下文中添加內容。</p>
+            <p>有時您不想立即從函數呼叫返回。您知道您的函數將需要不可預測的長時間才能完成。也許它根本不會完成。也許您甚至想啟動一個長時間運行的進程，可以隨時間在上下文中添加內容。</p>
             
-            <p>想像一個步行旅遊應用程序，讓用戶表達對他們在旅途中可能看到的事物的興趣。「如果我們經過任何著名作家居住過的地方，我特別想聽聽這些。」這種架構的一個很好的方式是讓LLM在用戶表達特定興趣時調用函數。該函數將啟動一個後台進程，在找到與興趣相關的任何內容時將信息注入上下文。</p>
+            <p>想像一個步行旅遊應用程式，讓使用者表達對他們在旅途中可能看到的事物的興趣。「如果我們經過任何著名作家居住過的地方，我特別想聽聽這些。」這種架構的一個很好的方式是讓LLM在使用者表達特定興趣時呼叫函數。該函數將啟動一個背景進程，在找到與興趣相關的任何內容時將資訊注入上下文。</p>
             
-            <p><strong>目前使用LLM函數調用無法直接實現這點。函數調用的請求/回應訊息必須一起出現在上下文中。</strong></p>
+            <p><strong>目前使用LLM函數呼叫無法直接實現這點。函數呼叫的請求/回應訊息必須一起出現在上下文中。</strong></p>
             
             <p>所以與其定義一個這樣形狀的函數：</p>
             
@@ -1920,17 +1920,17 @@ Turn 3:
       
       <div class="chunk-row">
         <div class="chunk-content">
-            <h3 id="parallel-composite-function-calling">4.10.7 Parallel and composite function calling</h3>
+            <h3 id="parallel-composite-function-calling">4.10.7 平行和複合函數呼叫</h3>
             
-            <p><em>Parallel function calling</em> means that the LLM can request multiple function calls in a single inference response. <em>Composite function calling</em> means that the LLM can flexibly call several functions in a row, chaining functions together to perform complex operations.</p>
+            <p><em>平行函數呼叫</em>意味著LLM可以在單一推理回應中請求多個函數呼叫。<em>複合函數呼叫</em>意味著LLM可以靈活地連續呼叫多個函數，將函數串聯在一起以執行複雜操作。</p>
             
-            <p>These are exciting capabilities!</p>
+            <p>這些都是令人興奮的功能！</p>
             
-            <p>But they also add to the variability of voice agent behavior. Which means you need to develop evals and monitoring that tests whether parallel and composite function calling is working as expected in real-world conversations.</p>
+            <p>但它們也增加了語音代理行為的變異性。這意味著您需要開發評估和監控，以測試平行和複合函數呼叫在實際對話中是否按預期工作。</p>
             
-            <p>Handling parallel function calling makes your agent code more complex. We often recommend that people disable parallel function calling unless there is a specific use for it.</p>
+            <p>處理平行函數呼叫會使您的代理程式碼更加複雜。我們通常建議人們禁用平行函數呼叫，除非有特定用途。</p>
             
-            <p>Composite function calling feels like magic when it works well. One of our favorite early glimpses of composite function calling was seeing Claude Sonnet 3.5 chain together functions to load resources from files based on filename and timestamp.</p>
+            <p>當複合函數呼叫運作良好時，感覺就像魔法一樣。我們最喜歡的複合函數呼叫早期案例之一是看到Claude Sonnet 3.5將函數串聯在一起，根據檔案名稱和時間戳從檔案中載入資源。</p>
             
             <pre><code><strong>User:</strong> Claude, load the most recent picture I have of the Eiffel Tower.
 <strong>function call request:</strong> &lt;list_files()&gt;
@@ -1941,41 +1941,41 @@ Turn 3:
 <strong>LLM:</strong> I have loaded an image of the Eiffel Tower. The image shows the Eiffel
 Tower on a cloudy day.
 </code></pre>
-            <p class="image-caption">The LLM figures out how to chain two functions – <strong> list_files()</strong> and <strong>load_resource()</strong> – to respond to a specific instruction. The two functions are described in a tools list. But this chaining behavior is not prompted for.</p>
+            <p class="image-caption">LLM找出如何將兩個函數 – <strong>list_files()</strong> 和 <strong>load_resource()</strong> – 串聯起來，以回應特定指令。這兩個函數在工具列表中有描述。但這種串聯行為並非透過提示來實現的。</p>
             
-            <p>Composite function calling is a relatively new capability of SOTA LLMs. Performance is "jagged" – surprisingly good, but frustratingly inconsistent.</p>
+            <p>複合函數呼叫是SOTA LLM的相對較新功能。性能是「參差不齊的」– 令人驚訝地好，但又令人沮喪地不一致。</p>
 
         </div>
       </div>
 
       <div class="chunk-row">
         <div class="chunk-content">
-          <h2 id="multimodality">4.11. Multimodality</h2>
+          <h2 id="multimodality">4.11. 多模態性</h2>
             
-            <p>LLMs now consume and produce audio, images, and video in addition to text.</p>
+            <p>LLM現在除了文字外，還可以處理和生成音訊、圖像和影片。</p>
             
-            <p>We talked earlier about <a href="#speech-to-speech">speech-to-speech models</a>. These are models capable of taking audio as input and producing audio as output.</p>
+            <p>我們之前談到了<a href="#speech-to-speech">語音到語音模型</a>。這些是能夠接收音訊輸入並產生音訊輸出的模型。</p>
             
-            <p>The multimodal capabilities of SOTA models are advancing rapidly.</p>
+            <p>SOTA模型的多模態能力正在迅速發展。</p>
             
-            <p>GPT-4o, Gemini Flash, and Claude Sonnet all have very good vision capabilities – they all accept images as input. Vision support in these models started out focused on describing the image content and transcribing text that appears in images. Capabilities expand with each release. Counting objects, identifying bounding boxes, and better understanding of the relationship between objects in an image are all useful abilities that are available in newer releases.</p>
+            <p>GPT-4o、Gemini Flash和Claude Sonnet都具有非常好的視覺能力 – 它們都接受圖像作為輸入。這些模型的視覺支援最初專注於描述圖像內容和轉錄圖像中出現的文字。每次發布都會擴展功能。計數物體、識別邊界框以及更好地理解圖像中物體之間關係的能力都是較新版本中可用的有用功能。</p>
             
-            <p>Gemini Flash can do inference on video input, including understanding both video and audio tracks.<sup>[40]</sup></p>
+            <p>Gemini Flash可以對影片輸入進行推理，包括理解影片和音訊軌道。<sup>[40]</sup></p>
             
-            <p>One interesting new class of voice-enabled applications is the assistant that can "see" your screen and help perform tasks on your local machine or a web browser. A number of people have built scaffolding for voice driven web browsing.</p>
+            <p>一類有趣的新型語音啟用應用程式是可以「看到」您的螢幕並幫助在本地機器或網頁瀏覽器上執行任務的助手。許多人已經建立了語音驅動網頁瀏覽的框架。</p>
             
-            <p>Several programmers we know talk as much as they type, these days. It's fairly easy to wire up voice input to drive Cursor or Windsurf.<sup>[41]</sup> It's also possible to wire up screen capture so your AI programming assistant can see exactly what you see – code in your editor, UI state of the web app you're building, a Python stacktrace in your terminal. This kind of fully multimodal AI programming assistant feels like another of the glimpses of the future we've talked about throughout this document.<sup>[42]</sup></p>
+            <p>我們認識的幾位程式設計師現在說話的時間和打字一樣多。將語音輸入連接到Cursor或Windsurf相當容易。<sup>[41]</sup>也可以連接螢幕截圖，讓您的AI程式設計助手能夠確切看到您所看到的內容 – 編輯器中的程式碼、您正在構建的網頁應用程式的UI狀態、終端機中的Python堆疊追蹤。這種完全多模態的AI程式設計助手感覺像是我們在本文中談到的未來的另一個縮影。<sup>[42]</sup></p>
         </div>
         <div class="chunk-notes">
           <div class="chunk-footnotes">
             <div class="footnote">
-              <p>[40] You can process video with both GPT-4o and Claude by extracting individual frames from video and embedding those frames in the context as images. This approach has limitations, but works well for some "video" use cases.</p>
+              <p>[40] 您可以通過從影片中提取個別幀並將這些幀作為圖像嵌入上下文中，使用GPT-4o和Claude處理影片。這種方法有局限性，但對某些「影片」用例效果良好。</p>
             </div>
             <div class="footnote">
-              <p>[41] Two popular new programming editors with deep AI integration and tooling.</p>
+              <p>[41] 兩個流行的新程式設計編輯器，具有深度AI整合和工具。</p>
             </div>
             <div class="footnote">
-              <p>[42] See swyx's talk at OpenAI Dev Day 2024 Singapore,  <a href="https://dub.sh/voice-agents-040" target="_blank">"Engineering AI Agents"</a>.</p>
+              <p>[42] 參見swyx在OpenAI Dev Day 2024新加坡的演講，<a href="https://dub.sh/voice-agents-040" target="_blank">「工程AI代理」</a>。</p>
             </div>
           </div>
         </div>
@@ -1984,52 +1984,52 @@ Tower on a cloudy day.
       <div class="chunk-row">
         <div class="chunk-content">
             
-            <p>Right now, all the SOTA models support multimodality in different combinations.</p>
+            <p>目前，所有SOTA模型以不同組合支援多模態性。</p>
             
             <ul class="arrow-list">
-              <li>GPT-4o (gpt-4o-2024-08-06) has text and image input, and text output.</li>
-              <li>gpt-4o-audio-preview has text and audio input, and text and audio output. (No image input.)</li>
-              <li>Gemini Flash has text, audio, image, and video input, but only text output.</li>
-              <li>OpenAI's new speech-to-text and text-to-speech models are fully steerable and built on the gpt-4o foundation, but are specialized for converting between text and audio: gpt-4o-transcribe, gpt-4o-mini-transcribe, and gpt-4o-mini-tts. </li>
+              <li>GPT-4o (gpt-4o-2024-08-06) 具有文字和圖像輸入，以及文字輸出。</li>
+              <li>gpt-4o-audio-preview 具有文字和音訊輸入，以及文字和音訊輸出。（沒有圖像輸入。）</li>
+              <li>Gemini Flash 具有文字、音訊、圖像和影片輸入，但只有文字輸出。</li>
+              <li>OpenAI的新語音轉文字和文字轉語音模型完全可控且建立在gpt-4o基礎上，但專門用於文字和音訊之間的轉換：gpt-4o-transcribe、gpt-4o-mini-transcribe和gpt-4o-mini-tts。</li>
             </ul>
             
-            <p>Multimodal support is evolving rapidly, and we expect the above list to be out of date soon!</p>
+            <p>多模態支援正在迅速發展，我們預計上述列表很快就會過時！</p>
             
-            <p>For voice AI, the biggest challenge with multimodality is that audio and images use a lot of tokens, and more tokens mean higher latency.</p>
+            <p>對於語音AI，多模態性最大的挑戰是音訊和圖像使用大量token，而更多token意味著更高的延遲。</p>
             
             <table class="data-table">
               <tr>
-                <th>Example media</th>
-                <th>Approximate token count</th>
+                <th>範例媒體</th>
+                <th>大約token數量</th>
               </tr>
               <tr>
-                <td>One minute of speech audio as text</td>
+                <td>一分鐘語音音訊轉為文字</td>
                 <td>150</td>
               </tr>
               <tr>
-                <td>One minute of speech audio as audio</td>
+                <td>一分鐘語音音訊保持為音訊</td>
                 <td>2,000</td>
               </tr>
               <tr>
-                <td>One image</td>
+                <td>一張圖像</td>
                 <td>250</td>
               </tr>
               <tr>
-                <td>One minute of video</td>
+                <td>一分鐘影片</td>
                 <td>15,000</td>
               </tr>
             </table>
             
-            <p>For some applications, a big engineering challenge is achieving conversational latency while also handling large numbers of images. Conversational latency requires either keeping the context small or relying on vendor-specific caching APIs. Images add a lot of tokens to the context.</p>
+            <p>對於某些應用程式，一個重大的工程挑戰是在處理大量圖像的同時實現對話式延遲。對話式延遲要求保持上下文較小或依賴供應商特定的快取API。圖像會向上下文添加大量token。</p>
             
-            <p>Imagine a personal assistant agent that runs all the time on your computer and watches your screen as part of its work loop. You might like to be able to ask, "I was about to read a tweet an hour ago when I got that phone call, and then I forgot about it and closed the tab. What was that tweet?"</p>
+            <p>想像一個在您的電腦上持續運行並觀察您螢幕作為其工作循環一部分的個人助理代理。您可能希望能夠問：「一小時前我正要閱讀一則推文時接到電話，然後我忘記了它並關閉了分頁。那則推文是什麼？」</p>
             
-            <p><em>An hour ago equates to almost a million tokens.</em> Even if your model can accommodate a million tokens in its context<sup>[43]</sup>, the cost and the latency of doing a multi-turn conversation with that many tokens every turn are prohibitive.</p>
+            <p><em>一小時前相當於近百萬個token。</em>即使您的模型可以在其上下文中容納百萬個token<sup>[43]</sup>，每次對話都使用那麼多token的成本和延遲都是難以接受的。</p>
         </div>
         <div class="chunk-notes">
           <div class="chunk-footnotes">
             <div class="footnote">
-              <p>[43] Hello, Gemini!</p>
+              <p>[43] 你好，Gemini！</p>
             </div>
           </div>
         </div>
@@ -2037,9 +2037,9 @@ Tower on a cloudy day.
       <div class="chunk-row">
         <div class="chunk-content">
             
-            <p>You can summarize video as text, and keep only the summary in the context. You can calculate embeddings and do RAG-like lookup. LLMs are quite good at both feature summarization and using function calling to trigger complex RAG queries. But both of those approaches are complicated to engineer.</p>
+            <p>您可以將影片摘要為文字，並只在上下文中保留摘要。您可以計算嵌入並進行類似RAG的查詢。LLM在特徵摘要和使用函數呼叫觸發複雜RAG查詢方面表現相當出色。但這兩種方法的工程實現都很複雜。</p>
             
-            <p>Ultimately, the biggest lever is context caching. All the SOTA API providers offer some support for caching. None of today's caching features are perfect, yet, for voice AI use cases. We expect caching APIs to improve this year, as multimodal, multi-turn conversation use cases get more attention from people training SOTA models.</p>
+            <p>最終，最大的槓桿是上下文快取。所有SOTA API提供商都提供某種形式的快取支援。目前的快取功能對於語音AI用例來說都還不完美。我們預計今年快取API會有所改進，因為多模態、多輪對話用例會得到訓練SOTA模型的人更多關注。</p>
 
         </div>
         
@@ -2051,18 +2051,18 @@ Tower on a cloudy day.
 
       <div class="chunk-row">
         <div class="chunk-content">
-          <h1 id="multiple-models">5. Using multiple AI models</h1>
+          <h1 id="multiple-models">5. 使用多個AI模型</h1>
             
-            <p>Today's production voice AI agents use multiple deep learning models in combination.<sup>[44]</sup></p>
+            <p>現今的生產級語音AI代理使用多個深度學習模型的組合。<sup>[44]</sup></p>
             
-            <p>As we've discussed, the typical voice AI processing loop transcribes the user's voice with a speech-to-text model, passes the transcribed text to an LLM to generate a response, then performs a text-to-speech step to generate the agent's voice output.</p>
+            <p>如我們所討論的，典型的語音AI處理循環使用語音轉文字模型轉錄用戶的語音，將轉錄的文字傳遞給LLM生成回應，然後執行文字轉語音步驟來生成代理的語音輸出。</p>
             
-            <p>In addition, many production voice agents today use multiple models in complex and varied ways.</p>
+            <p>此外，現今許多生產級語音代理以複雜多樣的方式使用多個模型。</p>
         </div>
         <div class="chunk-notes">
           <div class="chunk-footnotes">
             <div class="footnote">
-              <p>[44] Even the beta speech-to-speech APIs from OpenAI and Google use dedicated VAD and noise reduction models to implement turn detection.</p>
+              <p>[44] 即使是來自OpenAI和Google的測試版語音到語音API也使用專用的VAD和降噪模型來實現輪次檢測。</p>
             </div>
           </div>
         </div>
@@ -2070,14 +2070,14 @@ Tower on a cloudy day.
 
       <div class="chunk-row">
         <div class="chunk-content">
-            <h2 id="fine-tuned-models">5.1. Using several fine-tuned models</h2>
+            <h2 id="fine-tuned-models">5.1. 使用多個微調模型</h2>
             
-            <p>Most voice AI agents use a SOTA<sup>[45]</sup> model from OpenAI or Google (and sometimes Anthropic or Meta). Using the newest, best-performing models is important because voice AI workflows generally are right at the edge of the <em>jagged frontier</em><sup>[46]</sup> of model capability. Voice agents need to be able to follow complex instructions, participate in open-ended conversations with people in a natural way, and use functions and tools reliably.</p>
+            <p>大多數語音AI代理使用來自OpenAI或Google（有時是Anthropic或Meta）的SOTA<sup>[45]</sup>模型。使用最新、表現最佳的模型很重要，因為語音AI工作流通常處於模型能力的<em>鋸齒狀前沿</em><sup>[46]</sup>邊緣。語音代理需要能夠遵循複雜指令，以自然方式與人進行開放式對話，並可靠地使用函數和工具。</p>
         </div>
         <div class="chunk-notes">
           <div class="chunk-footnotes">
             <div class="footnote">
-              <p>[45] SOTA — state of the art — is a widely used AI engineering term that loosely means "the newest large models from the leading AI labs."</p>
+              <p>[45] SOTA — state of the art（最先進技術）— 是一個廣泛使用的AI工程術語，大致意味著「來自領先AI實驗室的最新大型模型」。</p>
             </div>
           </div>
         </div>
@@ -2086,15 +2086,15 @@ Tower on a cloudy day.
       <div class="chunk-row">
         <div class="chunk-content">
             
-            <p>But for some specialized use cases, it can make sense to fine-tune models for different states of a conversation. A fine-tuned model can be smaller, faster, and cheaper to run than a large model while still performing equally well (or better) on specific tasks.</p>
+            <p>但對於某些專業用例，為對話的不同狀態微調模型是有意義的。微調模型可以比大型模型更小、更快、運行成本更低，同時在特定任務上表現同樣出色（甚至更好）。</p>
             
-            <p>Imagine an agent that assists with parts ordering from a very large industrial supply catalog. For this task, you might train several different models, each one focused on a different category: plastic materials, metal materials, fasteners, plumbing, electrical, safety equipment, etc.</p>
+            <p>想像一個協助從大型工業供應目錄訂購零件的代理。對於這項任務，您可能會訓練幾個不同的模型，每個模型專注於不同類別：塑膠材料、金屬材料、緊固件、管道、電氣、安全設備等。</p>
 
           </div>
           <div class="chunk-notes">
             <div class="chunk-footnotes">
               <div class="footnote">
-                <p>[46] Wharton professor <a href="https://x.com/emollick" target="_blank">Ethan Mollick</a> coined the term "jagged frontier" to describe the complex edge zone of SOTA model capability — sometimes astonishingly good, sometimes frustratingly bad.</p>
+                <p>[46] 沃頓商學院教授<a href="https://x.com/emollick" target="_blank">Ethan Mollick</a>創造了「鋸齒狀前沿」一詞，用來描述SOTA模型能力的複雜邊緣區域 — 有時令人驚訝地好，有時令人沮喪地差。</p>
               </div>
             </div>
           </div>
@@ -2102,46 +2102,46 @@ Tower on a cloudy day.
       <div class="chunk-row">
         <div class="chunk-content">          
             
-            <p>Fine-tuned models can generally "learn" things in two important categories:</p>
+            <p>微調模型通常可以「學習」兩個重要類別的內容：</p>
             
             <ol class="list-decimal">
-              <li>Embedded knowledge — models can learn facts.</li>
-              <li>Response patterns — models can learn to transform data in specific ways, which also includes learning conversational patterns and flows.</li>
+              <li>嵌入知識 — 模型可以學習事實。</li>
+              <li>回應模式 — 模型可以學習以特定方式轉換數據，這也包括學習對話模式和流程。</li>
             </ol>
             
-            <p>Our hypothetical industrial supply company has extensive raw data:</p>
+            <p>我們假設的工業供應公司擁有大量原始數據：</p>
             
             <ul class="arrow-list">
-              <li>A very large knowledge base consisting of data sheets, manufacturer recommendations, prices, and internal data about every part in the catalog.</li>
-              <li>Text chat logs, email chains, and transcribed phone conversations with human support agents.</li>
+              <li>一個非常大的知識庫，包含數據表、製造商建議、價格以及有關目錄中每個零件的內部數據。</li>
+              <li>文字聊天記錄、電子郵件鏈和與人工支援代理的轉錄電話對話。</li>
             </ul>
             <div class="chapter-image">
-              <img src="images/5a.svg" alt="Using fine-tuned models" class="chunk-image-inline" width="60%">
-              <p class="image-caption">Using fine-tuned models for specific conversation topics. A variety of architectural approaches are possible. In this example, at the beginning of each conversation turn a router LLM classifies the full context.</p>
+              <img src="images/5a.svg" alt="使用微調模型" class="chunk-image-inline" width="60%">
+              <p class="image-caption">為特定對話主題使用微調模型。可以採用多種架構方法。在此例中，每個對話輪次開始時，路由器LLM會對完整上下文進行分類。</p>
             </div>
             
-            <p>Turning this raw data into data sets for fine-tuning models is a large job, but tractable. The required data cleaning, data set creation, model training, and model evaluation are all well-understood problems.</p>
+            <p>將這些原始數據轉化為微調模型的數據集是一項大工作，但可行。所需的數據清理、數據集創建、模型訓練和模型評估都是已經被充分理解的問題。</p>
             
-            <p><strong>One important note: don't jump straight to fine-tuning — start with prompt engineering.</strong></p>
+            <p><strong>一個重要提示：不要直接跳到微調 — 從提示工程開始。</strong></p>
             
-            <p>Prompting can almost always achieve the same task results as fine-tuning. The advantage of fine-tuning is the ability to use a smaller model, which can translate to faster inference and lower cost.<sup>[47]</sup></p>
+            <p>提示工程幾乎總能達到與微調相同的任務結果。微調的優勢在於能夠使用更小的模型，這可以轉化為更快的推理和更低的成本。<sup>[47]</sup></p>
             
-            <p>With prompting, you can get started much more easily and iterate much more quickly than you can with fine-tuning.<sup>[48]</sup></p>
+            <p>使用提示工程，您可以更容易地開始並比微調更快地迭代。<sup>[48]</sup></p>
 
-            <p>When initially exploring how to use different models for different conversation states, think of your prompts as miniature "models." You are teaching the LLM what to do by crafting a large, context-specific prompt.</p>
+            <p>當初步探索如何為不同對話狀態使用不同模型時，可以將您的提示視為微型「模型」。您是通過製作一個大型、特定上下文的提示來教導LLM該做什麼。</p>
 
             <ol class="list-decimal">
-              <li>For embedded knowledge, implement a search capability that can pull information from your knowledge base and assemble search results into an effective prompt. For more on this, see the <a href="#rag-memory">RAG and memory</a> section, below.</li>
-              <li>For response patterns, embed examples of how you expect the model to respond to different questions. Sometimes, just a few examples are enough. Sometimes, you will need lots of examples — 100 or more.</li>
+              <li>對於嵌入知識，實現一個能夠從知識庫中提取信息並將搜索結果組合成有效提示的搜索功能。有關更多信息，請參見下方的<a href="#rag-memory">RAG和記憶</a>部分。</li>
+              <li>對於回應模式，嵌入您期望模型如何回應不同問題的示例。有時，只需幾個示例就足夠了。有時，您需要大量示例 — 100個或更多。</li>
             </ol>
         </div>
         <div class="chunk-notes">
           <div class="chunk-footnotes">
             <div class="footnote">
-              <p>[47] If you're interested in digging deep into prompting vs fine-tuning, see these two classic papers: Language Models Are Few-shot Learners, and A Comprehensive Survey of Few-shot Learning.</p>
+              <p>[47] 如果您有興趣深入了解提示工程與微調的比較，請參閱這兩篇經典論文：Language Models Are Few-shot Learners和A Comprehensive Survey of Few-shot Learning。</p>
             </div>
             <div class="footnote">
-              <p>[48] Follow the classic engineering advice: make it work, make it fast, make it cheap. Don't think about moving from prompt engineering to fine-tuning until somewhere in the middle of the make it <em>fast</em> part of the process. (If at all.)</p>
+              <p>[48] 遵循經典工程建議：先讓它工作，再讓它快速，最後讓它便宜。在考慮從提示工程轉向微調之前，至少要先完成「讓它快速」這一階段的一半工作。（如果有必要的話。）</p>
             </div>
           </div>
         </div>
@@ -2149,32 +2149,32 @@ Tower on a cloudy day.
 
       <div class="chunk-row">
         <div class="chunk-content">
-            <h2 id="async-inference-tasks">5.2. Performing async inference tasks</h2>
+            <h2 id="async-inference-tasks">5.2. 執行非同步推理任務</h2>
             
-            <p>Sometimes you want to use an LLM for a task that will take a relatively long time to run. Remember that in our core conversation loop we're aiming for response times of around a second (or less). If a task will take longer than a couple of seconds, you have two choices:</p>
+            <p>有時您想使用LLM執行一項需要相對較長時間運行的任務。請記住，在我們的核心對話循環中，我們的目標是大約一秒（或更短）的回應時間。如果一項任務需要超過幾秒鐘，您有兩個選擇：</p>
             
             <ol class="list-decimal">
-              <li>Tell the user what's happening and ask them to wait. <em>Please hold on while I look that up for you …"</em></li>
-              <li>Perform the longer task asynchronously, allowing the conversation to continue while it's happening in the background. <em>"I'll look that up for you. While I do that, do you have any other questions?"</em></li>
+              <li>告訴用戶正在發生什麼並請他們等待。<em>「請稍等，我正在為您查詢...」</em></li>
+              <li>非同步執行較長的任務，允許對話在後台任務進行的同時繼續。<em>「我會為您查詢。在我查詢的同時，您有其他問題嗎？」</em></li>
             </ol>
             
-            <p>If you're performing an inference task asynchronously, you might choose to use a different LLM for that specific task. (Since it's decoupled from the core conversation loop.) You might use an LLM that is slower than would be acceptable for voice responses, or an LLM you have fine-tuned for a specific task.</p>
+            <p>如果您正在非同步執行推理任務，您可能會選擇為該特定任務使用不同的LLM。（因為它與核心對話循環解耦。）您可能會使用一個比語音回應可接受的速度更慢的LLM，或者是您為特定任務微調過的LLM。</p>
 
-            <p>A few examples of async inference tasks:</p>
+            <p>非同步推理任務的幾個例子：</p>
             
             <ul class="arrow-list">
-              <li>Implementing content "guardrails". (See the <a href="#content-guardrails">Content guardrails</a> section.)</li>
-              <li>Creating an image.</li>
-              <li>Generating code to run in a sandbox.</li>
+              <li>實現內容「護欄」。（參見<a href="#content-guardrails">內容護欄</a>部分。）</li>
+              <li>創建圖像。</li>
+              <li>生成在沙盒中運行的代碼。</li>
             </ul>
             
-            <p>The amazing recent progress in reasoning models<sup>[49]</sup> expands what we can ask LLMs to do. You can't use these models for a voice AI conversation loop, though, because they will often spend significant time producing thinking tokens before they emit usable output. Using reasoning models as async parts of a multi-model voice AI architecture can work well, though.</p>
+            <p>推理模型<sup>[49]</sup>最近的驚人進展擴展了我們可以要求LLM做的事情。不過，您不能將這些模型用於語音AI對話循環，因為它們通常會花費大量時間產生思考token，然後才輸出可用的結果。不過，將推理模型作為多模型語音AI架構的非同步部分使用效果很好。</p>
 
         </div>
         <div class="chunk-notes">
           <div class="chunk-footnotes">
             <div class="footnote">
-              <p>[49] Examples of reasoning models include DeepSeek R1, Gemini Flash 2.0 Thinking, and OpenAI o3-mini.</p>
+              <p>[49] 推理模型的例子包括DeepSeek R1、Gemini Flash 2.0 Thinking和OpenAI o3-mini。</p>
             </div>
           </div>
         </div>
@@ -2183,18 +2183,18 @@ Tower on a cloudy day.
       <div class="chunk-row">
         <div class="chunk-content">
              
-            <p>Async inference is usually triggered by an LLM function call. A simple approach is to define two functions.</p>
+            <p>非同步推理通常由LLM函數呼叫觸發。一個簡單的方法是定義兩個函數。</p>
 
             <ul class="arrow-list">
-              <li><code>perform_async_inference()</code> — This is called by the LLM when it decides that any long-running inference task should run. You can define more than one of these. Note that you need to start the async task and then immediately return a basic <em>started task successfully</em> response, so that the function call request and response messages are correctly ordered in the context.<sup>[50]</sup></li>
-              <li><code>queue_async_context_insertion()</code> — This is called by your orchestration layer when your async inference finishes. The tricky thing here is that how you insert results into the context will depend on what you're trying to do, and on what the LLM/API you are using allows. One approach is to wait until the end of any in-progress conversation turn (including the completion of all function calls), put the async inference results into a specially crafted user message, and then run another conversation turn.</li>
+              <li><code>perform_async_inference()</code> — 當LLM決定應該執行任何長時間運行的推理任務時，會呼叫此函數。您可以定義多個這樣的函數。請注意，您需要啟動非同步任務，然後立即返回基本的<em>成功啟動任務</em>回應，以確保函數呼叫請求和回應訊息在上下文中正確排序。<sup>[50]</sup></li>
+              <li><code>queue_async_context_insertion()</code> — 當您的非同步推理完成時，由您的協調層呼叫此函數。這裡棘手的是，如何將結果插入上下文將取決於您嘗試做的事情，以及您使用的LLM/API允許什麼。一種方法是等待任何進行中的對話輪次結束（包括所有函數呼叫的完成），將非同步推理結果放入特別製作的用戶訊息中，然後執行另一個對話輪次。</li>
             </ul>
 
         </div>
         <div class="chunk-notes">
           <div class="chunk-footnotes">
             <div class="footnote">
-              <p>[50] See <a href="#async-function-calls">Asynchronouns function calls.</a></p>
+              <p>[50] 請參閱<a href="#async-function-calls">非同步函數呼叫。</a></p>
             </div>
           </div>
         </div>
@@ -2202,82 +2202,82 @@ Tower on a cloudy day.
 
       <div class="chunk-row">
         <div class="chunk-content">
-            <h2 id="content-guardrails">5.3. Content guardrails</h2>
+            <h2 id="content-guardrails">5.3. 內容護欄</h2>
             
-            <p>Voice AI agents have several vulnerabilities that cause major issues for some use cases.</p>
+            <p>語音AI代理有幾個弱點，這些弱點在某些使用場景中會造成重大問題。</p>
             
             <ul class="arrow-list">
-              <li>Prompt injection</li>
-              <li>Hallucination</li>
-              <li>Out-of-date knowledge</li>
-              <li>Production of inappropriate or unsafe content</li>
+              <li>提示注入(Prompt injection)</li>
+              <li>幻覺(Hallucination)</li>
+              <li>過時的知識</li>
+              <li>產生不適當或不安全的內容</li>
             </ul>
             
-            <p><em>Content guardrails</em> is a general term for code that tries to detect any of these — protecting the LLM from both accidental and malicious prompt injection; catching bad LLM output before it is sent to users.</p>
+            <p><em>內容護欄</em>是指嘗試檢測上述任何問題的程式碼的通用術語 — 保護LLM免受意外和惡意提示注入的影響；在將不良的LLM輸出發送給用戶之前攔截它。</p>
             
-            <p>Using a specific model (or models) for guardrails has a couple of potential advantages:</p>
+            <p>使用特定模型（或多個模型）作為護欄有幾個潛在優勢：</p>
             
             <ul class="arrow-list">
-              <li>Small models can be a good fit for guardrails and safety monitoring. Identifying problematic content can be a relatively specialized task. (In fact, for prompt injection mitigation specifically, you don't necessarily want a model that can be prompted in a fully general way.)</li>
-              <li>Using a different model for guardrail work has the advantage that it won't have exactly the same weaknesses as your main model. At least in theory.</li>
+              <li>小型模型可能非常適合作為護欄和安全監控。識別有問題的內容可能是一項相對專業的任務。（事實上，特別是對於提示注入緩解，您不一定需要一個可以以完全通用方式被提示的模型。）</li>
+              <li>使用不同的模型進行護欄工作的優勢在於它不會與您的主要模型有完全相同的弱點。至少在理論上是這樣。</li>
             </ul>
             
-            <p>Several open source agent frameworks have guardrails components.</p>
+            <p>幾個開源代理框架都有護欄組件。</p>
             
             <ul class="arrow-list">
-              <li>llama-guard is part of Meta's <a href="https://github.com/facebookresearch/llama-stack" target="_blank">llama-stack</a></li>
-              <li><a href="https://github.com/NVIDIA/NeMo-Guardrails" target="_blank">NeMO Guardrails</a> is an open-source toolkit for adding programmable guardrails to LLM-based conversational applications</li>
+              <li>llama-guard是Meta的<a href="https://github.com/facebookresearch/llama-stack" target="_blank">llama-stack</a>的一部分</li>
+              <li><a href="https://github.com/NVIDIA/NeMo-Guardrails" target="_blank">NeMO Guardrails</a>是一個開源工具包，用於為基於LLM的對話應用添加可編程護欄</li>
             </ul>
             
           <div class="chapter-image">
             <img src="images/5b.svg" alt="NeMo Guardrails framework" class="chunk-image-inline" width="60%">
-            <p class="image-caption">Five types of guardrails supported by NVIDIA's NeMo Guardrails framework. Diagram from NeMo Guardrails documentation.</p>
+            <p class="image-caption">NVIDIA的NeMo Guardrails框架支持的五種護欄類型。圖表來自NeMo Guardrails文檔。</p>
           </div>
-            <p>Both of these frameworks were designed with text chat in mind, not voice AI. But both have useful ideas and abstractions and are worth looking at if you are thinking about guardrails, safety, and content moderation.</p>
+            <p>這兩個框架都是為文本聊天而設計的，而不是語音AI。但兩者都有有用的想法和抽象概念，如果您正在考慮護欄、安全性和內容審核，值得一看。</p>
             
-            <p><strong>It's worth noting that LLMs are much, much better at avoiding all of these issues than they were a year ago.</strong></p>
+            <p><strong>值得注意的是，與一年前相比，LLM在避免所有這些問題方面已經有了極大的進步。</strong></p>
             
-            <p>Hallucination in general is not a major issue any more with the newest models from the large labs. We only see two categories of hallucination regularly, these days.</p>
+            <p>一般來說，幻覺在大型實驗室的最新模型中已不再是主要問題。現在，我們只經常看到兩類幻覺。</p>
             
             <ul class="arrow-list">
-              <li>The LLM "pretending" to call a function, but not actually doing so. This is fixable through prompting. You need good evals to be sure there aren't cases where this happens with your prompts. When you see function call hallucination in your evals, iterate on your prompt until you don't see it any more. (Remember that multi-turn conversations <em>really</em> stress LLM function calling abilities, so your evals need to mirror your real-world, multi-turn conversations.)</li>
-              <li>The LLM hallucinating when you expect it to do a web search. Built-in search grounding is a relatively new feature of LLM APIs. It's a little bit unpredictable, still, whether LLMs will choose to perform a search. If they don't search, they may respond with (older) knowledge embedded in their weights, or a hallucination. Unlike function call hallucination, this is not particularly easy to fix with prompting. But it is easy to know whether a search was actually performed. So you can display that information in an application UI or inject it into the voice conversation. If your app relies on web search, doing this is a good idea. You're pushing the problem to the user to understand and deal with, but that's better than hiding the "searched" or "didn't search" distinction from the user. On the positive side, when search grounding does work, it can largely eliminate out-of-date knowledge issues.</li>
+              <li>LLM「假裝」呼叫函數，但實際上並沒有這樣做。這可以通過提示來修復。您需要良好的評估來確保您的提示不會出現這種情況。當您在評估中看到函數呼叫幻覺時，迭代您的提示直到不再看到它為止。（請記住，多輪對話<em>真的</em>會對LLM的函數呼叫能力造成壓力，所以您的評估需要反映您的真實世界、多輪對話。）</li>
+              <li>當您期望LLM進行網絡搜索時，它會產生幻覺。內建的搜索基礎是LLM API的一個相對較新的功能。目前，LLM是否會選擇執行搜索仍然有點不可預測。如果它們不搜索，它們可能會用（較舊的）嵌入在其權重中的知識來回應，或者產生幻覺。與函數呼叫幻覺不同，這不是特別容易通過提示來修復。但很容易知道是否實際執行了搜索。因此，您可以在應用程序UI中顯示該信息或將其注入到語音對話中。如果您的應用依賴於網絡搜索，這樣做是個好主意。您是將問題推給用戶去理解和處理，但這比向用戶隱藏「搜索了」或「沒有搜索」的區別要好。從積極的方面來看，當搜索基礎有效時，它可以在很大程度上消除過時知識問題。</li>
             </ul>
             
-            <p>All of the APIs from the major labs have very good content safety filters.</p>
+            <p>所有主要實驗室的API都有非常好的內容安全過濾器。</p>
             
-            <p>Prompt injection mitigation is also much better than it was a year ago, but the surface area of potential prompt injection attacks expands as LLMs gain new capabilities. For example, prompt injection from text in images is now an issue.</p>
+            <p>提示注入緩解也比一年前好得多，但隨著LLM獲得新功能，潛在提示注入攻擊的表面積也在擴大。例如，現在圖像中的文本提示注入已成為一個問題。</p>
             
-            <p>As a very, very general guideline: today in voice AI use cases you are unlikely to see occurrences of accidental prompt injection caused by normal user behavior. But it is definitely possible to steer LLM behavior in ways that subvert system instructions, solely through user input. It's important to test your agents with this in mind. <strong>In particular, it's very important to sanitize and cross-check LLM-generated input to any functions that access backend systems.</strong></p>
+            <p>作為一個非常非常一般的指導原則：今天在語音AI使用場景中，您不太可能看到由正常用戶行為引起的意外提示注入。但是，完全通過用戶輸入，確實可以引導LLM行為以破壞系統指令。考慮到這一點，測試您的代理很重要。<strong>特別重要的是，對於訪問後端系統的任何函數，都要對LLM生成的輸入進行清理和交叉檢查。</strong></p>
 
         </div>
       </div>
 
       <div class="chunk-row">
         <div class="chunk-content">
-            <h2 id="single-inference-actions">5.4. Performing single inference actions</h2>
+            <h2 id="single-inference-actions">5.4. 執行單一推理動作</h2>
             
-            <p>For AI engineers, learning how to leverage LLMs is an ongoing process. Part of that process is a mental shift in how we think about these new tools. When we first started using LLMs, most of us thought about them through the lens, <em>what are language models uniquely capable of?</em> But LLMs are general-purpose tools. They are good at a very broad range of information processing tasks.</p>
+            <p>對於AI工程師來說，學習如何利用LLM是一個持續的過程。這個過程的一部分是我們如何看待這些新工具的思維轉變。當我們第一次開始使用LLM時，大多數人都是通過<em>語言模型有哪些獨特能力？</em>這個視角來思考它們。但LLM是通用工具。它們在非常廣泛的信息處理任務中表現出色。</p>
             
-            <p>In a voice agent context, we always have a code path set up to perform LLM inference. We don't need to limit ourselves to using the LLM only for the core conversation loop.</p>
+            <p>在語音代理環境中，我們總是設置了執行LLM推理的代碼路徑。我們不需要將LLM的使用僅限於核心對話循環。</p>
             
-            <p>For example:</p>
+            <p>例如：</p>
             
             <ul class="arrow-list">
-              <li>Any time you reach for a regular expression, you can probably write a prompt instead.</li>
-              <li>Post-processing LLM output is often useful. For example, you might want to generate output in two formats: text for display in a UI and voice for the interactive conversation. You can prompt the conversation LLM to generate nicely formatted markdown text, then prompt the LLM again to shorten and reformat the text for voice generation.<sup>[51]</sup></li>
-              <li>Recursion is powerful.<sup>[52]</sup> You can do things like have an LLM generate a list, and then call the LLM again to perform operations on each element of the list.</li>
-              <li>It turns out that you often want to summarize multi-turn conversations. LLMs are fantastic, steerable, summarizers. More on this in the <a href="#scripting">Scripting and instruction following</a> section, below.</li>
+              <li>每當您想使用正則表達式時，您可能可以改為編寫提示。</li>
+              <li>後處理LLM輸出通常很有用。例如，您可能希望以兩種格式生成輸出：用於在UI中顯示的文本和用於互動對話的語音。您可以提示對話LLM生成格式良好的markdown文本，然後再次提示LLM縮短並重新格式化文本以進行語音生成。<sup>[51]</sup></li>
+              <li>遞迴是強大的。<sup>[52]</sup>您可以做一些事情，比如讓LLM生成一個列表，然後再次呼叫LLM對列表中的每個元素執行操作。</li>
+              <li>事實證明，您經常需要總結多輪對話。LLM是出色的、可引導的總結工具。更多內容請參見下面的<a href="#scripting">腳本編寫和指令遵循</a>部分。</li>
             </ul>
 
           </div>
           <div class="chunk-notes">
             <div class="chunk-footnotes">
               <div class="footnote">
-                <p>[51] See also the <a href="#content-guardrails">Content guardrails</a> section, above, regarding post-processing LLM output.</p>
+                <p>[51] 關於後處理LLM輸出，另請參見上面的<a href="#content-guardrails">內容護欄</a>部分。</p>
               </div>
               <div class="footnote">
-                <p>[52] We're programmers, of course we&nbsp;… — ed.</p>
+                <p>[52] 我們是程式設計師，當然我們&nbsp;… — 編者註</p>
               </div>
             </div>
           </div>
@@ -2285,50 +2285,45 @@ Tower on a cloudy day.
       <div class="chunk-row">
         <div class="chunk-content">            
             
-            <p>Many of these emerging code patterns look like a language model using either itself, or another language model, as a tool.</p>
+            <p>這些新興的程式碼模式中，許多看起來像是語言模型使用自己或另一個語言模型作為工具。</p>
             
-            <p>This is such a powerful idea that we expect to see lots of people work on this in 2025. Agent frameworks can build support for this into their library-level APIs. Models can be trained to perform inference recursively in a way roughly analogous to training them to call functions and perform code execution.</p>
+            <p>這是一個如此強大的想法，我們預計在2025年會看到很多人在這方面工作。代理框架可以將對此的支持構建到其庫級API中。模型可以被訓練以遞迴方式執行推理，這與訓練它們呼叫函數和執行代碼大致類似。</p>
         </div>
       </div>
 
       <div class="chunk-row">
         <div class="chunk-content">
-            <h2 id="self-improving-systems">5.5. Towards self-improving systems</h2>
+            <h2 id="self-improving-systems">5.5. 邁向自我改進系統</h2>
             
-            <p>When we access a SOTA "model" via an API, we are not accessing a single artifact. The systems behind the APIs use various routing, multi-stage processing, and distributed systems techniques to perform inference fast, flexibly, reliably, and at extraordinary scale. These systems are always being tweaked. Weights are updated. Low-level inference implementations get more efficient all the time. Systems architectures evolve.</p>
+            <p>當我們通過API訪問最先進的「模型」時，我們並不是在訪問單一成品。API背後的系統使用各種路由、多階段處理和分布式系統技術來快速、靈活、可靠地進行推理，並且規模非常大。這些系統總是在不斷調整。權重會更新。低級推理實現一直在變得更加高效。系統架構不斷發展。</p>
             
-            <p>The big labs are continually shortening the feedback loop between how users use their APIs and how they implement inference and other capabilities.</p>
+            <p>大型實驗室不斷縮短用戶使用其API的方式與他們實現推理和其他功能的方式之間的反饋循環。</p>
             
-            <p>These ever-faster feedback loops are a big part of the amazing macro-level AI progress happening these days.</p>
+            <p>這些不斷加快的反饋循環是當今驚人的宏觀AI進步的重要組成部分。</p>
             
-            <p>Taking inspiration from this, what could micro-level feedback loops in our agent-level code look like? Can we build specific scaffolding that improves agent performance during a conversation?</p>
+            <p>從中獲得靈感，我們的代理級代碼中的微觀反饋循環可能是什麼樣子？我們能否建立特定的框架，在對話過程中改進代理性能？</p>
             
             <ul class="arrow-list">
-              <li>Monitor how often the agent interrupts the user before they are finished talking, and dynamically adjust parameters like VAD timeouts.</li>
-              <li>Monitor how often the user interrupts the agent and dynamically adjust LLM response length.</li>
-              <li>Look for patterns that indicate a user is having trouble understanding the conversation — maybe the user is not a native speaker. Adjust the conversation style or offer to switch languages.</li>
+              <li>監控代理在用戶尚未說完話之前打斷用戶的頻率，並動態調整VAD超時等參數。</li>
+              <li>監控用戶打斷代理的頻率，並動態調整LLM回應長度。</li>
+              <li>尋找表明用戶難以理解對話的模式 — 也許用戶不是母語使用者。調整對話風格或提供切換語言的選項。</li>
             </ul>
             
-            <p>Can you think of other ideas?</p>
+            <p>您能想到其他想法嗎？</p>
 
         </div>
-        
         <div class="chunk-notes">
-
           <div class="chapter-image">
-            <pre><code><strong>User:</strong> How has MNI performed recently?
-<strong>Agent:</strong> The Miami Dolphins won their game yesterday 21
-to 3 and now lead the AFC East with two games remain-
- ing in the regular season.
-<strong>User:</strong> No, I meant the stock MNI.
-<strong>Agent:</strong> Ah, my apologies! You're asking about the
-stock performance of MNI, which is the ticker symbol
- for McClatchy Company …
- From this point on, the model will bias towards
-interpreting phonemes or transcribed text as "MNI"
- rather than "Miami".
+            <pre><code><strong>使用者:</strong> MNI最近表現如何？
+<strong>代理:</strong> 邁阿密海豚隊昨天以21比3贏得比賽，目前在常規賽
+還剩兩場比賽的情況下領先美聯東區。
+<strong>使用者:</strong> 不，我指的是MNI股票。
+<strong>代理:</strong> 啊，非常抱歉！您是在詢問MNI的股票表現，
+這是McClatchy公司的股票代碼...
+從這一刻起，模型將傾向於將音素或轉錄文本
+解釋為"MNI"而非"邁阿密"。
             </code></pre>
-            <p class="image-caption">An example of an LLM adjusting behavior based on user feedback during a multi-turn session (in-context learning)</p>
+            <p class="image-caption">一個LLM根據使用者反饋在多輪對話中調整行為的例子（上下文學習）</p>
           </div>
           <div class="chunk-footnotes">
           </div>
@@ -2337,44 +2332,44 @@ interpreting phonemes or transcribed text as "MNI"
 
       <div class="chunk-row">
         <div class="chunk-content">
-          <h1 id="scripting">6. Scripting and instruction following</h1>
+          <h1 id="scripting">6. 腳本編寫和指令遵循</h1>
             
-            <p>A year ago, just being able to build voice agents capable of open-ended conversations at natural human latency was exciting.</p>
+            <p>一年前，僅僅能夠構建能夠以自然人類延遲進行開放式對話的語音代理就已經令人興奮了。</p>
             
-            <p>Now we're deploying voice AI agents to do complicated, real-world tasks. For today's use cases, we need to instruct the LLM to focus on specific goals during a session. Often, we need the LLM to perform sub-tasks in a specific order.</p>
+            <p>現在我們正在部署語音AI代理來完成複雜的現實世界任務。對於當今的使用案例，我們需要指導LLM在會話期間專注於特定目標。通常，我們需要LLM按特定順序執行子任務。</p>
             
-            <p>For example, in a healthcare patient intake workflow, we want the agent to:</p>
+            <p>例如，在醫療保健患者接診流程中，我們希望代理：</p>
             
             <ul class="arrow-list">
-              <li>Verify the patient's identity before doing anything else.</li>
-              <li>Make sure to ask what medications the patient is currently taking.</li>
-              <li>If the patient says they are taking medicine X, ask a particular follow-up question.</li>
-              <li>Etc …</li>
+              <li>在做任何其他事情之前先驗證患者的身份。</li>
+              <li>確保詢問患者目前正在服用的藥物。</li>
+              <li>如果患者說他們正在服用藥物X，問一個特定的後續問題。</li>
+              <li>等等...</li>
             </ul>
             
-            <p>We refer to crafting step-by-step workflows as <em>scripting</em>. One lesson from the last year of voice AI development is that it's hard to achieve scripting reliability with <em>prompt engineering</em> alone.</p>
+            <p>我們將制定逐步工作流程稱為<em>腳本編寫</em>。過去一年語音AI開發的一個教訓是，僅靠<em>提示工程</em>很難實現腳本的可靠性。</p>
             
-            <p>There's only so much detail that can be packed into a single prompt. Relatedly, as the context grows in a multi-turn conversation, the LLM has more and more information to keep track of, and instruction following accuracy declines.</p>
+            <p>單一提示中能夠包含的細節是有限的。相關地，隨著多輪對話中上下文的增長，LLM需要跟踪越來越多的信息，指令遵循的準確性也會下降。</p>
             
-            <p>Many voice AI developers are moving towards a state machine approach to building complex workflows. Instead of writing a long, detailed system instruction to guide the LLM, we can define a series of states. Each state is:</p>
+            <p>許多語音AI開發者正在轉向使用狀態機方法來構建複雜的工作流程。我們可以定義一系列狀態，而不是編寫一個長而詳細的系統指令來引導LLM。每個狀態包括：</p>
             
             <ul class="arrow-list">
-              <li>A system instruction and tools list.</li>
-              <li>A conversation context.</li>
-              <li>One or more exits from the current state to another state.</li>
+              <li>一個系統指令和工具列表。</li>
+              <li>一個對話上下文。</li>
+              <li>從當前狀態到另一個狀態的一個或多個出口。</li>
             </ul>
             
-            <p>Each state transition is an opportunity to:</p>
+            <p>每個狀態轉換都是一個機會，可以：</p>
             
             <ul class="arrow-list">
-              <li>Update the system instruction and tools list.</li>
-              <li>Summarize or modify the context.<sup>[53]</sup></li>
+              <li>更新系統指令和工具列表。</li>
+              <li>總結或修改上下文。<sup>[53]</sup></li>
             </ul>
           </div>
           <div class="chunk-notes">
             <div class="chunk-footnotes">
               <div class="footnote">
-                <p>[53] Usually, you make an LLM inference call to perform context summarization. :-)</p>
+                <p>[53] 通常，您會進行LLM推理調用來執行上下文總結。 :-)</p>
               </div>
             </div>
           </div>
@@ -2382,24 +2377,24 @@ interpreting phonemes or transcribed text as "MNI"
       <div class="chunk-row">
         <div class="chunk-content">
             
-            <p>The state machine approach works well because shorter, more focused system instructions, tools lists, and contexts significantly improve LLM instruction following.</p>
+            <p>狀態機方法之所以有效，是因為更短、更專注的系統指令、工具列表和上下文顯著提高了LLM的指令遵循能力。</p>
             
-            <p>The challenge is to find the right balance between, on the one hand, leveraging the LLM's ability to have an open-ended, natural conversation, and on the other, making sure the LLM reliably executes the important parts of the job to be done.</p>
+            <p>挑戰在於找到正確的平衡點：一方面利用LLM進行開放式、自然對話的能力，另一方面確保LLM可靠地執行工作中重要的部分。</p>
             
-            <p><a href="https://github.com/pipecat-ai/pipecat-flows" target="_blank">Pipecat Flows</a> is a library built on top of Pipecat that helps developers create workflow state machines.</p>
+            <p><a href="https://github.com/pipecat-ai/pipecat-flows" target="_blank">Pipecat Flows</a>是一個建立在Pipecat之上的庫，幫助開發者創建工作流程狀態機。</p>
             
-            <p>The state diagram is represented as JSON and can be loaded into a Pipecat process. There's a graphical editor for creating these JSON state diagrams.</p>
+            <p>狀態圖以JSON表示，可以加載到Pipecat進程中。有一個圖形編輯器用於創建這些JSON狀態圖。</p>
             <div class="chapter-image">
-              <img src="images/6a.png" alt="Pipecat Flows graphical editor" class="chunk-image-inline" width="80%">
-              <p class="image-caption">Pipecat Flows graphical editor</p>
+              <img src="images/6a.png" alt="Pipecat Flows圖形編輯器" class="chunk-image-inline" width="80%">
+              <p class="image-caption">Pipecat Flows圖形編輯器</p>
             </div>
-            <p>Pipecat Flows and state machines are seeing a lot of developer adoption right now. But there are other interesting ways to think about building abstractions for complex workflows.</p>
+            <p>Pipecat Flows和狀態機目前正受到許多開發者的採用。但還有其他有趣的方式來思考如何為複雜工作流程構建抽象。</p>
             
-            <p>One active area of AI research and development is multi-agent systems. You could think of a workflow as a multi-agent system, instead of as a series of states to traverse.</p>
+            <p>AI研究和開發的一個活躍領域是多代理系統。您可以將工作流程視為多代理系統，而不是一系列要遍歷的狀態。</p>
             
-            <p>One of Pipecat's core architectural components is the parallel pipeline. A parallel pipeline allows you to split the data going through the processing graph and operate on it twice (or more). You can block and filter data. You can define many parallel pipelines. You could think of a workflow as a set of gated, coordinated parallel pipelines.</p>
+            <p>Pipecat的核心架構組件之一是並行管道。並行管道允許您分割通過處理圖的數據並對其進行兩次（或更多次）操作。您可以阻塞和過濾數據。您可以定義多個並行管道。您可以將工作流程視為一組受控制、協調的並行管道。</p>
             
-            <p>The rapid evolution of voice AI tooling is exciting, and highlights how early we are in figuring out the best way to build these new kinds of programs.</p>
+            <p>語音AI工具的快速發展令人興奮，並突顯出我們在找出構建這些新型程序的最佳方式方面還處於早期階段。</p>
 
         </div>
         
@@ -2413,28 +2408,28 @@ interpreting phonemes or transcribed text as "MNI"
 
       <div class="chunk-row">
         <div class="chunk-content">
-          <h1 id="evals">7. Voice AI Evals</h1>
+          <h1 id="evals">7. 語音AI評估</h1>
             
-            <p>One very important type of tooling is the eval, short for evaluation.</p>
+            <p>一種非常重要的工具類型是評估（eval），即評估的簡稱。</p>
             
-            <p><em>Eval</em> is a machine learning term for a tool or process that assesses the capabilities of a system and judges its quality.</p>
+            <p><em>評估</em>是機器學習術語，指評估系統能力並判斷其質量的工具或過程。</p>
         </div>
       </div>
 
       <div class="chunk-row">
         <div class="chunk-content">
-            <h2 id="evals-different">7.1. Voice AI evals are different from software unit tests</h2>
+            <h2 id="evals-different">7.1. 語音AI評估與軟體單元測試不同</h2>
             
-            <p>If you're coming from a traditional software engineering background, you're used to thinking about testing as a (mostly) deterministic exercise.</p>
+            <p>如果您來自傳統軟體工程背景，您習慣於將測試視為（大多數情況下）確定性的練習。</p>
             
-            <p>Voice AI requires tests that are different from traditional software engineering. Voice AI outputs are non-deterministic. The inputs for testing voice AI are complex, branching, multi-turn conversations.</p>
+            <p>語音AI需要與傳統軟體工程不同的測試。語音AI輸出是非確定性的。測試語音AI的輸入是複雜的、分支的、多輪對話。</p>
             
-            <p>Instead of testing that a specific input produces a specific output <code>(f(x) = y)</code>, you will need to run probabilistic evals – lots of test runs to see how often a certain type of event happens.<sup>[54]</sup> For some tests, getting a class of cases right 8/10 times is acceptable, for others accuracy needs to be 9.99/10.</p>
+            <p>您需要運行概率性評估，而不是測試特定輸入產生特定輸出<code>(f(x) = y)</code>—進行大量測試運行，以查看某種類型的事件發生的頻率。<sup>[54]</sup>對於某些測試，在10次中有8次正確處理某類案例是可接受的，而對於其他測試，準確率需要達到10次中的9.99次。</p>
           </div>
           <div class="chunk-notes">
             <div class="chunk-footnotes">
               <div class="footnote">
-                <p>[54] The user request was fulfilled, the agent interrupted the user, the agent went off topic, etc</p>
+                <p>[54] 使用者請求被滿足、代理打斷使用者、代理偏離主題等</p>
               </div>
             </div>
           </div>
@@ -2442,38 +2437,38 @@ interpreting phonemes or transcribed text as "MNI"
       <div class="chunk-row">
         <div class="chunk-content">
             
-            <p>Instead of just having one input, you will have many: all of the user responses. This makes it very hard to test voice AI applications without attempting to simulate user behavior.</p>
+            <p>您將有許多輸入，而不僅僅是一個：所有的使用者回應。這使得在不嘗試模擬使用者行為的情況下測試語音AI應用程序變得非常困難。</p>
             
-            <p>Finally, voice AI tests have non-binary results and will rarely yield a definitive ✅ or ❌ like traditional unit tests do. Instead, you will need to review results and decide on tradeoffs.</p>
+            <p>最後，語音AI測試具有非二元結果，很少像傳統單元測試那樣產生明確的✅或❌。相反，您需要審查結果並決定權衡。</p>
         </div>
       </div>
 
       <div class="chunk-row">
         <div class="chunk-content">
-            <h2 id="failure-modes">7.2. Failure modes</h2>
+            <h2 id="failure-modes">7.2. 失敗模式</h2>
             
-            <p>Voice AI apps have particular shapes and failure modes that influence how we design and run evals. Latency is critical (so latency that would be acceptable in a text-mode system is a failure for a voice system). They are multi-model (poor performance could be caused by TTS instability rather than LLM behavior, for example).</p>
+            <p>語音AI應用程序具有特定的形式和失敗模式，這些影響我們如何設計和運行評估。延遲是關鍵（因此在文本模式系統中可接受的延遲對於語音系統來說是失敗）。它們是多模型的（性能不佳可能是由TTS不穩定而不是LLM行為引起的）。</p>
             
-            <p>Some areas that frequently present challenges today are:</p>
+            <p>當今經常出現挑戰的一些領域是：</p>
             
             <ul class="arrow-list">
-              <li>Latency of time to first speech and time to agent response</li>
-              <li>Transcription errors</li>
-              <li>Understanding and verbalizing addresses, emails, names, phone numbers</li>
-              <li>Interruptions</li>
+              <li>首次發言時間和代理回應時間的延遲</li>
+              <li>轉錄錯誤</li>
+              <li>理解和口頭表達地址、電子郵件、姓名、電話號碼</li>
+              <li>中斷</li>
             </ul>
         </div>
       </div>
 
       <div class="chunk-row">
         <div class="chunk-content">
-            <h2 id="eval-strategy">7.3. Crafting an eval strategy</h2>
+            <h2 id="eval-strategy">7.3. 制定評估策略</h2>
             
-            <p>A rudimentary eval process can be as simple as a spreadsheet with prompts and test cases.</p>
+            <p>一個基本的評估過程可以簡單如一個包含提示和測試案例的電子表格。</p>
             
-            <p>One typical approach is to run each prompt whenever you test a new model or change a major part of your system, using an LLM to judge whether the responses fall within some definition of expected parameters.</p>
+            <p>一種典型的方法是在測試新模型或更改系統的主要部分時運行每個提示，使用LLM來判斷回應是否在某些預期參數的定義範圍內。</p>
 
-            <p>Having a basic eval is much better than not having any evals at all. But investing in evals – having really good evals – becomes critical as you start to operate at scale.</p>
+            <p>擁有基本評估比完全沒有評估要好得多。但隨著您開始大規模運營，投資於評估—擁有真正好的評估—變得至關重要。</p>
 
         </div>
         
@@ -2486,21 +2481,21 @@ interpreting phonemes or transcribed text as "MNI"
 
       <div class="chunk-row">
         <div class="chunk-content">
-          <p>Evaluation platforms that offer sophisticated tooling for voice AI use cases are just beginning to emerge. Three platforms that have invested early in specific workflows and tools for audio evals are <a href="https://coval.dev" target="_blank">Coval</a>, <a href="https://freeplay.ai/" target="_blank">FreePlay</a>, and <a href="https://wandb.ai/site/weave/" target="_blank">Weights & Biases Weave</a>. All three have good Pipecat integrations.
+          <p>專為語音AI用例提供複雜工具的評估平台才剛開始出現。三個較早投資於音訊評估特定工作流程和工具的平台是<a href="https://coval.dev" target="_blank">Coval</a>、<a href="https://freeplay.ai/" target="_blank">FreePlay</a>和<a href="https://wandb.ai/site/weave/" target="_blank">Weights & Biases Weave</a>。這三個平台都有良好的Pipecat整合。
 
           <div class="chapter-image">
-            <img src="images/7a.jpg" alt="A screenshot from the Coval evals platform UI" class="chunk-image-inline" width="80%">
-            <p class="image-caption">A screenshot from the Coval evals platform UI</p>
+            <img src="images/7a.jpg" alt="Coval評估平台UI的截圖" class="chunk-image-inline" width="80%">
+            <p class="image-caption">Coval評估平台UI的截圖</p>
           </div>
             
-            <p>These platforms can help with:</p>
+            <p>這些平台可以幫助：</p>
             
             <ul class="arrow-list">
-              <li>Prompt iteration.</li>
-              <li>Off-the-shelf metrics for audio, workflow, function calling, and semantic evaluation of conversations.</li>
-              <li>Hillclimbing on problem areas (for example, making your agents better at handling interruptions).</li>
-              <li>Regression testing (to be sure when you fix one problem area you don't introduce regressions in other previously solved problem areas).</li>
-              <li>Tracking performance changes over time, both as changes are made by developers, and across user cohorts.</li>
+              <li>提示詞迭代。</li>
+              <li>音訊、工作流程、函數呼叫和對話語義評估的現成指標。</li>
+              <li>針對問題區域進行優化（例如，讓您的代理更好地處理中斷）。</li>
+              <li>回歸測試（確保在修復一個問題區域時不會在其他先前已解決的問題區域引入回歸）。</li>
+              <li>追蹤隨時間變化的性能，包括開發人員所做的更改和跨用戶群體的變化。</li>
             </ul>
 
         </div>
@@ -2514,16 +2509,16 @@ interpreting phonemes or transcribed text as "MNI"
 
       <div class="chunk-row">
         <div class="chunk-content">
-          <h1 id="telephony">8. Integrating with telephony infrastructure</h1>
+          <h1 id="telephony">8. 與電話基礎設施整合</h1>
             
-            <p><strong>Most of the fastest growing voice AI use cases today involve telephone calls.</strong> AI voice agents are answering phone calls and making phone calls at scale today.</p>
+            <p><strong>當今增長最快的語音AI用例大多涉及電話通話。</strong>AI語音代理現在正在大規模接聽和撥打電話。</p>
             
-            <p>Some of this is happening in traditional call centers. Call centers mostly view voice AI as a technology that can improve "deflection rates" – the percentage of calls that can be handled by automation rather than human agents. This makes the ROI for adopting voice AI clear. If the per-minute cost of an LLM is cheaper than the per-minute cost of a human agent, the buying decision is easy.<sup>[55]</sup></p>
+            <p>部分應用發生在傳統客服中心。客服中心主要將語音AI視為可以提高「轉移率」的技術 — 即可以由自動化而非人工客服處理的通話百分比。這使得採用語音AI的投資回報率變得明確。如果LLM的每分鐘成本低於人工客服的每分鐘成本，購買決策就很容易做出。<sup>[55]</sup></p>
           </div>
           <div class="chunk-notes">
             <div class="chunk-footnotes">
               <div class="footnote">
-                <p>[55] Assuming, of course, that AI agent performance is good. Which, for a wide variety of customer support use cases today, it is.</p>
+                <p>[55] 當然，這是假設AI代理的表現良好。而對於當今各種客戶支援用例，它確實表現良好。</p>
               </div>
             </div>
           </div>
@@ -2531,28 +2526,28 @@ interpreting phonemes or transcribed text as "MNI"
       <div class="chunk-row">
         <div class="chunk-content">
             
-            <p>A couple of interesting things are happening that accelerate adoption, though, beyond simple ROI calculations.</p>
+            <p>不過，除了簡單的投資回報率計算外，還有一些有趣的事情正在加速採用。</p>
             
-            <p>Voice AI agents are scalable in ways that a human staff isn't. Once you have voice AI in place, wait times during high-volume periods go down. (Customer satisfaction scores go up, as a direct result.)</p>
+            <p>語音AI代理的可擴展性遠超人工團隊。一旦您部署了語音AI，高峰期的等待時間就會減少。（客戶滿意度評分因此直接提高。）</p>
             
-            <p>And LLMs can sometimes do a better job than human agents because we're giving them better tools. In many customer support situations, human agents have to deal with multiple legacy backend systems. Finding information in a timely fashion can be a challenge. When we deploy voice AI into that same situation, we have to build API-level access to these legacy systems. New LLM-plus-API layers are enabling the technology transition to voice AI.</p>
+            <p>而且LLM有時能比人工客服做得更好，因為我們給它們提供了更好的工具。在許多客戶支援情況下，人工客服必須處理多個遺留後端系統。及時找到資訊可能是一項挑戰。當我們在相同情況下部署語音AI時，我們必須建立這些遺留系統的API級別存取。新的LLM加API層正在促進向語音AI的技術轉型。</p>
             
-            <p>It's clear that generative AI is going to completely reshape the call center landscape over the next few years.</p>
+            <p>很明顯，生成式AI將在未來幾年徹底重塑客服中心格局。</p>
             
-            <p>Outside the call center, voice AI is changing how small businesses field phone calls, and how they use phone calls for information discovery and coordination. We talk every day to startups building specialized AI telephony solutions for every business vertical that you've ever heard of.</p>
+            <p>在客服中心之外，語音AI正在改變小型企業如何接聽電話，以及如何使用電話進行資訊發現和協調。我們每天都與正在為您聽說過的各種商業領域構建專業AI電話解決方案的新創公司交流。</p>
             
-            <p>People in this space often joke that pretty soon humans won't make, or receive, phone calls at all. The phone calls will all be AI-to-AI. Judging from the trendlines we see, there's some truth to this!</p>
+            <p>這個領域的人常開玩笑說，很快人類將不再撥打或接聽電話。所有電話都將是AI對AI的通話。從我們看到的趨勢來判斷，這確實有一定道理！</p>
             
-            <p>If you're interested in telephony for voice AI, there are a few acronyms and common ideas you should be familiar with.</p>
+            <p>如果您對語音AI的電話技術感興趣，有幾個縮寫詞和常見概念您應該熟悉。</p>
             
             <ul class="arrow-list">
-              <li>PSTN is the <em>public, switched, telephone network</em>. If you need to interact with a real phone that has a phone number, you'll need to work with a PSTN platform. Twilio is a PSTN platform that almost every developer has heard of.</li>
+              <li>PSTN是<em>公共交換電話網路</em>（public, switched, telephone network）。如果您需要與有電話號碼的真實電話互動，您需要使用PSTN平台。Twilio是幾乎每個開發人員都聽說過的PSTN平台。</li>
               
-              <li>SIP is a specific protocol used for IP telephony, but in a general sense SIP is used to refer to telephone interconnects between systems. If you're interfacing with a call center tech stack, for example, you'll need to use SIP. You can work with a SIP provider, or host your own SIP servers.</li>
+              <li>SIP是用於IP電話的特定協議，但在一般意義上，SIP用於指系統之間的電話互連。例如，如果您正在與客服中心技術堆疊對接，您需要使用SIP。您可以使用SIP提供商，或託管自己的SIP伺服器。</li>
               
-              <li>DTMF tones are the keypress sounds used to navigate telephone menus. Voice agents need to be able to send DTMF tones to interact with real-world telephone systems. LLMs are pretty good at dealing with phone trees. You just need to do a little bit of prompt engineering and define functions that send DTMF tones.</li>
+              <li>DTMF音調是用於導航電話選單的按鍵聲音。語音代理需要能夠發送DTMF音調以與現實世界的電話系統互動。LLM在處理電話樹方面相當不錯。您只需要做一些提示詞工程並定義發送DTMF音調的函數。</li>
               
-              <li>Voice agents often need to execute call transfers. In a simple transfer, the voice AI exits the session by calling a function that triggers a call transfer.<sup>[56]</sup> A <em>warm transfer</em> is a hand-off from one agent to another, in which the agents talk to each other before transferring the caller to the second agent. Voice AI agents can do warm transfers, just like humans can. The voice agent starts out talking to the human caller, then puts the human caller on hold and has a conversation with the new human agent being brought into the call, then connects the human caller to the human agent.</li>
+              <li>語音代理通常需要執行通話轉接。在簡單轉接中，語音AI通過呼叫觸發通話轉接的函數來退出會話。<sup>[56]</sup><em>熱轉接</em>（warm transfer）是從一個代理到另一個代理的交接，其中代理在將來電者轉接給第二個代理之前相互交談。語音AI代理可以像人類一樣進行熱轉接。語音代理最初與人類來電者交談，然後將人類來電者置於保留狀態，與被引入通話的新人類代理進行對話，然後將人類來電者連接到人類代理。</li>
             </ul>
 
         </div>
@@ -2560,7 +2555,7 @@ interpreting phonemes or transcribed text as "MNI"
         <div class="chunk-notes">
           <div class="chunk-footnotes">
             <div class="footnote">
-              <p>[56] The actual transfer operation might be an API call to your telephony platform, or a SIP REFER action.</p>
+              <p>[56] 實際的轉接操作可能是對您的電話平台的API呼叫，或SIP REFER動作。</p>
             </div>
           </div>
         </div>
@@ -2568,21 +2563,21 @@ interpreting phonemes or transcribed text as "MNI"
 
       <div class="chunk-row">
         <div class="chunk-content">
-          <h1 id="rag-memory">9. RAG and memory</h1>
+          <h1 id="rag-memory">9. RAG和記憶</h1>
             
-            <p>Voice AI agents often access information from external systems. For example, you might need to:</p>
+            <p>語音AI代理經常需要從外部系統獲取資訊。例如，您可能需要：</p>
             
             <ul class="arrow-list">
-              <li>Incorporate information about the user into the LLM system instructions.</li>
-              <li>Retrieve previous conversation history.</li>
-              <li>Look up information in a knowledge base.</li>
-              <li>Perform a web search.</li>
-              <li>Do a realtime inventory or order status check.</li>
+              <li>將有關用戶的資訊整合到LLM系統指令中。</li>
+              <li>檢索先前的對話歷史。</li>
+              <li>在知識庫中查詢資訊。</li>
+              <li>執行網路搜尋。</li>
+              <li>進行即時庫存或訂單狀態檢查。</li>
             </ul>
             
-            <p>All of these fall under the category of RAG – retrieval augmented generation. RAG is the general AI engineering term for combining information retrieval and LLM prompting.</p>
+            <p>所有這些都屬於RAG（檢索增強生成，Retrieval Augmented Generation）的範疇。RAG是結合資訊檢索和LLM提示的通用AI工程術語。</p>
             
-            <p>The "simplest possible RAG" for a voice agent is looking up information about a user before the conversation starts, then merging that information into the LLM system instructions.</p>
+            <p>語音代理的「最簡單的RAG」是在對話開始前查詢用戶資訊，然後將該資訊合併到LLM系統指令中。</p>
             
             <pre><code>user_info = fetch_user_info(user_id)
 
@@ -2597,15 +2592,15 @@ The patient has the following medical history: {user_info["summarized_history"]}
 """
 )
 </code></pre>
-            <p class="image-caption">Simple RAG – perform a lookup at the beginning of the session</p>
+            <p class="image-caption">簡單的RAG – 在會話開始時執行查詢</p>
             
-            <p>RAG is a deep topic and an area of rapid change.<sup>[57]</sup> Techniques range from the relatively simple approach above that just uses basic lookups and string interpolation, to systems that organize very large amounts of semi-structured data using embeddings and vector databases.</p>
+            <p>RAG是一個深入的主題，也是一個快速變化的領域。<sup>[57]</sup>技術範圍從上述相對簡單的方法（僅使用基本查詢和字串插值），到使用嵌入和向量資料庫組織大量半結構化資料的系統。</p>
 
           </div>
           <div class="chunk-notes">
             <div class="chunk-footnotes">
               <div class="footnote">
-                <p>[57] Hmm. This sounds like every other area of generative AI, these days.</p>
+                <p>[57] 嗯，這聽起來像是當今生成式AI的每個其他領域。</p>
               </div>
             </div>
           </div>
@@ -2613,7 +2608,7 @@ The patient has the following medical history: {user_info["summarized_history"]}
       <div class="chunk-row">
         <div class="chunk-content">
             
-            <p>Often, an 80/20 approach gets you a very long way. If you have an existing knowledge base, use the APIs you already have. Write simple evals so you can test a few different formats for injecting lookup results into the conversation context. Deploy to production, then monitor how well this works with real-world users.</p>
+            <p>通常，80/20法則可以讓您走很長一段路。如果您已有知識庫，請使用您已有的API。編寫簡單的評估，以便測試幾種不同的格式，將查詢結果注入到對話上下文中。部署到生產環境，然後監控這在真實用戶中的效果如何。</p>
             
             <pre><code>async def query_order_system(function_name, tool_call_id, args, llm, context, result_callback):
   "First push a speech frame. This is handy when the LLM response might take a while."
@@ -2630,16 +2625,16 @@ The patient has the following medical history: {user_info["summarized_history"]}
 
 llm.register_function("query_order_system", query_order_system)
 </code></pre>
-            <p class="image-caption">RAG during a session. Define a function for the LLM to call when information lookup is required. In this example, we also emit a pre-set spoken phrase to let the user know the system will take a few seconds to respond.</p>
+            <p class="image-caption">會話期間的RAG。為LLM定義一個在需要查詢資訊時可以呼叫的函數。在此範例中，我們還發出預設的語音短語，讓用戶知道系統需要幾秒鐘來回應。</p>
             
-            <p>As always, latency is a bigger challenge with voice AI than for non-voice AI systems. When an LLM makes a function call request, the extra inference call adds to latency. Looking up information in external systems can be slow, too. It's often useful to trigger a simple speech output before executing the RAG lookup, to let the user know that work is in progress.</p>
+            <p>一如既往，延遲對語音AI來說是比非語音AI系統更大的挑戰。當LLM發出函數呼叫請求時，額外的推理呼叫會增加延遲。在外部系統中查詢資訊也可能很慢。在執行RAG查詢之前觸發簡單的語音輸出通常很有用，讓用戶知道系統正在處理中。</p>
             
-            <p>More broadly, memory across sessions is a useful capability. Imagine a voice AI personal assistant that needs to remember everything you talk about. Two general approaches are:</p>
+            <p>更廣泛地說，跨會話的記憶是一個有用的功能。想像一個需要記住您所談論的一切的語音AI個人助理。兩種通用方法是：</p>
             
             <ol class="list-decimal">
-              <li>Save each conversation to persistent storage. Test a few approaches to loading conversations into the context. For example, a strategy that works well for the personal assistant use case: always load the most recent conversation in full at agent startup, load summaries of the most recent N conversations, and define a lookup function the LLM can use to load older conversations dynamically as needed.</li>
+              <li>將每次對話保存到持久存儲中。測試幾種將對話加載到上下文中的方法。例如，對於個人助理用例效果良好的策略：在代理啟動時始終完整加載最近的對話，加載最近N次對話的摘要，並定義一個LLM可以用來根據需要動態加載較舊對話的查詢函數。</li>
               
-              <li>Save each message in the conversation history separately in a database, along with metadata about the message graph. Index every message (perhaps using semantic embeddings). This allows you to build branching conversation histories dynamically. You might want to do this if your app makes heavy use of image input (LLM vision). Images take up a lot of context space!<sup>[58]</sup> This approach also allows you to build branching UIs, which is a direction that AI app designers are just starting to explore.</li>
+              <li>將對話歷史中的每條訊息與訊息圖的元數據一起單獨保存在資料庫中。為每條訊息建立索引（可能使用語義嵌入）。這允許您動態構建分支對話歷史。如果您的應用大量使用圖像輸入（LLM視覺），您可能想要這樣做。圖像在上下文空間中佔用很多空間！<sup>[58]</sup>這種方法還允許您構建分支UI，這是AI應用設計師剛開始探索的方向。</li>
             </ol>
 
         </div>
@@ -2648,7 +2643,7 @@ llm.register_function("query_order_system", query_order_system)
           <div class="chunk-footnotes">
 
             <div class="footnote">
-              <p>[58] See <a href="#multimodality">Multimodality</a>.</p>
+              <p>[58] 參見<a href="#multimodality">多模態</a>。</p>
             </div>
           </div>
         </div>
@@ -2656,76 +2651,76 @@ llm.register_function("query_order_system", query_order_system)
 
       <div class="chunk-row">
         <div class="chunk-content">
-          <h1 id="hosting">10. Hosting and Scaling</h1>
-            <p>Voice AI applications often have some traditional application components — web app frontends, API endpoints and other back-end elements. But the agent process itself is different enough from traditional app components that deploying and scaling voice AI comes with unique challenges.</p>
+          <h1 id="hosting">10. 託管和擴展</h1>
+            <p>語音AI應用程式通常有一些傳統的應用程式組件 — 網頁應用前端、API端點和其他後端元素。但代理程序本身與傳統應用程式組件有很大不同，因此部署和擴展語音AI帶來了獨特的挑戰。</p>
 
-            <h2 id="hosting-architecture">10.1 Architecture</h2>
+            <h2 id="hosting-architecture">10.1 架構</h2>
 
             <ul class="arrow-list">
-              <li>The voice AI agent conversation loop is usually a long-running process (not a request/response function that exits when a single response is finished generating).</li>
-              <li>Voice agents stream audio in realtime. Anything that stalls streaming can create audio glitches. (CPU spikes on a shared virtual machine, program flow that blocks audio thread execution even for as little as 10ms, etc.)</li>
-              <li>Voice agents usually need either WebSocket or WebRTC connectivity. Cloud service network gateway and routing products don’t support WebSockets nearly as well as they support HTTP. They often don’t support UDP at all. (UDP is required for WebRTC.)</li>
+              <li>語音AI代理對話循環通常是一個長時間運行的程序（不是在單個回應完成生成後就退出的請求/回應函數）。</li>
+              <li>語音代理實時串流音訊。任何阻礙串流的因素都可能造成音訊故障。（共享虛擬機器上的CPU峰值，即使只有10毫秒的程序流程阻塞音訊執行緒等。）</li>
+              <li>語音代理通常需要WebSocket或WebRTC連接。雲服務網路閘道和路由產品對WebSockets的支援遠不如對HTTP的支援。它們通常根本不支援UDP。（WebRTC需要UDP。）</li>
             </ul>
 
-            <p>For all of these reasons, it’s generally not possible to use a serverless framework like AWS Lambda or Google Cloud Run for voice AI.</p>
+            <p>基於所有這些原因，通常無法使用AWS Lambda或Google Cloud Run等無伺服器框架來運行語音AI。</p>
   
-            <p>The best practice today for deploying voice AI agents is:</p>
+            <p>目前部署語音AI代理的最佳實踐是：</p>
 
             <ul class="arrow-list">
-              <li>Once you’ve gotten past the prototyping phase, invest engineering time in creating lightweight tooling to build Docker (or similar) containers to deploy your agents.</li>
-              <li>Push your container to your compute platform of choice. For simple deployments, you can just keep a fixed number of virtual machines running. At some point, though, you’ll want to hook into your platform’s tooling so you can autoscale, deploy new versions gracefully, implement good service discovery and failover, and build other at-scale devops requirements.</li>
-              <li>Kubernetes is the standard these days for managing containers, deployments, and scaling. Kubernetes has a steep learning curve, but is supported on all of the major cloud platforms. Kubernetes has a very large ecosystem around it.</li>
-              <li>For deploying software updates, you’ll want to set long drain times that allow existing connections to stay alive until sessions end. This is not terribly hard to do in Kubernetes, but the details depend on your k8s engine and version.</li>
-              <li>Cold starts are a problem for voice AI agents, because fast connection times are important. Keeping an idle pool of agents is the easiest way to avoid long cold starts. If your workloads don’t require running large models locally, you can generally engineer fast container cold starts without too much effort.<sup>[59]</sup></li>
+              <li>一旦您度過了原型階段，請投入工程時間創建輕量級工具來構建Docker（或類似）容器以部署您的代理。</li>
+              <li>將您的容器推送到您選擇的計算平台。對於簡單的部署，您可以只保持固定數量的虛擬機器運行。但在某個時候，您會希望連接到平台的工具，以便自動擴展、優雅地部署新版本、實現良好的服務發現和故障轉移，以及構建其他大規模的DevOps需求。</li>
+              <li>Kubernetes現在是管理容器、部署和擴展的標準。Kubernetes有陡峭的學習曲線，但所有主要雲平台都支援它。Kubernetes擁有非常龐大的生態系統。</li>
+              <li>對於部署軟體更新，您需要設置長時間的排空時間，允許現有連接保持活動狀態直到會話結束。在Kubernetes中做到這一點並不特別困難，但細節取決於您的k8s引擎和版本。</li>
+              <li>冷啟動對語音AI代理來說是個問題，因為快速連接時間很重要。保持一個閒置的代理池是避免長時間冷啟動的最簡單方法。如果您的工作負載不需要在本地運行大型模型，通常可以在不太費力的情況下設計快速容器冷啟動。<sup>[59]</sup></li>
             </ul>
 
-            <p>Virtual machine specs and container packing often trip people up when deploying to production for the first time. The specs your agents need will vary depending on what libraries you use and how much CPU-intensive work you do within your agent process. A good rule of thumb is to start by running a single agent per virtual machine CPU, with double the maximum amount of RAM you see an agent process consuming on your dev machines.<sup>[60]</sup></p>
+            <p>虛擬機器規格和容器打包在首次部署到生產環境時常常讓人困惑。您的代理需要的規格將根據您使用的庫和在代理程序中執行的CPU密集型工作量而有所不同。一個好的經驗法則是從每個虛擬機器CPU運行一個代理開始，RAM為您在開發機器上看到代理程序消耗的最大RAM量的兩倍。<sup>[60]</sup></p>
 
 
         </div>
         <div class="chunk-notes">
           <div class="chunk-footnotes">
             <div class="footnote">
-              <p>[59] If you are running large models locally, advice about cold starts is well outside the scope of this guide. If you’re not already an expert on GPU and container optimization, you probably want to find an expert, rather than climb up that learning curve yourself (at least until you’re operating at a big enough scale to amortize the cost of developing the tooling you need).</p>
+              <p>[59] 如果您在本地運行大型模型，有關冷啟動的建議遠超出本指南的範圍。如果您還不是GPU和容器優化專家，您可能想找一位專家，而不是自己攀爬那個學習曲線（至少在您的運營規模足夠大以攤銷開發所需工具的成本之前）。</p>
             </div>
             <div class="footnote">
-              <p>[60] Make sure your container runtime is starting new agent processes on idle CPUs. This is not always the k8s default.</p>
+              <p>[60] 確保您的容器運行時在閒置的CPU上啟動新的代理程序。這並不總是k8s的默認設置。</p>
             </div>
           </div>
         </div>
       </div>
       <div class="chunk-row">
         <div class="chunk-content">
-          <h2 id="hosting-cost">10.2 Calculating per-minute cost</h2>
+          <h2 id="hosting-cost">10.2 計算每分鐘成本</h2>
 
-          <p>Voice AI cost varies widely depending on what models, APIs, and hosting infrastructure are used. Cost also depends on use case. For example, as discussed in <a href="#cost-comparison">cost comparison</a> above, per-minute costs are generally higher for longer sessions. And telephony is more expensive than WebRTC transport.</p> 
+          <p>語音AI的成本因使用的模型、API和託管基礎設施而有很大差異。成本也取決於使用案例。例如，如上方<a href="#cost-comparison">成本比較</a>所討論的，對於較長的會話，每分鐘成本通常較高。而且電話通訊比WebRTC傳輸更昂貴。</p> 
 
-          <p>Costs range from $0.20 per minute or more if you are using a speech-to-speech API like the OpenAI Realtime API, to $0.10 per minute for batteries-included hosted agent platforms, down to $0.02 per minute for highly cost-optimized deployments running at significant scale.</p>
+          <p>成本範圍從每分鐘0.20美元或更高（如果您使用的是像OpenAI Realtime API這樣的語音到語音API），到每分鐘0.10美元（對於包含所有功能的託管代理平台），再到每分鐘0.02美元（對於在大規模運行的高度成本優化部署）。</p>
 
-          <p>One mistake we sometimes see people make is cost-optimizing the agent hosting itself, before calculating the cost of the speech and LLM APIs. <strong>In general, cloud runtime costs for the agent processes themselves are less than one percent of total per-minute cost.</strong> It is almost never worth spending engineering effort on optimizing per-vCPU agent concurrency.</p>
+          <p>我們有時看到人們犯的一個錯誤是在計算語音和LLM API成本之前就優化代理託管本身。<strong>一般來說，代理程序本身的雲端運行成本不到總每分鐘成本的百分之一。</strong>幾乎不值得花費工程努力來優化每個虛擬CPU的代理並發性。</p>
 
-          <p><a href="https://docs.google.com/spreadsheets/d/1-B3nv7fhwEoFmDs-phm280XK9phTep0qfyLKRNsEwVE/edit?gid=0#gid=0" target="_blank">Here is a spreadsheet</a> that you can copy and use as a starting point for calculating per-minute cost.</p>
+          <p><a href="https://docs.google.com/spreadsheets/d/1-B3nv7fhwEoFmDs-phm280XK9phTep0qfyLKRNsEwVE/edit?gid=0#gid=0" target="_blank">這裡有一個試算表</a>，您可以複製並用作計算每分鐘成本的起點。</p>
 
           <div class="chapter-image">
-            <img src="images/Figure 3000 General Costs.png" alt="A spreadsheet to calculate per-minute costs for voice AI agents" class="chunk-image-inline" width="80%">
-            <p class="image-caption">A spreadsheet to calculate per-minute costs for voice AI agents</p>
+            <img src="images/Figure 3000 General Costs.png" alt="計算語音AI代理每分鐘成本的試算表" class="chunk-image-inline" width="80%">
+            <p class="image-caption">計算語音AI代理每分鐘成本的試算表</p>
           </div>
 
-          <p>The numbers in the screenshot are for a self-hosted agent that uses Deepgram, GPT-4o, and Cartesia. For a ten-minute session, the per-minute cost is about two and a half cents. Transcription and the LLM inference are each about a quarter of the cost. Voice generation is about half of the cost. Hosting is less than one percent of the cost.</p>
+          <p>截圖中的數字是針對使用Deepgram、GPT-4o和Cartesia的自託管代理。對於十分鐘的會話，每分鐘成本約為兩分半美分。轉錄和LLM推理各佔成本的四分之一。語音生成約佔成本的一半。託管成本不到總成本的百分之一。</p>
 
-          <p>Of course, this is not a realistic picture of what self-hosting actually costs. If you are building and maintaining all of your own hosting infrastructure, you'll need to set up, scale, and maintain a number of systems and capabilities in addition to the agents themselves.</p>
+          <p>當然，這並不是自託管實際成本的真實圖景。如果您正在構建和維護所有自己的託管基礎設施，除了代理本身外，您還需要設置、擴展和維護許多系統和功能。</p>
 
           <ul class="arrow-list">
-            <li>Service discovery</li>
-            <li>Load balancing</li>
-            <li>Logging</li>
-            <li>Monitoring</li>
-            <li>Bandwidth</li>
-            <li>Multiple regions</li>
-            <li>Security</li>
-            <li>Compliance and regulatory features (data residency, for example)</li>
-            <li>Analytics</li>
-            <li>Customer support</li>
+            <li>服務發現</li>
+            <li>負載平衡</li>
+            <li>日誌記錄</li>
+            <li>監控</li>
+            <li>頻寬</li>
+            <li>多區域部署</li>
+            <li>安全性</li>
+            <li>合規和監管功能（例如數據駐留）</li>
+            <li>分析</li>
+            <li>客戶支援</li>
           </ul>
 
 
@@ -2736,25 +2731,25 @@ llm.register_function("query_order_system", query_order_system)
 
       <div class="chunk-row">
         <div class="chunk-content">
-          <h1 id="future">11. What's coming in 2025</h1>
+          <h1 id="future">11. 2025年的展望</h1>
             
-            <p>Speaking of the growth of AI engineering, voice AI grew enormously in 2024 and we expect this to continue in 2025.</p>
+            <p>談到AI工程的成長，語音AI在2024年有了巨大的發展，我們預計這種趨勢將在2025年持續。</p>
             
-            <p></p>This expanding interest and adoption will create continuing progress in some important core areas:</p>
+            <p></p>這種不斷擴大的興趣和採用將在一些重要的核心領域創造持續進步：</p>
 
             <ul class="arrow-list">
-              <li>More latency optimization from all model builders and service providers. For a long time, most people implementing services and almost all published benchmarks focused on throughput rather than latency. For voice AI, we care about time to first token much more than we care about tokens per second.</li>
-              <li>Progress towards full integration of all the non-text modalities in models and APIs.</li>
-              <li>More audio-specific features in testing and eval tools.</li>
-              <li>Context caching APIs that support the needs of realtime multimodal use cases.</li>
-              <li>New voice agent platforms from multiple providers.</li>
-              <li>Speech-to-speech model APIs from multiple providers.</li>
-              <li>Contextual speech models that are capable of incorporating context to improve transcription accuracy and voice generation quality.</li>
+              <li>所有模型開發者和服務提供商都將進一步優化延遲。長期以來，大多數實施服務的人員和幾乎所有已發布的基準測試都專注於吞吐量而非延遲。對於語音AI，我們更關心首個token的生成時間，而不是每秒token數量。</li>
+              <li>朝向在模型和API中完全整合所有非文本模態的進展。</li>
+              <li>測試和評估工具中更多的音訊特定功能。</li>
+              <li>支援實時多模態用例需求的上下文快取API。</li>
+              <li>來自多個提供商的新語音代理平台。</li>
+              <li>來自多個提供商的語音到語音模型API。</li>
+              <li>能夠納入上下文以提高轉錄準確性和語音生成質量的上下文語音模型。</li>
             </ul>
 
-            <p>If you’re interested in hot takes about 2025 from four experts in the voice AI space, skip to <a href="https://www.youtube.com/live/B6zTwHh-abw?t=3065s" target="_blank">54:05 in the recording of the panel</a> from January’s San Francisco Voice AI Meetup. Karan Goel, Niamh Gavin, Shrestha Basu-Mallick, and Swyx all offered their predictions for what we’ll see in the coming year: universal memory, AI in Hollywood, moving from model imitating to model understanding, and a contrarian position on robotics.</p>
+            <p>如果您對2025年四位語音AI領域專家的熱門觀點感興趣，請跳到<a href="https://www.youtube.com/live/B6zTwHh-abw?t=3065s" target="_blank">一月舊金山語音AI聚會錄影的54:05處</a>。Karan Goel、Niamh Gavin、Shrestha Basu-Mallick和Swyx都提供了他們對未來一年的預測：通用記憶、AI在好萊塢的應用、從模型模仿到模型理解的轉變，以及對機器人技術的一種反向觀點。</p>
             
-            <p>It’s going to be a fun year.</p>
+            <p>這將是一個有趣的一年。</p>
 
 
 
@@ -2770,28 +2765,28 @@ llm.register_function("query_order_system", query_order_system)
 
       <div class="chunk-row">
         <div class="chunk-content">
-          <h1 id="contributors">Contributors</h1>
+          <h1 id="contributors">貢獻者</h1>
         </div>
       </div>
 
       <div class="chunk-row">
         <div class="chunk-content">
-            <h2 id="lead-author">Lead Author</h2>
+            <h2 id="lead-author">主要作者</h2>
             <p>Kwindla Hultman Kramer</p>
-            <p>Thank you to Brooke Hopkins for help with the evals section, Zach Koch for insight into Llama performance and Ultravox, and Brendan Iribe for notes on the importance of the shift to contextual speech models. </p>
+            <p>感謝Brooke Hopkins協助評估部分，Zach Koch提供關於Llama性能和Ultravox的見解，以及Brendan Iribe提供關於上下文語音模型重要性轉變的註解。</p>
         </div>
       </div>
 
       <div class="chunk-row">
         <div class="chunk-content">
-            <h2 id="contributing-authors">Contributing Authors<sup>[61]</sup></h2>
+            <h2 id="contributing-authors">貢獻作者<sup>[61]</sup></h2>
             <p>aconchillo, markbackman, filipi87, Moishe, kwindla, kompfner, Vaibhav159, chadbailey59, jptaylor, vipyne, Allenmylath, TomTom101, adriancowham, imsakg, DominicStewart, marcus-daily, LewisWolfgang, mattieruth, golbin, adithyaxx, jamsea, vr000m, joachimchauvet, sahilsuman933, adnansiddiquei, sharvil, deshraj, balalofernandez, MaCaki, TheCodingLand, milo157, RJSkorski, nicougou, AngeloGiacco, kylegani, kunal-cai, lazeratops, EyrisCrafts, roey-priel, aashsach, jcbjoe, Dev-Khant, wg-daniel, cbrianhill, ankykong, nulyang, flixoflax, DANIIL0579, Antonyesk601, rahultayal22, lucasrothman, CarlKho-Minerva, 0xPatryk, pvilchez, pedro-a-n-moreira, RonakAgarwalVani, xtreme-sameer-vohra, shaiyon, soof-golan, yashn35, zboyles, balaji-atoa, eddieoz, mercuryyy, rahulunair, porcelaincode, weedge, wtlow003, zzz-heygen, adidoit, ArmanJR, Bnowako, chhao01, Regaddi, cyrilS-dev, DamienDeepgram, danthegoodman1, dleybz, ecdeng, gregschwartz, KevGTL, louisjoecodes, M1ngXU, mattmatters, MoofSoup, natestraub</p>
         </div>
       </div>
 
       <div class="chunk-row">
         <div class="chunk-content">
-            <h2 id="design">Design</h2>
+            <h2 id="design">設計</h2>
             <p>Sascha Mombartz</p>
             <p>Akhil K G</p>
 
@@ -2800,7 +2795,7 @@ llm.register_function("query_order_system", query_order_system)
         <div class="chunk-notes">
           <div class="chunk-footnotes">
             <div class="footnote">
-              <p>[61] GitHub usernames, <a href="https://github.com/pipecat-ai/pipecat/graphs/contributors" target="_blank">github.com/pipecat-ai/pipecat/graphs/contributors</a></p>
+              <p>[61] GitHub使用者名稱，<a href="https://github.com/pipecat-ai/pipecat/graphs/contributors" target="_blank">github.com/pipecat-ai/pipecat/graphs/contributors</a></p>
             </div>
           </div>
         </div>
@@ -2810,8 +2805,8 @@ llm.register_function("query_order_system", query_order_system)
     </main>
 
     <footer>
-      <p>This book is available under the CC0 license. The authors have waived all their copyright and related rights in their works to the fullest extent allowed by law. You may use this work however you want and no attribution is required.</p>
-      <p class="github-link">View and contribute to this guide on <a href="https://github.com/pipecat-ai/voice-ai-primer-web" target="_blank">GitHub</a>.</p>
+      <p>本書採用CC0授權。作者已在法律允許的最大範圍內放棄其作品中的所有版權和相關權利。您可以以任何方式使用本作品，無需標明出處。</p>
+      <p class="github-link">在<a href="https://github.com/pipecat-ai/voice-ai-primer-web" target="_blank">GitHub</a>上查看並貢獻此指南。</p>
     </footer>
   </div>
 
